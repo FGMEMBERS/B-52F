@@ -174,11 +174,15 @@ B-52F set file.
   <input>
     <keyboard>
       <key n="91">
+        <name>[</name>
+        <desc>Decrease flaps.</desc>
         <binding>
           <step type="double">-1.0</step>
         </binding>
       </key>
       <key n="93">
+        <name>]</name>
+        <desc>Increase flaps.</desc>
         <binding>
           <step type="double">1.0</step>
         </binding>
