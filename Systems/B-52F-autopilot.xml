@@ -197,7 +197,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-      <Kp>-0.7</Kp>        <!-- proportional gain -->
+      <Kp>-1.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
@@ -451,12 +451,12 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
-      <Kp>-0.004</Kp>      <!-- proportional gain -->
+      <Kp>-0.008</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
                           <!-- unfiltered derivative error -->
-      <Ti>16.0</Ti>       <!-- integrator time -->
+      <Ti>8.0</Ti>       <!-- integrator time -->
       <Td>0.4</Td>    <!-- derivator time -->
       <u_min>-1.0</u_min> <!-- minimum output clamp -->
       <u_max>1.0</u_max>  <!-- maximum output clamp -->
@@ -812,13 +812,13 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-      <Kp>-10.0</Kp>        <!-- proportional gain -->
+      <Kp>-30.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>   <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
       <Ti>60</Ti>        <!-- integrator time -->
-      <Td>4.0</Td>     <!-- derivator time -->
+      <Td>1.0</Td>     <!-- derivator time -->
       <u_min>-6.0</u_min> <!-- minimum output clamp -->
       <u_max>6.0</u_max>  <!-- maximum output clamp -->
     </config>

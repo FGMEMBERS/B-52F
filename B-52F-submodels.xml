@@ -10,7 +10,7 @@
     <repeat>false</repeat>
     <delay>1.0</delay>
     <count>-1</count>
-    <x-offset>-20.0</x-offset>
+    <x-offset>-40.0</x-offset>
     <y-offset>0</y-offset>
     <z-offset>0.10</z-offset>
     <yaw-offset>0.0</yaw-offset>

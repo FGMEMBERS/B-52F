@@ -25,7 +25,7 @@ ato_start = func {
           setprop("/autopilot/settings/ground-roll-heading-deg", hdgdeg);
           setprop("/autopilot/settings/true-heading-deg", hdgdeg);
           setprop("/autopilot/settings/target-AoA-deg", 0);
-          setprop("/autopilot/settings/target-speed-kt", 320);
+          setprop("/autopilot/settings/target-speed-kt", 310);
           setprop("/autopilot/locks/altitude", "ground-roll");
           setprop("/autopilot/locks/speed", "speed-with-throttle");
           setprop("/autopilot/locks/heading", "wing-leveler");
@@ -162,6 +162,7 @@ atl_touchdown = func {
   # Touch Down phase.
   agl = getprop("/position/altitude-agl-ft");
   vfps = getprop("/velocities/vertical-speed-fps");
+  setprop("/autopilot/locks/altitude", "vfps-hold-ls");
   setprop("/autopilot/settings/target-vfps", vfps);
   setprop("/autopilot/locks/AoA-lock", "Off");
 
@@ -181,6 +182,8 @@ atl_touchdown = func {
     # throttles.
     setprop("/autopilot/locks/heading", "Off");
     setprop("/controls/flight/spoilers", 1);
+  }
+  if(agl < 4) {
     setprop("/autopilot/locks/speed", "Off");
     setprop("/controls/engines/engine[0]/throttle", 0);
     setprop("/controls/engines/engine[1]/throttle", 0);
@@ -219,7 +222,7 @@ atl_touchdown = func {
                   if(vfps < -9) {
                     setprop("/autopilot/settings/target-vfps", -9);
                   }
-                  setprop("/autopilot/locks/altitude", "vfps-hold-ls");
+#                  setprop("/autopilot/locks/altitude", "vfps-hold-ls");
                 }
               }
             }
@@ -265,5 +268,18 @@ toggle_traj_mkr = func {
   } else {
     setprop("ai/submodels/trajectory-markers", 0);
   }
+}
+#--------------------------------------------------------------------
+update_drop_view_pos = func {
+  eyelatdeg = getprop("/position/latitude-deg");
+  eyelondeg = getprop("/position/longitude-deg");
+  eyealtft = getprop("/position/altitude-ft") + 20;
+  setprop("/sim/view[7]/latitude-deg", eyelatdeg);
+  setprop("/sim/view[7]/longitude-deg", eyelondeg);
+  setprop("/sim/view[7]/altitude-ft", eyealtft);
+}
+#--------------------------------------------------------------------
+init_drop_view_pos = func {
+  settimer(update_drop_view_pos, 5);
 }
 #--------------------------------------------------------------------

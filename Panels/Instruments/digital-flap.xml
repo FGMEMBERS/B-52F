@@ -57,6 +57,7 @@
    </transformations>
   </layer>
 
+<!-- not appropriate for the B-52
   <layer>
    <condition>
     <equals>
@@ -89,7 +90,7 @@
     </transformation>
    </transformations>
   </layer>
-
+-->
   <layer>
    <name>Left Flap pos display</name>
    <type>text</type>

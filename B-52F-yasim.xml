@@ -234,14 +234,14 @@ Lee Elliott. leee-fgfs@spatial.freeserve.co.uk
  </gear>
 
 <!-- Left Wing -->
- <gear x="-31.1" y="23.0" z="-2.85" retract-time="5" compression="1.1" spring="1.0">
+ <gear x="-31.1" y="23.0" z="-2.75" retract-time="5" compression="1.1" spring="1.0">
   <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
   <control-speed control="EXTEND" transition-time="5"/>
   <control-output control="EXTEND" prop="/gear/gear[4]/position-norm"/>
  </gear>
 
 <!-- Right Wing -->
- <gear x="-31.1" y="-23.0" z="-2.85" retract-time="5" compression="1.1" spring="1.0">
+ <gear x="-31.1" y="-23.0" z="-2.75" retract-time="5" compression="1.1" spring="1.0">
   <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
   <control-speed control="EXTEND" transition-time="5"/>
   <control-output control="EXTEND" prop="/gear/gear[5]/position-norm"/>

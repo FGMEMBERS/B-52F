@@ -212,6 +212,15 @@ value from the default 0.8 to 0.7.  I don't have a proper number
 for this value yet but as it's quite an old engine I don't think it
 would be very low.
 
+Keyboard mapping
+----------------
+The following additional/non-standard keyboard mappings are set up
+for this aircraft
+
+Key               Action
+'K' (Shift-k)     Toggle trajactory markers on & off
+'U' (Shift-u)     Update the drop-view location.
+
 Panels
 ------
 Currently, there are two simple 2D panels for the model, neither of

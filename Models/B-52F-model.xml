@@ -10,7 +10,7 @@ B52-H model/animation config.
 
 <PropertyList>
 
-  <path>B-52F-002-026b.ac</path>
+  <path>B-52F-002-027a.ac</path>
   <offsets>
     <z-m>0.0</z-m>
     <pitch-deg>0</pitch-deg>
@@ -191,8 +191,6 @@ B52-H model/animation config.
       <z>0</z>
     </axis>
   </animation>
-
-
 
 <!-- Alieron bits -->
   <animation>
@@ -745,7 +743,7 @@ B52-H model/animation config.
         <dep>90.0</dep>
       </entry>
       <entry>
-        <ind>0.5</ind>
+        <ind>0.3</ind>
         <dep>90.0</dep>
       </entry>
       <entry>
@@ -775,12 +773,8 @@ B52-H model/animation config.
         <dep>0.0</dep>
       </entry>
       <entry>
-        <ind>0.5</ind>
-        <dep>-140.0</dep>
-      </entry>
-      <entry>
         <ind>1.0</ind>
-        <dep>-140.0</dep>
+        <dep>-130.0</dep>
       </entry>
     </interpolation>
     <center>
@@ -842,7 +836,7 @@ B52-H model/animation config.
         <dep>90.0</dep>
       </entry>
       <entry>
-        <ind>0.5</ind>
+        <ind>0.3</ind>
         <dep>90.0</dep>
       </entry>
       <entry>
@@ -872,12 +866,8 @@ B52-H model/animation config.
         <dep>0.0</dep>
       </entry>
       <entry>
-        <ind>0.5</ind>
-        <dep>-140.0</dep>
-      </entry>
-      <entry>
         <ind>1.0</ind>
-        <dep>-140.0</dep>
+        <dep>-130.0</dep>
       </entry>
     </interpolation>
     <center>
@@ -939,7 +929,7 @@ B52-H model/animation config.
         <dep>90.0</dep>
       </entry>
       <entry>
-        <ind>0.5</ind>
+        <ind>0.3</ind>
         <dep>90.0</dep>
       </entry>
       <entry>
@@ -969,12 +959,8 @@ B52-H model/animation config.
         <dep>0.0</dep>
       </entry>
       <entry>
-        <ind>0.5</ind>
-        <dep>-140.0</dep>
-      </entry>
-      <entry>
         <ind>1.0</ind>
-        <dep>-140.0</dep>
+        <dep>-130.0</dep>
       </entry>
     </interpolation>
     <center>
@@ -1036,7 +1022,7 @@ B52-H model/animation config.
         <dep>90.0</dep>
       </entry>
       <entry>
-        <ind>0.5</ind>
+        <ind>0.3</ind>
         <dep>90.0</dep>
       </entry>
       <entry>
@@ -1066,12 +1052,8 @@ B52-H model/animation config.
         <dep>0.0</dep>
       </entry>
       <entry>
-        <ind>0.5</ind>
-        <dep>-140.0</dep>
-      </entry>
-      <entry>
         <ind>1.0</ind>
-        <dep>-140.0</dep>
+        <dep>-130.0</dep>
       </entry>
     </interpolation>
     <center>
@@ -1151,6 +1133,36 @@ B52-H model/animation config.
 
   <animation>
     <type>rotate</type>
+    <object-name>LWingOuterDoor</object-name>
+    <property>gear/gear[4]/position-norm</property>
+    <interpolation>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0.0</dep>
+      </entry>
+      <entry>
+        <ind>0.5</ind>
+        <dep>0.0</dep>
+      </entry>
+      <entry>
+        <ind>1.0</ind>
+        <dep>-105.0</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>31.0</x-m>
+      <y-m>-22.69</y-m>
+      <z-m>-0.12</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0.4</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
     <object-name>LWingInnerDoor</object-name>
     <property>gear/gear[4]/position-norm</property>
     <interpolation>
@@ -1176,36 +1188,6 @@ B52-H model/animation config.
       <x>1</x>
       <y>0</y>
       <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>rotate</type>
-    <object-name>LWingOuterDoor</object-name>
-    <property>gear/gear[4]/position-norm</property>
-    <interpolation>
-      <entry>
-        <ind>0.0</ind>
-        <dep>0.0</dep>
-      </entry>
-      <entry>
-        <ind>0.5</ind>
-        <dep>-105.0</dep>
-      </entry>
-      <entry>
-        <ind>1.0</ind>
-        <dep>-105.0</dep>
-      </entry>
-    </interpolation>
-    <center>
-      <x-m>31.0</x-m>
-      <y-m>-22.69</y-m>
-      <z-m>-0.12</z-m>
-    </center>
-    <axis>
-      <x>1</x>
-      <y>0</y>
-      <z>0.4</z>
     </axis>
   </animation>
 
@@ -1272,6 +1254,36 @@ B52-H model/animation config.
 
   <animation>
     <type>rotate</type>
+    <object-name>RWingOuterDoor</object-name>
+    <property>gear/gear[5]/position-norm</property>
+    <interpolation>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0.0</dep>
+      </entry>
+      <entry>
+        <ind>0.5</ind>
+        <dep>0.0</dep>
+      </entry>
+      <entry>
+        <ind>1.0</ind>
+        <dep>-105.0</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m>31.0</x-m>
+      <y-m>22.69</y-m>
+      <z-m>-0.12</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>-0.4</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
     <object-name>RWingInnerDoor</object-name>
     <property>gear/gear[5]/position-norm</property>
     <interpolation>
@@ -1297,36 +1309,6 @@ B52-H model/animation config.
       <x>-1</x>
       <y>0</y>
       <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>rotate</type>
-    <object-name>RWingOuterDoor</object-name>
-    <property>gear/gear[5]/position-norm</property>
-    <interpolation>
-      <entry>
-        <ind>0.0</ind>
-        <dep>0.0</dep>
-      </entry>
-      <entry>
-        <ind>0.5</ind>
-        <dep>-105.0</dep>
-      </entry>
-      <entry>
-        <ind>1.0</ind>
-        <dep>-105.0</dep>
-      </entry>
-    </interpolation>
-    <center>
-      <x-m>31.0</x-m>
-      <y-m>22.69</y-m>
-      <z-m>-0.12</z-m>
-    </center>
-    <axis>
-      <x>-1</x>
-      <y>0</y>
-      <z>-0.4</z>
     </axis>
   </animation>
 

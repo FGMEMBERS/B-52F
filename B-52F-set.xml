@@ -21,7 +21,7 @@ B-52F set file.
 
     <description>Boeing B-52 F in Arclight colour scheme</description>
 
-    <number-views type="int" archive="y">7</number-views>
+    <number-views type="int" archive="y">8</number-views>
 
     <chase-distance-m type="double" archive="y">-70.0</chase-distance-m>
 
@@ -60,6 +60,30 @@ B-52F set file.
         <z-offset-m archive="y">46.94</z-offset-m>
         <pitch-offset-deg>0</pitch-offset-deg>
         <default-field-of-view-deg>55</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="7">
+      <name>Drop View</name>
+      <type>lookat</type>
+      <config>
+        <eye-lat-deg-path>/sim/view[7]/latitude-deg</eye-lat-deg-path>
+        <eye-lon-deg-path>/sim/view[7]/longitude-deg</eye-lon-deg-path>
+        <eye-alt-ft-path>/sim/view[7]/altitude-ft</eye-alt-ft-path>
+        <eye-roll-deg-path>/sim/view[7]/roll-deg</eye-roll-deg-path>
+        <eye-pitch-deg-path>/sim/view[7]/pitch-deg</eye-pitch-deg-path>
+        <eye-heading-deg-path>/sim/view[7]/heading-deg</eye-heading-deg-path>
+
+        <at-model type="bool">true</at-model>
+        <at-model-idx type="int">0</at-model-idx>
+
+        <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">0</y-offset-m>
+        <z-offset-m type="double">0</z-offset-m>
+        <target-z-offset-m archive="y" type="double">20.0</target-z-offset-m>
       </config>
     </view>
 
@@ -145,7 +169,7 @@ B-52F set file.
   </sim>
 
 <!-- Keboard changes -->
-<!-- Brakes -->
+<!-- Flaps -->
   <input>
     <keyboard>
       <key n="91">
@@ -159,12 +183,23 @@ B-52F set file.
         </binding>
       </key>
 
+<!-- Trajectory Markers -->
        <key n="75">
         <name>K</name>
         <desc>Toggle trajectory markers</desc>
         <binding n="0">
           <command>nasal</command>
           <script>B52F.toggle_traj_mkr()</script>
+        </binding>
+      </key>
+      
+<!-- Update Stationary back-view position -->
+       <key n="85">
+        <name>U</name>
+        <desc>Update Stationary back-view position</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>B52F.update_drop_view_pos()</script>
         </binding>
       </key>
       
@@ -179,12 +214,9 @@ B-52F set file.
       <target-vfps type="float">0</target-vfps>
       <take-off-pitch-deg type="float">0.4</take-off-pitch-deg>
       <target-speed-kt type="float">310.0</target-speed-kt>
-      <target-mach type="float">0.56</target-mach>
       <climb-out-pitch-deg type="float">0.0</climb-out-pitch-deg>
       <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
-      <target-speed-kt type="float">320.0</target-speed-kt>
-      <target-mach type="float">0.48</target-mach>
-      <target-vfps type="float">-1.0</target-vfps>
+      <target-mach type="float">0.56</target-mach>
       <target-AoA-deg type="float">1.0</target-AoA-deg>
     </settings>
 
@@ -270,7 +302,7 @@ B-52F set file.
   <nasal>
     <B52F>
       <file>Aircraft/B-52F/Nasal/B-52F.nas</file>
-<!--      <script>nasaltest2();</script> -->
+      <script>init_drop_view_pos();</script>
     </B52F>
   </nasal>
 
