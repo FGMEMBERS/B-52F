@@ -150,7 +150,7 @@ atl_glideslope = func {
   # This script handles glide slope interception.
   if(getprop("/position/altitude-agl-ft") > 200) {
     if(getprop("/autopilot/locks/altitude") != "gs1-hold") {
-      if(getprop("/radios/nav[0]/gs-rate-of-climb") < 0) {
+      if(getprop("/instrumentation/nav[0]/gs-rate-of-climb") < 0) {
         setprop("/autopilot/locks/altitude", "gs1-hold");
       }
     }
@@ -246,7 +246,7 @@ atl_aoa = func {
 #--------------------------------------------------------------------
 atl_heading = func {
   # This script handles heading dependent actions.
-  hdnddf = getprop("/radios/nav[0]/heading-needle-deflection");
+  hdnddf = getprop("/instrumentation/nav[0]/heading-needle-deflection");
   if(hdnddf < 5) {
     if(hdnddf > -5) {
       setprop("/autopilot/locks/heading", "nav1-hold-fa");
