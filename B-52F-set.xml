@@ -16,6 +16,7 @@ B-52F set file.
 
     <flight-model>yasim</flight-model>
     <status>beta</status>
+    <author>Lee Elliott</author>
     <aero>B-52F-yasim</aero>
     <fuel-fraction>1.0</fuel-fraction>
 
