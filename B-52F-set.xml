@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+B-52F set file.
+
+2004-04-26 Lee Elliott  leee-fgfs@spatial.freeserve.co.uk
+************************************************************************
+-->
+
+<PropertyList>
+  <sim>
+    <flight-model>yasim</flight-model>
+    <aero>B-52F-yasim</aero>
+    <fuel-fraction>1.0</fuel-fraction>
+
+    <description>Boeing B-52 F in Arclight colour scheme</description>
+
+    <number-views type="int" archive="y">7</number-views>
+
+    <view n="0">
+      <internal archive="y">true</internal>
+      <config>
+        <x-offset-m archive="y">-0.62</x-offset-m>
+        <y-offset-m archive="y">1.53</y-offset-m>
+        <z-offset-m archive="y">3.10</z-offset-m>
+        <pitch-offset-deg>0</pitch-offset-deg>
+        <default-field-of-view-deg>55</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="6">
+      <name>Tail Gunner View</name>
+      <type>lookfrom</type>
+      <internal archive="y">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.05f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        <default-pitch-deg type="double">0</default-pitch-deg>
+        <default-heading-deg type="double">0</default-heading-deg>
+        <front-direction-deg type="double">0</front-direction-deg>
+        <front-left-direction-deg type="double">45</front-left-direction-deg>
+        <left-direction-deg type="double">90</left-direction-deg>
+        <back-left-direction-deg type="double">135</back-left-direction-deg>
+        <back-direction-deg type="double">180</back-direction-deg>
+        <back-right-direction-deg type="double">225</back-right-direction-deg>
+        <right-direction-deg type="double">270</right-direction-deg>
+        <front-right-direction-deg type="double">315</front-right-direction-deg>
+        <x-offset-m archive="y">0.0</x-offset-m>
+        <y-offset-m archive="y">2.27</y-offset-m>
+        <z-offset-m archive="y">46.94</z-offset-m>
+        <pitch-offset-deg>0</pitch-offset-deg>
+        <default-field-of-view-deg>55</default-field-of-view-deg>
+      </config>
+    </view>
+
+<!-- Shift the camera target point back -->
+    <view n="1">
+      <config>
+        <target-z-offset-m archive="y" type="double">20.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="2">
+      <config>
+        <x-offset-m archive="y" type="double">8.0</x-offset-m>
+        <z-offset-m archive="y">-19.7</z-offset-m>
+        <target-z-offset-m archive="y" type="double">20.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="3">
+      <config>
+        <target-z-offset-m archive="y" type="double">20.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="5">
+      <config>
+        <target-z-offset-m archive="y" type="double">20.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <sound>
+      <audible>true</audible>
+      <path>Aircraft/B-52F/Sounds/B-52F-sound.xml</path>
+    </sound>
+
+    <panel>
+      <path>Aircraft/B-52F/Panels/B-52F-vfr-panel.xml</path>
+    </panel>
+    <panel_2>
+      <path>Aircraft/B-52F/Panels/B-52F-mini-panel.xml</path>
+    </panel_2>
+
+    <hud>
+      <path>Aircraft/B-52F/Huds/B-52F-hud1.xml</path>
+      <visibility>true</visibility>
+    </hud>
+
+    <model>
+      <path>Aircraft/B-52F/Models/B-52F-model.xml</path>
+    </model>
+
+    <systems>
+      <autopilot>
+        <path>Aircraft/B-52F/Systems/B-52F-autopilot.xml</path>
+      </autopilot>
+      <electrical>
+        <path>Aircraft/B-52F/Systems/B-52F-electrical.xml</path>
+      </electrical>
+    </systems>
+
+    <chase-distance-m type="double" archive="y">-70.0</chase-distance-m>
+
+    <flaps>
+      <setting>0.00</setting>
+      <setting>1.00</setting>
+    </flaps>
+
+    <spoilers>
+      <setting>0.000</setting>
+      <setting>0.142</setting>
+      <setting>0.285</setting>
+      <setting>0.428</setting>
+      <setting>0.571</setting>
+      <setting>0.714</setting>
+      <setting>0.857</setting>
+      <setting>1.000</setting>
+    </spoilers>
+
+  </sim>
+
+<!-- Keboard changes -->
+<!-- Brakes -->
+  <input>
+    <keyboard>
+      <key n="91">
+        <binding>
+          <step type="double">-1.0</step>
+        </binding>
+      </key>
+      <key n="93">
+        <binding>
+          <step type="double">1.0</step>
+        </binding>
+      </key>
+    </keyboard>
+  </input>
+
+  <autopilot>
+    <settings>
+      <target-agl-ft type="float">1000</target-agl-ft>
+      <target-altitude-ft type="float">3000</target-altitude-ft>
+      <target-pitch-deg type="float">3</target-pitch-deg>
+      <target-vfps type="float">0</target-vfps>
+      <take-off-pitch-deg type="float">0.4</take-off-pitch-deg>
+      <target-speed-kt type="float">310.0</target-speed-kt>
+      <target-mach type="float">0.56</target-mach>
+      <climb-out-pitch-deg type="float">0.0</climb-out-pitch-deg>
+      <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
+      <target-speed-kt type="float">320.0</target-speed-kt>
+      <target-mach type="float">0.48</target-mach>
+      <target-vfps type="float">-1.0</target-vfps>
+      <target-AoA-deg type="float">1.0</target-AoA-deg>
+    </settings>
+
+    <locks>
+      <auto-take-off type="string">Enabled</auto-take-off>
+      <auto-landing type="string">Disabled</auto-landing>
+      <rudder-control type="string">Initialised</rudder-control>
+      <AoA-lock type="string">Initialised</AoA-lock>
+    </locks>
+  </autopilot>
+
+<!-- Start with the Parking Brake on and flaps deployed -->
+  <controls>
+    <gear>
+      <brake-parking type="double">1.0</brake-parking>
+    </gear>
+    <flight>
+      <flaps type="double">1.0</flaps>
+    </flight>
+  </controls>
+  
+<!-- Engine indexes -->
+  <engines>
+    <engine n="0">
+      <engine-num type="int">0</engine-num>
+    </engine>
+    <engine n="1">
+      <engine-num type="int">1</engine-num>
+    </engine>
+    <engine n="2">
+      <engine-num type="int">2</engine-num>
+    </engine>
+    <engine n="3">
+      <engine-num type="int">3</engine-num>
+    </engine>
+    <engine n="4">
+      <engine-num type="int">4</engine-num>
+    </engine>
+    <engine n="5">
+      <engine-num type="int">5</engine-num>
+    </engine>
+    <engine n="6">
+      <engine-num type="int">6</engine-num>
+    </engine>
+    <engine n="7">
+      <engine-num type="int">7</engine-num>
+    </engine>
+  </engines>
+
+<!-- Fuel -->
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <tank-num type="int">0</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="1">
+        <tank-num type="int">1</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="2">
+        <tank-num type="int">2</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="3">
+        <tank-num type="int">3</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="4">
+        <tank-num type="int">4</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+    </fuel>
+  </consumables>
+
+  <instrumentation>
+    <radar>
+      <range type="int" archive="y">40</range>
+      <minimized type="bool" archive="y">true</minimized>
+    </radar>
+  </instrumentation>
+
+  <nasal>
+    <B52F>
+      <file>Aircraft/B-52F/Nasal/B-52F.nas</file>
+<!--      <script>nasaltest2();</script> -->
+    </B52F>
+  </nasal>
+
+</PropertyList>
