@@ -25,6 +25,7 @@ ato_start = func {
           setprop("/autopilot/settings/ground-roll-heading-deg", hdgdeg);
           setprop("/autopilot/settings/true-heading-deg", hdgdeg);
           setprop("/autopilot/settings/target-AoA-deg", 0);
+          setprop("/autopilot/settings/target-speed-kt", 320);
           setprop("/autopilot/locks/altitude", "ground-roll");
           setprop("/autopilot/locks/speed", "speed-with-throttle");
           setprop("/autopilot/locks/heading", "wing-leveler");
@@ -255,6 +256,14 @@ atl_heading = func {
     }
   } else {
     setprop("/autopilot/locks/heading", "nav1-hold");
+  }
+}
+#--------------------------------------------------------------------
+toggle_traj_mkr = func {
+  if(getprop("ai/submodels/trajectory-markers") < 1) {
+    setprop("ai/submodels/trajectory-markers", 1);
+  } else {
+    setprop("ai/submodels/trajectory-markers", 0);
   }
 }
 #--------------------------------------------------------------------

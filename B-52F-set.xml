@@ -9,6 +9,11 @@ B-52F set file.
 
 <PropertyList>
   <sim>
+
+    <startup>
+      <splash-texture>Aircraft/B-52F/B-52F-splash.rgb</splash-texture>
+    </startup>
+
     <flight-model>yasim</flight-model>
     <status>beta</status>
     <aero>B-52F-yasim</aero>
@@ -17,6 +22,8 @@ B-52F set file.
     <description>Boeing B-52 F in Arclight colour scheme</description>
 
     <number-views type="int" archive="y">7</number-views>
+
+    <chase-distance-m type="double" archive="y">-70.0</chase-distance-m>
 
     <view n="0">
       <internal archive="y">true</internal>
@@ -113,7 +120,11 @@ B-52F set file.
       </electrical>
     </systems>
 
-    <chase-distance-m type="double" archive="y">-70.0</chase-distance-m>
+<!--sub models -->
+    <submodels>
+      <serviceable type="bool">1</serviceable>
+      <path>Aircraft/B-52F/B-52F-submodels.xml</path>
+    </submodels>
 
     <flaps>
       <setting>0.00</setting>
@@ -147,7 +158,17 @@ B-52F set file.
           <step type="double">1.0</step>
         </binding>
       </key>
-    </keyboard>
+
+       <key n="75">
+        <name>K</name>
+        <desc>Toggle trajectory markers</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>B52F.toggle_traj_mkr()</script>
+        </binding>
+      </key>
+      
+   </keyboard>
   </input>
 
   <autopilot>
