@@ -10,6 +10,7 @@ B-52F set file.
 <PropertyList>
   <sim>
     <flight-model>yasim</flight-model>
+    <status>beta</status>
     <aero>B-52F-yasim</aero>
     <fuel-fraction>1.0</fuel-fraction>
 
