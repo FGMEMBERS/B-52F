@@ -5,7 +5,7 @@
 
 <!-- Engines -->
     <engine>
-      <name>engine</name>
+      <name>engine0</name>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
       <condition>
@@ -22,7 +22,7 @@
     </engine>
 
     <engine>
-      <name>whine</name>
+      <name>whine0</name>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <condition>
@@ -40,7 +40,7 @@
     </engine>
 
     <engine>
-      <name>engine</name>
+      <name>engine1</name>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
       <condition>
@@ -57,7 +57,7 @@
     </engine>
 
     <engine>
-      <name>whine</name>
+      <name>whine1</name>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <condition>
@@ -75,7 +75,7 @@
     </engine>
 
     <engine>
-      <name>engine</name>
+      <name>engine2</name>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
       <condition>
@@ -92,7 +92,7 @@
     </engine>
 
     <engine>
-      <name>whine</name>
+      <name>whine2</name>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <condition>
@@ -110,7 +110,7 @@
     </engine>
 
     <engine>
-      <name>engine</name>
+      <name>engine3</name>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
       <condition>
@@ -127,7 +127,7 @@
     </engine>
 
     <engine>
-      <name>whine</name>
+      <name>whine3</name>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <condition>
@@ -145,7 +145,7 @@
     </engine>
 
     <engine>
-      <name>engine</name>
+      <name>engine4</name>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
       <condition>
@@ -162,7 +162,7 @@
     </engine>
 
     <engine>
-      <name>whine</name>
+      <name>whine4</name>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <condition>
@@ -180,7 +180,7 @@
     </engine>
 
     <engine>
-      <name>engine</name>
+      <name>engine5</name>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
       <condition>
@@ -197,7 +197,7 @@
     </engine>
 
     <engine>
-      <name>whine</name>
+      <name>whine5</name>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <condition>
@@ -215,7 +215,7 @@
     </engine>
 
     <engine>
-      <name>engine</name>
+      <name>engine6</name>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
       <condition>
@@ -232,7 +232,7 @@
     </engine>
 
     <engine>
-      <name>whine</name>
+      <name>whine6</name>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <condition>
@@ -250,7 +250,7 @@
     </engine>
 
     <engine>
-      <name>engine</name>
+      <name>engine7</name>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
       <condition>
@@ -267,7 +267,7 @@
     </engine>
 
     <engine>
-      <name>whine</name>
+      <name>whine7</name>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <condition>
@@ -286,7 +286,7 @@
 
 <!-- Rumble -->
     <rumble>
-      <name>rumble</name>
+      <name>rumble0</name>
       <mode>looped</mode>
       <path>Sounds/rumble.wav</path>
       <condition>
@@ -300,7 +300,7 @@
     </rumble>
 
     <rumble>
-      <name>rumble</name>
+      <name>rumble1</name>
       <mode>looped</mode>
       <path>Sounds/rumble.wav</path>
       <condition>
@@ -314,7 +314,7 @@
     </rumble>
 
     <rumble>
-      <name>rumble</name>
+      <name>rumble2</name>
       <mode>looped</mode>
       <path>Sounds/rumble.wav</path>
       <condition>
@@ -328,7 +328,7 @@
     </rumble>
 
     <rumble>
-      <name>rumble</name>
+      <name>rumble3</name>
       <mode>looped</mode>
       <path>Sounds/rumble.wav</path>
       <condition>
@@ -343,7 +343,7 @@
 
 <!-- Gear -->
     <gear>
-      <name>gear</name>
+      <name>gear0</name>
       <mode>in-transit</mode>
       <path>Sounds/gear.wav</path>
       <property>/gear/gear[0]/position-norm</property>
@@ -355,7 +355,7 @@
     </gear>
 
     <gear>
-      <name>gear-lock</name>
+      <name>gear-lock0</name>
       <path>Sounds/gear-lck.wav</path>
       <condition>
         <equals>
@@ -366,7 +366,7 @@
     </gear>
 
     <gear>
-      <name>gear-lock</name>
+      <name>gear-lock0a</name>
       <path>Sounds/gear-lck.wav</path>
       <condition>
         <equals>
@@ -377,7 +377,7 @@
     </gear>
 
     <gear>
-      <name>gear</name>
+      <name>gear1</name>
       <mode>in-transit</mode>
       <path>Sounds/gear.wav</path>
       <property>/gear/gear[1]/position-norm</property>
@@ -389,7 +389,7 @@
     </gear>
 
     <gear>
-      <name>gear-lock</name>
+      <name>gear-lock1</name>
       <path>Sounds/gear-lck.wav</path>
       <condition>
         <equals>
@@ -400,7 +400,7 @@
     </gear>
 
     <gear>
-      <name>gear-lock</name>
+      <name>gear-lock1a</name>
       <path>Sounds/gear-lck.wav</path>
       <condition>
         <equals>
@@ -411,7 +411,7 @@
     </gear>
 
     <gear>
-      <name>gear</name>
+      <name>gear2</name>
       <mode>in-transit</mode>
       <path>Sounds/gear.wav</path>
       <property>/gear/gear[2]/position-norm</property>
@@ -423,7 +423,7 @@
     </gear>
 
     <gear>
-      <name>gear-lock</name>
+      <name>gear-lock2</name>
       <path>Sounds/gear-lck.wav</path>
       <condition>
         <equals>
@@ -434,7 +434,7 @@
     </gear>
 
     <gear>
-      <name>gear-lock</name>
+      <name>gear-lock2a</name>
       <path>Sounds/gear-lck.wav</path>
       <condition>
         <equals>
@@ -445,7 +445,7 @@
     </gear>
 
     <gear>
-      <name>gear</name>
+      <name>gear3</name>
       <mode>in-transit</mode>
       <path>Sounds/gear.wav</path>
       <property>/gear/gear[3]/position-norm</property>
@@ -457,7 +457,7 @@
     </gear>
 
     <gear>
-      <name>gear-lock</name>
+      <name>gear-lock3</name>
       <path>Sounds/gear-lck.wav</path>
       <condition>
         <equals>
@@ -468,7 +468,7 @@
     </gear>
 
     <gear>
-      <name>gear-lock</name>
+      <name>gear-lock3a</name>
       <path>Sounds/gear-lck.wav</path>
       <condition>
         <equals>
@@ -548,7 +548,7 @@
 -->
 <!-- Squeal -->
     <squeal>
-      <name>squeal</name>
+      <name>squeal0</name>
       <path>Sounds/squeal.wav</path>
       <condition>
         <property>/gear/gear[0]/wow</property>
@@ -574,7 +574,7 @@
     </squeal>
 
     <squeal>
-      <name>squeal</name>
+      <name>squeal1</name>
       <path>Sounds/squeal.wav</path>
       <condition>
         <property>/gear/gear[1]/wow</property>
@@ -600,7 +600,7 @@
     </squeal>
 
     <squeal>
-      <name>squeal</name>
+      <name>squeal2</name>
       <path>Sounds/squeal.wav</path>
       <condition>
         <property>/gear/gear[2]/wow</property>
@@ -626,7 +626,7 @@
     </squeal>
 
     <squeal>
-      <name>squeal</name>
+      <name>squeal3</name>
       <path>Sounds/squeal.wav</path>
       <condition>
         <property>/gear/gear[3]/wow</property>

@@ -179,7 +179,17 @@
 <!--
     Nav1 hold.  2 stage cascade controller.
     Stage #1 sets target roll based on nav1-heading-error-deg.
+    The filter is only used by the Nasal scripts.
 -->
+  <filter>
+    <name>heading-needle-deflection filter</name>
+    <debug>false</debug>
+    <type>moving-average</type>
+    <input>/instrumentation/nav[0]/heading-needle-deflection</input>
+    <output>/autopilot/internal/filtered-heading-needle-deflection</output>
+    <samples>30</samples>
+  </filter>
+  
   <pid-controller>
     <name>Nav1 Hold Stage 1</name>
     <debug>false</debug>
@@ -434,6 +444,16 @@
   </pid-controller>
 
 <!-- Simple Glideslope hold. -->
+<!-- This filter is only used by the Nasal scripts -->
+  <filter>
+    <name>gs1-hold filter</name>
+    <debug>false</debug>
+    <type>moving-average</type>
+    <input>/instrumentation/nav[0]/gs-rate-of-climb</input>
+    <output>/autopilot/internal/filtered-gs-rate-of-climb</output>
+    <samples>20</samples>
+  </filter>
+
   <pid-controller>
     <name>Glideslope Hold</name>
     <debug>false</debug>
@@ -854,13 +874,17 @@
     </config>
   </pid-controller>
 
-<!-- Simple VFPS hold (low-speed) -->
+<!-- Simple Glideslope VFPS hold -->
+<!--
+     This controller relies upon the Nasal scripts to supply the 
+     required /autopilot/internal/target-vfps reference value
+-->
   <pid-controller>
-    <name>VFPS Hold (low-speed)</name>
+    <name>GS VFPS Hold</name>
     <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/altitude</prop>
-      <value>vfps-hold-ls</value>
+      <value>gsvfps-hold</value>
     </enable>
     <input>
       <prop>/velocities/vertical-speed-fps</prop>
@@ -872,7 +896,7 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
-      <Kp>-0.015</Kp>      <!-- proportional gain -->
+      <Kp>-0.014</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->

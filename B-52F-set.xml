@@ -193,10 +193,10 @@ B-52F set file.
         </binding>
       </key>
       
-<!-- Update Stationary back-view position -->
+<!-- Update Drop View position -->
        <key n="85">
         <name>U</name>
-        <desc>Update Stationary back-view position</desc>
+        <desc>Update Drop View position</desc>
         <binding n="0">
           <command>nasal</command>
           <script>B52F.update_drop_view_pos()</script>

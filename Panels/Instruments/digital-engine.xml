@@ -5,18 +5,18 @@
 
 <PropertyList>
 
- <name>Digital Mach display</name>
- <w-base>40</w-base>
- <h-base>10</h-base>
+  <name>Digital Engine display</name>
+  <w-base>40</w-base>
+  <h-base>10</h-base>
 
- <params>
-  <eng-num>/engines/engine[0]/engine-num</eng-num>
-  <pt-select>/engines/engine[0]/prop-thrust</pt-select>
-  <n1-select>/engines/engine[0]/n1</n1-select>
-  <n2-select>/engines/engine[0]/n2</n2-select>
-  <ff-select>/engines/engine[0]/fuel-flow-gph</ff-select>
-  <th-select>/controls/engines/engine[0]/throttle</th-select>
- </params>
+  <params>
+    <eng-num>/engines/engine[0]/engine-num</eng-num>
+    <th-select>/controls/engines/engine[0]/throttle</th-select>
+    <pt-select>/engines/engine[0]/prop-thrust</pt-select>
+    <n1-select>/engines/engine[0]/n1</n1-select>
+    <n2-select>/engines/engine[0]/n2</n2-select>
+    <ff-select>/engines/engine[0]/fuel-flow-gph</ff-select>
+  </params>
 
  <layers>
 

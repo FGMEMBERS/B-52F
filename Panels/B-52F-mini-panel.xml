@@ -309,7 +309,7 @@ Hacked by Lee Elliott for the b52 mock panel
    <name>Engine 0 display</name>
    <params>
     <eng-num>/engines/engine[0]/engine-num</eng-num>
-    <pt-select>/engines/engine[0]/prop-thrust</pt-select>
+    <th-select>/controls/engines/engine[0]/throttle</th-select>
     <pt-select>/engines/engine[0]/prop-thrust</pt-select>
     <n1-select>/engines/engine[0]/n1</n1-select>
     <n2-select>/engines/engine[0]/n2</n2-select>
@@ -325,7 +325,7 @@ Hacked by Lee Elliott for the b52 mock panel
    <name>Engine 1 display</name>
    <params>
     <eng-num>/engines/engine[1]/engine-num</eng-num>
-    <pt-select>/engines/engine[1]/prop-thrust</pt-select>
+    <th-select>/controls/engines/engine[1]/throttle</th-select>
     <pt-select>/engines/engine[1]/prop-thrust</pt-select>
     <n1-select>/engines/engine[1]/n1</n1-select>
     <n2-select>/engines/engine[1]/n2</n2-select>
@@ -341,7 +341,7 @@ Hacked by Lee Elliott for the b52 mock panel
    <name>Engine 2 display</name>
    <params>
     <eng-num>/engines/engine[2]/engine-num</eng-num>
-    <pt-select>/engines/engine[2]/prop-thrust</pt-select>
+    <th-select>/controls/engines/engine[2]/throttle</th-select>
     <pt-select>/engines/engine[2]/prop-thrust</pt-select>
     <n1-select>/engines/engine[2]/n1</n1-select>
     <n2-select>/engines/engine[2]/n2</n2-select>
@@ -357,7 +357,7 @@ Hacked by Lee Elliott for the b52 mock panel
    <name>Engine 3 display</name>
    <params>
     <eng-num>/engines/engine[3]/engine-num</eng-num>
-    <pt-select>/engines/engine[3]/prop-thrust</pt-select>
+    <th-select>/controls/engines/engine[3]/throttle</th-select>
     <pt-select>/engines/engine[3]/prop-thrust</pt-select>
     <n1-select>/engines/engine[3]/n1</n1-select>
     <n2-select>/engines/engine[3]/n2</n2-select>
@@ -373,7 +373,7 @@ Hacked by Lee Elliott for the b52 mock panel
    <name>Engine 4 display</name>
    <params>
     <eng-num>/engines/engine[4]/engine-num</eng-num>
-    <pt-select>/engines/engine[4]/prop-thrust</pt-select>
+    <th-select>/controls/engines/engine[4]/throttle</th-select>
     <pt-select>/engines/engine[4]/prop-thrust</pt-select>
     <n1-select>/engines/engine[4]/n1</n1-select>
     <n2-select>/engines/engine[4]/n2</n2-select>
@@ -389,7 +389,7 @@ Hacked by Lee Elliott for the b52 mock panel
    <name>Engine 5 display</name>
    <params>
     <eng-num>/engines/engine[5]/engine-num</eng-num>
-    <pt-select>/engines/engine[5]/prop-thrust</pt-select>
+    <th-select>/controls/engines/engine[5]/throttle</th-select>
     <pt-select>/engines/engine[5]/prop-thrust</pt-select>
     <n1-select>/engines/engine[5]/n1</n1-select>
     <n2-select>/engines/engine[5]/n2</n2-select>
@@ -405,7 +405,7 @@ Hacked by Lee Elliott for the b52 mock panel
    <name>Engine 6 display</name>
    <params>
     <eng-num>/engines/engine[6]/engine-num</eng-num>
-    <pt-select>/engines/engine[6]/prop-thrust</pt-select>
+    <th-select>/controls/engines/engine[6]/throttle</th-select>
     <pt-select>/engines/engine[6]/prop-thrust</pt-select>
     <n1-select>/engines/engine[6]/n1</n1-select>
     <n2-select>/engines/engine[6]/n2</n2-select>
@@ -421,7 +421,7 @@ Hacked by Lee Elliott for the b52 mock panel
    <name>Engine 7 display</name>
    <params>
     <eng-num>/engines/engine[7]/engine-num</eng-num>
-    <pt-select>/engines/engine[7]/prop-thrust</pt-select>
+    <th-select>/controls/engines/engine[7]/throttle</th-select>
     <pt-select>/engines/engine[7]/prop-thrust</pt-select>
     <n1-select>/engines/engine[7]/n1</n1-select>
     <n2-select>/engines/engine[7]/n2</n2-select>

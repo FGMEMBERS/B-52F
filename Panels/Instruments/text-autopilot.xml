@@ -626,38 +626,86 @@
    </transformations>
   </layer>
 
-<!-- Touch Down Phase -->
+<!-- Glide-slope VFPS-hold engaged -->
+<!-- Approach phase -->
   <layer>
-   <condition>
-    <equals>
-     <property>/autopilot/locks/altitude</property>
-     <value>vfps-hold-ls</value>
-    </equals>
-   </condition>
-   <name>Instrument Landing Engaged (Touch Down Phase)</name>
-   <type>text</type>
-   <point-size>16</point-size>
-   <color>
-    <red>1.0</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
-   </color>
-   <chunks>
-    <chunk>
-     <type>literal</type>
-     <text>IL</text>
-    </chunk>
-   </chunks>
-   <transformations>
-    <transformation>
-     <type>x-shift</type>
-     <offset>63</offset>
-    </transformation>
-    <transformation>
-     <type>y-shift</type>
-     <offset>-6</offset>
-    </transformation>
-   </transformations>
+    <condition>
+      <and>
+        <equals>
+          <property>/autopilot/locks/altitude</property>
+          <value>gsvfps-hold</value>
+        </equals>
+        <less-than>
+          <property>/autopilot/settings/target-vfps</property>
+          <value>-10</value>
+        </less-than>
+      </and>
+    </condition>
+    <name>Instrument Landing Engaged (Touch Down Phase)</name>
+    <type>text</type>
+    <point-size>16</point-size>
+    <color>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>0.0</blue>
+    </color>
+    <chunks>
+      <chunk>
+        <type>literal</type>
+        <text>IL</text>
+      </chunk>
+    </chunks>
+    <transformations>
+      <transformation>
+        <type>x-shift</type>
+        <offset>63</offset>
+      </transformation>
+      <transformation>
+        <type>y-shift</type>
+        <offset>-6</offset>
+      </transformation>
+    </transformations>
+  </layer>
+
+<!-- Glide-slope VFPS-hold engaged -->
+<!-- Touch-down phase -->
+  <layer>
+    <condition>
+      <and>
+        <equals>
+          <property>/autopilot/locks/altitude</property>
+          <value>gsvfps-hold</value>
+        </equals>
+        <greater-than>
+          <property>/autopilot/settings/target-vfps</property>
+          <value>-10</value>
+        </greater-than>
+      </and>
+    </condition>
+    <name>Instrument Landing Engaged (Touch Down Phase)</name>
+    <type>text</type>
+    <point-size>16</point-size>
+    <color>
+      <red>1.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </color>
+    <chunks>
+      <chunk>
+        <type>literal</type>
+        <text>IL</text>
+      </chunk>
+    </chunks>
+    <transformations>
+      <transformation>
+        <type>x-shift</type>
+        <offset>63</offset>
+      </transformation>
+      <transformation>
+        <type>y-shift</type>
+        <offset>-6</offset>
+      </transformation>
+    </transformations>
   </layer>
 
 <!-- Mach Climb Engaged -->

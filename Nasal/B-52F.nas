@@ -8,7 +8,7 @@ autotakeoff = func {
   if(getprop("/autopilot/locks/auto-take-off") != "Enabled") {
     print("Auto Take-Off disabled");
   } else {
-    settimer(autotakeoff, 0.5);
+    settimer(autotakeoff, 0.2);
   }
 }
 #--------------------------------------------------------------------
@@ -111,7 +111,7 @@ autoland = func {
   if(getprop("/autopilot/locks/auto-landing") != "Enabled") {
     print("Auto Landing disabled");
   } else {
-    settimer(autoland, 0.5);
+    settimer(autoland, 0.2);
   }
 }
 #--------------------------------------------------------------------
@@ -150,9 +150,14 @@ atl_spddep = func {
 atl_glideslope = func {
   # This script handles glide slope interception.
   if(getprop("/position/altitude-agl-ft") > 200) {
-    if(getprop("/autopilot/locks/altitude") != "gs1-hold") {
-      if(getprop("/instrumentation/nav[0]/gs-rate-of-climb") < 0) {
-        setprop("/autopilot/locks/altitude", "gs1-hold");
+    if(getprop("/autopilot/locks/altitude") != "gsvfps-hold") {
+      setprop("/autopilot/settings/target-vfps", 0);
+      setprop("/autopilot/locks/altitude", "gsvfps-hold");
+    } else {
+      if(getprop("/autopilot/internal/filtered-gs-rate-of-climb") < 0) {
+        gsvfps = getprop("/instrumentation/nav[0]/gs-rate-of-climb");
+        setprop("/autopilot/settings/target-vfps", gsvfps);
+        setprop("/autopilot/locks/altitude", "gsvfps-hold");
       }
     }
   }
@@ -162,7 +167,7 @@ atl_touchdown = func {
   # Touch Down phase.
   agl = getprop("/position/altitude-agl-ft");
   vfps = getprop("/velocities/vertical-speed-fps");
-  setprop("/autopilot/locks/altitude", "vfps-hold-ls");
+  setprop("/autopilot/locks/altitude", "gsvfps-hold");
   setprop("/autopilot/settings/target-vfps", vfps);
   setprop("/autopilot/locks/AoA-lock", "Off");
 
@@ -222,6 +227,7 @@ atl_touchdown = func {
                   if(vfps < -9) {
                     setprop("/autopilot/settings/target-vfps", -9);
                   }
+              setprop("/autopilot/locks/heading", "wing-leveler");
 #                  setprop("/autopilot/locks/altitude", "vfps-hold-ls");
                 }
               }
@@ -250,9 +256,10 @@ atl_aoa = func {
 #--------------------------------------------------------------------
 atl_heading = func {
   # This script handles heading dependent actions.
-  hdnddf = getprop("/instrumentation/nav[0]/heading-needle-deflection");
-  if(hdnddf < 5) {
-    if(hdnddf > -5) {
+#  hdnddf = getprop("/instrumentation/nav[0]/heading-needle-deflection");
+  hdnddf = getprop("/autopilot/internal/filtered-heading-needle-deflection");
+  if(hdnddf < 3) {
+    if(hdnddf > -3) {
       setprop("/autopilot/locks/heading", "nav1-hold-fa");
     } else {
       setprop("/autopilot/locks/heading", "nav1-hold");
@@ -270,7 +277,7 @@ toggle_traj_mkr = func {
   }
 }
 #--------------------------------------------------------------------
-update_drop_view_pos = func {
+initialise_drop_view_pos = func {
   eyelatdeg = getprop("/position/latitude-deg");
   eyelondeg = getprop("/position/longitude-deg");
   eyealtft = getprop("/position/altitude-ft") + 20;
@@ -279,7 +286,16 @@ update_drop_view_pos = func {
   setprop("/sim/view[7]/altitude-ft", eyealtft);
 }
 #--------------------------------------------------------------------
+update_drop_view_pos = func {
+  eyelatdeg = getprop("/position/latitude-deg");
+  eyelondeg = getprop("/position/longitude-deg");
+  eyealtft = getprop("/position/altitude-ft") + 20;
+  interpolate("/sim/view[7]/latitude-deg", eyelatdeg, 5);
+  interpolate("/sim/view[7]/longitude-deg", eyelondeg, 5);
+  interpolate("/sim/view[7]/altitude-ft", eyealtft, 5);
+}
+#--------------------------------------------------------------------
 init_drop_view_pos = func {
-  settimer(update_drop_view_pos, 5);
+  settimer(initialise_drop_view_pos, 5);
 }
 #--------------------------------------------------------------------
