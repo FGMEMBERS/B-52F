@@ -5,7 +5,7 @@ autotakeoff = func {
   ato_spddep();     # Speed dependent actions.
 
   # Re-schedule the next loop if the Take-Off function is enabled.
-  if(getprop("/autopilot/locks/auto-take-off") != "Enabled") {
+  if(getprop("/autopilot/locks/auto-take-off") != "enabled") {
     print("Auto Take-Off disabled");
   } else {
     settimer(autotakeoff, 0.2);
@@ -26,6 +26,7 @@ ato_start = func {
           setprop("/autopilot/settings/true-heading-deg", hdgdeg);
           setprop("/autopilot/settings/target-AoA-deg", 0);
           setprop("/autopilot/settings/target-speed-kt", 310);
+          setprop("/autopilot/settings/climb-out-pitch-deg", 1.6);
           setprop("/autopilot/locks/altitude", "ground-roll");
           setprop("/autopilot/locks/speed", "speed-with-throttle");
           setprop("/autopilot/locks/heading", "wing-leveler");
@@ -70,21 +71,25 @@ ato_spddep = func {
   } else {
     if(airspeed < 200) {
       setprop("/controls/flight/flaps", 0);
-      interpolate("/autopilot/settings/climb-out-pitch-deg", 1.5, 4);
+      interpolate("/autopilot/settings/climb-out-pitch-deg", 6, 8);
     } else {
       if(airspeed < 220) {
-        interpolate("/autopilot/settings/climb-out-pitch-deg", 3, 4);
+#        interpolate("/autopilot/settings/climb-out-pitch-deg", 3, 4);
       } else {
         if(airspeed < 260) {
-          interpolate("/autopilot/settings/climb-out-pitch-deg", 4, 4);
+#          interpolate("/autopilot/settings/climb-out-pitch-deg", 4, 4);
         } else {
-          # Switch to true-heading-hold, Mach-Hold throttle
-          # mode, mach-hold-climb mode and disable Take-Off mode.
-          setprop("/autopilot/locks/heading", "true-heading-hold");
-          setprop("/autopilot/locks/speed", "mach-with-throttle");
-          setprop("/autopilot/locks/altitude", "mach-climb");
-          setprop("/autopilot/locks/auto-take-off", "Disabled");
-          setprop("/autopilot/settings/climb-out-pitch-deg", 0.5);
+          if(getprop("surface-positions/left-flap-pos-norm") < 0.001) {
+            if(getprop("surface-positions/right-flap-pos-norm") < 0.001) {
+              # Switch to true-heading-hold, Mach-Hold throttle
+              # mode, mach-hold-climb mode and disable Take-Off mode.
+              setprop("/autopilot/locks/heading", "true-heading-hold");
+              setprop("/autopilot/locks/speed", "mach-with-throttle");
+              setprop("/autopilot/locks/altitude", "altitude-hold");
+              setprop("/autopilot/locks/auto-take-off", "disabled");
+              setprop("/autopilot/locks/auto-landing", "enabled");
+            }
+          }
         }
       }
     }
@@ -108,7 +113,7 @@ autoland = func {
   }
 
   # Re-schedule the next loop if the Landing function is enabled.
-  if(getprop("/autopilot/locks/auto-landing") != "Enabled") {
+  if(getprop("/autopilot/locks/auto-landing") != "enabled") {
     print("Auto Landing disabled");
   } else {
     settimer(autoland, 0.2);
@@ -176,8 +181,8 @@ atl_touchdown = func {
     setprop("/controls/gear/brake-left", 0.1);
     setprop("/controls/gear/brake-right", 0.1);
     setprop("/autopilot/settings/ground-roll-heading-deg", -999.9);
-    setprop("/autopilot/locks/auto-landing", "Disabled");
-    setprop("/autopilot/locks/auto-take-off", "Enabled");
+    setprop("/autopilot/locks/auto-landing", "disabled");
+    setprop("/autopilot/locks/auto-take-off", "enabled");
     setprop("/autopilot/locks/altitude", "Off");
     setprop("/autopilot/settings/target-vfps", 0);
     interpolate("/controls/flight/elevator-trim", 0, 10.0);
@@ -227,8 +232,7 @@ atl_touchdown = func {
                   if(vfps < -9) {
                     setprop("/autopilot/settings/target-vfps", -9);
                   }
-              setprop("/autopilot/locks/heading", "wing-leveler");
-#                  setprop("/autopilot/locks/altitude", "vfps-hold-ls");
+                   setprop("/autopilot/locks/heading", "wing-leveler");
                 }
               }
             }
@@ -256,7 +260,6 @@ atl_aoa = func {
 #--------------------------------------------------------------------
 atl_heading = func {
   # This script handles heading dependent actions.
-#  hdnddf = getprop("/instrumentation/nav[0]/heading-needle-deflection");
   hdnddf = getprop("/autopilot/internal/filtered-heading-needle-deflection");
   if(hdnddf < 3) {
     if(hdnddf > -3) {
@@ -286,6 +289,11 @@ initialise_drop_view_pos = func {
   setprop("/sim/view[7]/altitude-ft", eyealtft);
 }
 #--------------------------------------------------------------------
+initialise_target_altitude = func {
+  alt = getprop("/position/altitude-ft") + 3000;
+  setprop("/autopilot/settings/target-altitude-ft", alt);
+}
+#--------------------------------------------------------------------
 update_drop_view_pos = func {
   eyelatdeg = getprop("/position/latitude-deg");
   eyelondeg = getprop("/position/longitude-deg");
@@ -295,7 +303,8 @@ update_drop_view_pos = func {
   interpolate("/sim/view[7]/altitude-ft", eyealtft, 5);
 }
 #--------------------------------------------------------------------
-init_drop_view_pos = func {
+start_up = func {
   settimer(initialise_drop_view_pos, 5);
+  settimer(initialise_target_altitude, 5);
 }
 #--------------------------------------------------------------------

@@ -175,14 +175,14 @@ B-52F set file.
     <keyboard>
       <key n="91">
         <name>[</name>
-        <desc>Decrease flaps.</desc>
+        <desc>Reduce Flaps</desc>
         <binding>
           <step type="double">-1.0</step>
         </binding>
       </key>
       <key n="93">
         <name>]</name>
-        <desc>Increase flaps.</desc>
+        <desc>Increase Flaps</desc>
         <binding>
           <step type="double">1.0</step>
         </binding>
@@ -219,17 +219,17 @@ B-52F set file.
       <target-vfps type="float">0</target-vfps>
       <take-off-pitch-deg type="float">0.4</take-off-pitch-deg>
       <target-speed-kt type="float">310.0</target-speed-kt>
-      <climb-out-pitch-deg type="float">0.0</climb-out-pitch-deg>
+      <climb-out-pitch-deg type="float">0.4</climb-out-pitch-deg>
       <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
-      <target-mach type="float">0.56</target-mach>
+      <target-mach type="float">0.46</target-mach>
       <target-AoA-deg type="float">1.0</target-AoA-deg>
     </settings>
 
     <locks>
-      <auto-take-off type="string">Enabled</auto-take-off>
-      <auto-landing type="string">Disabled</auto-landing>
-      <rudder-control type="string">Initialised</rudder-control>
-      <AoA-lock type="string">Initialised</AoA-lock>
+      <auto-take-off type="string">enabled</auto-take-off>
+      <auto-landing type="string">disabled</auto-landing>
+      <rudder-control type="string">initialised</rudder-control>
+      <AoA-lock type="string">initialised</AoA-lock>
     </locks>
   </autopilot>
 
@@ -307,7 +307,7 @@ B-52F set file.
   <nasal>
     <B52F>
       <file>Aircraft/B-52F/Nasal/B-52F.nas</file>
-      <script>init_drop_view_pos();</script>
+      <script>start_up();</script>
     </B52F>
   </nasal>
 

@@ -123,10 +123,10 @@
    <condition>
     <equals>
      <property>/autopilot/locks/auto-take-off</property>
-     <value>Disabled</value>
+     <value>disabled</value>
     </equals>
    </condition>
-   <name>Take-Off - Disabled</name>
+   <name>Take-Off - disabled</name>
    <type>text</type>
    <point-size>16</point-size>
    <color>
@@ -156,10 +156,10 @@
    <condition>
     <equals>
      <property>/autopilot/locks/auto-take-off</property>
-     <value>Enabled</value>
+     <value>enabled</value>
     </equals>
    </condition>
-   <name>Take-Off - Enabled</name>
+   <name>Take-Off - enabled</name>
    <type>text</type>
    <point-size>16</point-size>
    <color>
@@ -189,10 +189,10 @@
    <condition>
     <equals>
      <property>/autopilot/locks/auto-landing</property>
-     <value>Disabled</value>
+     <value>disabled</value>
     </equals>
    </condition>
-   <name>Instrument Landing - Disabled</name>
+   <name>Instrument Landing - disabled</name>
    <type>text</type>
    <point-size>16</point-size>
    <color>
@@ -222,10 +222,10 @@
    <condition>
     <equals>
      <property>/autopilot/locks/auto-landing</property>
-     <value>Enabled</value>
+     <value>enabled</value>
     </equals>
    </condition>
-   <name>Instrument Landing - Enabled</name>
+   <name>Instrument Landing - enabled</name>
    <type>text</type>
    <point-size>16</point-size>
    <color>
@@ -259,7 +259,7 @@
      <value>mach-with-throttle</value>
     </not-equals>
    </condition>
-   <name>Mach Climb Disabled</name>
+   <name>Mach Climb disabled</name>
    <type>text</type>
    <point-size>16</point-size>
    <color>
@@ -292,7 +292,7 @@
      <value>mach-with-throttle</value>
     </equals>
    </condition>
-   <name>Mach Climb - Enabled</name>
+   <name>Mach Climb - enabled</name>
    <type>text</type>
    <point-size>16</point-size>
    <color>
@@ -762,17 +762,17 @@
    <binding>
     <command>property-assign</command>
     <property>/autopilot/locks/auto-take-off</property>
-    <value type="string">Enabled</value>
+    <value type="string">enabled</value>
    </binding>
    <binding>
     <command>property-assign</command>
     <property>/autopilot/locks/auto-landing</property>
-    <value type="string">Disabled</value>
+    <value type="string">disabled</value>
    </binding>
    <binding>
     <command>property-assign</command>
     <property>/autopilot/locks/approach-AoA-lock</property>
-    <value type="string">Disabled</value>
+    <value type="string">disabled</value>
    </binding>
   </action>
 
@@ -792,7 +792,7 @@
    <binding>
     <command>property-assign</command>
     <property>/autopilot/locks/auto-landing</property>
-    <value type="string">Enabled</value>
+    <value type="string">enabled</value>
    </binding>
   </action>
 

@@ -16,7 +16,7 @@
     <yaw-offset>0.0</yaw-offset>
     <pitch-offset>0.0</pitch-offset>
     <eda>1000000000.00</eda>
-    <life>900</life>
+    <life>1200</life>
     <buoyancy>32</buoyancy>
     <wind>false</wind>
     <aero-stabilised>false</aero-stabilised>

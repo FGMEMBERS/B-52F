@@ -119,7 +119,7 @@ Lee Elliott. leee-fgfs@spatial.freeserve.co.uk
   <control-input axis="/controls/flight/elevator" control="FLAP0"/>
   <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
   <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
-  <control-speed control="FLAP0" transition-time="0.5"/>
+  <control-speed control="FLAP0" transition-time="2.0"/>
  </hstab>
 
  <vstab x="-41.5" y="0" z="2.4" taper="0.4"
