@@ -167,6 +167,22 @@ B-52F set file.
       <setting>1.000</setting>
     </spoilers>
 
+    <help>
+      <title>Boeing B-52 F</title>
+      <key>
+        <name>j/k</name>
+        <desc>decrease/increase spoilers</desc>
+      </key>
+      <key>
+        <name>K</name>
+        <desc>toggle trajectory markers</desc>
+      </key>
+      <key>
+        <name>U</name>
+        <desc>update drop view position</desc>
+      </key>
+    </help>
+
   </sim>
 
 <!-- Keboard changes -->
