@@ -4,13 +4,13 @@
 ************************************************************************
 B52-H model/animation config.
 
-2002-12-17 Lee Elliott  leee-fgfs@spatial.freeserve.co.uk
+2002-12-17 Lee Elliott
 ************************************************************************
 -->
 
 <PropertyList>
 
-  <path>B-52F-002-027d.ac</path>
+  <path>B-52F-002-027e.ac</path>
   <offsets>
     <z-m>0.0</z-m>
     <pitch-deg>0</pitch-deg>

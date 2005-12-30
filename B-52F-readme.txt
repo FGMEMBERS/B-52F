@@ -349,10 +349,9 @@ is already correctly tuned for the intended landing runway.
 You should be in Altitude Hold mode and well below the glide-slope
 when IL mode is engaged.  This is because extending the flaps has a
 considerable effect on the drag and trim and should be done while the
-a/c is in level flight.  Even so, at heavy landing weights you are
-likely to gain up to 200 ft altitude as the flaps extend and at light
-weights you will gain nearly 500ft.  While the flaps are extending,
-which takes a full 60 seconds (or 120 seconds if one of the two flap
+a/c is in level flight.  Even so, you are likely to gain up to 500 ft
+altitude as the flaps extend.  While the flaps are extending, which
+takes a full 60 seconds (or 120 seconds if one of the two flap
 control motors has failed, although this failure mode has not yet
 been modelled), and although the height gain is unavoidable, the AP
 AH controller should be able to maintain control of the a/c and will
@@ -381,7 +380,7 @@ in if the nav1 course is crossed so it's a good idea to be clearly
 heading towards the intended runway before engaging IL mode.
 
 From my testing, I'd recommend an AH height setting of between 2000
-3000ft above the target runway, dependent on the distance from the
+2500ft above the target runway, dependent on the distance from the
 target runway - this should give enough time for the AP to get the 
 a/c stable on the glide-slope.  If it isn't, any oscillations will
 only get worse as you get closer to the runway and will result in a

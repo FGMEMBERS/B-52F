@@ -3,7 +3,7 @@
 ************************************************************************
 B-52F set file.
 
-2004-04-26 Lee Elliott  leee-fgfs@spatial.freeserve.co.uk
+2005-12-29 Lee Elliott
 ************************************************************************
 -->
 
@@ -74,13 +74,10 @@ B-52F set file.
         <eye-roll-deg-path>/sim/view[7]/roll-deg</eye-roll-deg-path>
         <eye-pitch-deg-path>/sim/view[7]/pitch-deg</eye-pitch-deg-path>
         <eye-heading-deg-path>/sim/view[7]/heading-deg</eye-heading-deg-path>
-
         <at-model type="bool">true</at-model>
         <at-model-idx type="int">0</at-model-idx>
-
         <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
-        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
-
+        <default-field-of-view-deg type="double">8.0</default-field-of-view-deg>
         <x-offset-m type="double">0</x-offset-m>
         <y-offset-m type="double">0</y-offset-m>
         <z-offset-m type="double">0</z-offset-m>
@@ -229,13 +226,17 @@ B-52F set file.
 
   <autopilot>
     <settings>
+      <flap-extend-aoa-deg type="float">5.9</flap-extend-aoa-deg>
+      <flap-extend-speed-kt type="float">230</flap-extend-speed-kt>
+      <flap-retract-speed-kt type="float">180</flap-retract-speed-kt>
       <target-agl-ft type="float">1000</target-agl-ft>
-      <target-altitude-ft type="float">3000</target-altitude-ft>
-      <target-pitch-deg type="float">3</target-pitch-deg>
+      <target-altitude-ft type="float">2500</target-altitude-ft>
+      <target-pitch-deg type="float">0</target-pitch-deg>
       <target-vfps type="float">0</target-vfps>
-      <take-off-pitch-deg type="float">0.4</take-off-pitch-deg>
+      <take-off-pitch-deg type="float">0.0</take-off-pitch-deg>
       <target-speed-kt type="float">310.0</target-speed-kt>
-      <climb-out-pitch-deg type="float">0.4</climb-out-pitch-deg>
+      <climb-out-initial-pitch-deg type="float">-0.5</climb-out-initial-pitch-deg>
+      <climb-out-final-pitch-deg type="float">4.0</climb-out-final-pitch-deg>
       <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
       <target-mach type="float">0.46</target-mach>
       <target-AoA-deg type="float">1.0</target-AoA-deg>
@@ -245,6 +246,7 @@ B-52F set file.
       <auto-take-off type="string">enabled</auto-take-off>
       <auto-landing type="string">disabled</auto-landing>
       <rudder-control type="string">initialised</rudder-control>
+      <take-off-phase type="string">initialised</take-off-phase>
       <AoA-lock type="string">initialised</AoA-lock>
     </locks>
   </autopilot>

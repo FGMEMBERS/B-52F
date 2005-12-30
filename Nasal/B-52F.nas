@@ -12,8 +12,8 @@ autotakeoff = func {
   }
 }
 #--------------------------------------------------------------------
-ato_start = func {
-  # This script checks that the ground-roll-heading has been reset
+ato_start_takeoff = func {
+  # Check that the ground-roll-heading has been reset
   # (< -999), that the a/c is on the ground and that the flaps
   # have been deployed.  If so, auto-takeoff is started.
   # Note: The flaps have to be deployed manually.
@@ -26,11 +26,61 @@ ato_start = func {
           setprop("/autopilot/settings/true-heading-deg", hdgdeg);
           setprop("/autopilot/settings/target-AoA-deg", 0);
           setprop("/autopilot/settings/target-speed-kt", 310);
-          setprop("/autopilot/settings/climb-out-pitch-deg", 1.6);
+          setprop("/autopilot/settings/climb-out-pitch-deg", 0.0);
           setprop("/autopilot/locks/altitude", "ground-roll");
           setprop("/autopilot/locks/speed", "speed-with-throttle");
           setprop("/autopilot/locks/heading", "wing-leveler");
+          # Start the main loop
+          settimer(ato_takeoff_loop, 0.2);
+        }
+      }
+    }
+  }
+}
+#--------------------------------------------------------------------
+ato_takeoff_loop = func {
+  ato_mode();
+  ato_winject();
+  ato_spddep();
+  # Check whether to run the loop again
+  if(getprop("surface-positions/left-flap-pos-norm") < 0.001) {
+    if(getprop("surface-positions/right-flap-pos-norm") < 0.001) {
+      ato_finish();
+    } else {
+      settimer(ato_takeoff_loop, 0.2);
+    }
+  }
+}
+#--------------------------------------------------------------------
+ato_finish = func {
+  setprop("/autopilot/locks/heading", "true-heading-hold");
+  setprop("/autopilot/locks/speed", "mach-with-throttle");
+  setprop("/autopilot/locks/altitude", "altitude-hold");
+  setprop("/autopilot/locks/auto-take-off", "disabled");
+  setprop("/autopilot/locks/auto-landing", "enabled");
+}
+#--------------------------------------------------------------------
+ato_start = func {
+  # Check that the ground-roll-heading has been reset
+  # (< -999), that the a/c is on the ground and that the flaps
+  # have been deployed.  If so, auto-takeoff is started.
+  # Note: The flaps have to be deployed manually.
+  if(getprop("/autopilot/settings/ground-roll-heading-deg") < -999) {
+    if(getprop("/position/altitude-agl-ft") < 0.01) {
+      if(getprop("surface-positions/left-flap-pos-norm") > 0.999) {
+        if(getprop("surface-positions/right-flap-pos-norm") > 0.999) {
+          hdgdeg = getprop("/orientation/heading-deg");
+          setprop("/autopilot/settings/ground-roll-heading-deg", hdgdeg);
+          setprop("/autopilot/settings/true-heading-deg", hdgdeg);
+          setprop("/autopilot/settings/target-AoA-deg", 0);
+          toptdeg = getprop("/autopilot/settings/take-off-pitch-deg");
+          setprop("/autopilot/settings/target-pitch-deg", toptdeg);
+          setprop("/autopilot/settings/target-speed-kt", 310);
+          setprop("/autopilot/locks/altitude", "take-off");
+          setprop("/autopilot/locks/speed", "speed-with-throttle");
+          setprop("/autopilot/locks/heading", "wing-leveler");
           setprop("/autopilot/locks/rudder-control", "rudder-hold");
+          setprop("/autopilot/locks/take-off-phase", "take-off");
         }
       }
     }
@@ -38,23 +88,24 @@ ato_start = func {
 }
 #--------------------------------------------------------------------
 ato_mode = func {
-  # This script sets the auto-takeoff mode and handles the switch
-  # to climb-out mode.
   agl = getprop("/position/altitude-agl-ft");
   if(agl > 50) {
-    setprop("/autopilot/locks/altitude", "climb-out");
-    setprop("/controls/gear/gear-down", "false");
-    setprop("/autopilot/locks/rudder-control", "reset");
-    interpolate("/controls/flight/rudder", 0, 10);
-  } else {
-    setprop("/autopilot/locks/altitude", "take-off");
+    tophase = getprop("/autopilot/locks/take-off-phase");
+    if(tophase == "take-off") {
+      coiptdeg = getprop("/autopilot/settings/climb-out-initial-pitch-deg");
+      interpolate("/autopilot/settings/target-pitch-deg", coiptdeg, 4);
+      setprop("/controls/gear/gear-down", "false");
+      setprop("/autopilot/locks/rudder-control", "reset");
+      setprop("/autopilot/locks/take-off-phase", "climb-out");
+      interpolate("/controls/flight/rudder", 0, 10);
+    }
   }
 }
 #--------------------------------------------------------------------
 ato_winject = func {
   # This script controls the water injection spoof (reheat)
   airspeed = getprop("/velocities/airspeed-kt");
-  if(airspeed > 50) {
+  if(airspeed > 0) {
     if(airspeed < 220) {
       setprop("/controls/engines/engine[0]/afterburner", 1);
     } else {
@@ -66,30 +117,24 @@ ato_winject = func {
 ato_spddep = func {
   # This script controls speed dependent actions.
   airspeed = getprop("/velocities/airspeed-kt");
-  if(airspeed < 190) {
-    # Do not do anything until airspeed > 190kt
+  flpretkt = getprop("/autopilot/settings/flap-retract-speed-kt");
+  if(airspeed < flpretkt) {
+    # Do not do anything until airspeed > flap retraction speed kt
   } else {
-    if(airspeed < 200) {
+    if(airspeed < 260) {
       setprop("/controls/flight/flaps", 0);
-      interpolate("/autopilot/settings/climb-out-pitch-deg", 6, 8);
+      cofptdeg = getprop("/autopilot/settings/climb-out-final-pitch-deg");
+      interpolate("/autopilot/settings/target-pitch-deg", cofptdeg, 8);
     } else {
-      if(airspeed < 220) {
-#        interpolate("/autopilot/settings/climb-out-pitch-deg", 3, 4);
-      } else {
-        if(airspeed < 260) {
-#          interpolate("/autopilot/settings/climb-out-pitch-deg", 4, 4);
-        } else {
-          if(getprop("surface-positions/left-flap-pos-norm") < 0.001) {
-            if(getprop("surface-positions/right-flap-pos-norm") < 0.001) {
-              # Switch to true-heading-hold, Mach-Hold throttle
-              # mode, mach-hold-climb mode and disable Take-Off mode.
-              setprop("/autopilot/locks/heading", "true-heading-hold");
-              setprop("/autopilot/locks/speed", "mach-with-throttle");
-              setprop("/autopilot/locks/altitude", "altitude-hold");
-              setprop("/autopilot/locks/auto-take-off", "disabled");
-              setprop("/autopilot/locks/auto-landing", "enabled");
-            }
-          }
+      if(getprop("surface-positions/left-flap-pos-norm") < 0.001) {
+        if(getprop("surface-positions/right-flap-pos-norm") < 0.001) {
+          # Switch to true-heading-hold, Mach-Hold throttle
+          # mode, mach-hold-climb mode and disable Take-Off mode.
+          setprop("/autopilot/locks/heading", "true-heading-hold");
+          setprop("/autopilot/locks/speed", "mach-with-throttle");
+          setprop("/autopilot/locks/altitude", "altitude-hold");
+          setprop("/autopilot/locks/auto-take-off", "disabled");
+          setprop("/autopilot/locks/auto-landing", "enabled");
         }
       }
     }
@@ -98,9 +143,8 @@ ato_spddep = func {
 #--------------------------------------------------------------------
 autoland = func {
   agl = getprop("/position/altitude-agl-ft");
-  hdgdeg = getprop("/orientation/heading-deg");
   
-  if(agl > 100) {
+  if(agl > 200) {
     # Glide Slope phase.
     atl_heading();
     atl_spddep();
@@ -125,29 +169,15 @@ atl_spddep = func {
   if(getprop("/autopilot/locks/speed") != "speed-with-throttle") {
     setprop("/autopilot/locks/speed", "speed-with-throttle");
   }
-  if(getprop("/autopilot/settings/target-speed-kt") > 160) {
-    setprop("/autopilot/settings/target-speed-kt", 160);
-    setprop("/controls/flight/spoilers", 1);
-  }
   airspeed = getprop("/velocities/airspeed-kt");
-  if(airspeed < 180) {
+  if(getprop("/autopilot/settings/target-speed-kt") > 170) {
     setprop("/controls/flight/spoilers", 0.57);
-    setprop("/controls/gear/gear-down", "true");
+    setprop("/autopilot/settings/target-speed-kt", 160);
   } else {
-    if(airspeed < 190) {
-      setprop("/controls/flight/spoilers", 0.3);
-    } else {
-      if(airspeed < 200) {
-        setprop("/controls/flight/spoilers", 0.4);
-      } else {
-        if(airspeed < 210) {
-          setprop("/controls/flight/spoilers", 0.5);
-        } else {
-          if(airspeed < 230) {
-            setprop("/controls/flight/spoilers", 0.6);
-          }
-        }
-      }
+    if(airspeed < 170) {
+      setprop("/autopilot/settings/target-AoA-deg", 1);
+      setprop("/autopilot/locks/AoA-lock", "Engaged");
+      setprop("/controls/gear/gear-down", "true");
     }
   }
 }
@@ -177,7 +207,6 @@ atl_touchdown = func {
   setprop("/autopilot/locks/AoA-lock", "Off");
 
   if(agl < 0.01) {
-    # Brakes on, Rudder heading hold on & disable IL mode.
     setprop("/controls/gear/brake-left", 0.1);
     setprop("/controls/gear/brake-right", 0.1);
     setprop("/autopilot/settings/ground-roll-heading-deg", -999.9);
@@ -186,53 +215,56 @@ atl_touchdown = func {
     setprop("/autopilot/locks/altitude", "Off");
     setprop("/autopilot/settings/target-vfps", 0);
     interpolate("/controls/flight/elevator-trim", 0, 10.0);
-  }
-  if(agl < 0.8) {
-    # Disable the AP nav1 heading hold, deploy the spoilers and cut the
-    # throttles.
-    setprop("/autopilot/locks/heading", "Off");
-    setprop("/controls/flight/spoilers", 1);
-  }
-  if(agl < 4) {
-    setprop("/autopilot/locks/speed", "Off");
-    setprop("/controls/engines/engine[0]/throttle", 0);
-    setprop("/controls/engines/engine[1]/throttle", 0);
-    setprop("/controls/engines/engine[2]/throttle", 0);
-    setprop("/controls/engines/engine[3]/throttle", 0);
-    setprop("/controls/engines/engine[4]/throttle", 0);
-    setprop("/controls/engines/engine[5]/throttle", 0);
-    setprop("/controls/engines/engine[6]/throttle", 0);
-    setprop("/controls/engines/engine[7]/throttle", 0);
-  }
-  if(agl < 1) {
-    setprop("/autopilot/settings/target-vfps", -0.1);
   } else {
-    if(agl < 2) {
-      setprop("/autopilot/settings/target-vfps", -0.5);
+    if(agl < 0.8) {
+      setprop("/autopilot/locks/heading", "Off");
+      setprop("/controls/flight/spoilers", 1);
     } else {
       if(agl < 4) {
-        setprop("/autopilot/settings/target-vfps", -1);
+        setprop("/autopilot/locks/speed", "Off");
+        setprop("/controls/engines/engine[0]/throttle", 0);
+        setprop("/controls/engines/engine[1]/throttle", 0);
+        setprop("/controls/engines/engine[2]/throttle", 0);
+        setprop("/controls/engines/engine[3]/throttle", 0);
+        setprop("/controls/engines/engine[4]/throttle", 0);
+        setprop("/controls/engines/engine[5]/throttle", 0);
+        setprop("/controls/engines/engine[6]/throttle", 0);
+        setprop("/controls/engines/engine[7]/throttle", 0);
+      }
+    }
+  }
+  if(agl < 1) {
+    setprop("/autopilot/settings/target-vfps", -0.5);
+  } else {
+    if(agl < 2) {
+      setprop("/autopilot/settings/target-vfps", -1.0);
+    } else {
+      if(agl < 4) {
+        setprop("/autopilot/settings/target-vfps", -2);
       } else {
         if(agl < 8) {
-          setprop("/autopilot/settings/target-vfps", -2);
+          setprop("/autopilot/settings/target-vfps", -3);
         } else {
           if(agl < 16) {
-            setprop("/autopilot/settings/target-vfps", -3);
+            setprop("/autopilot/settings/target-vfps", -4);
           } else {
             if(agl < 20) {
-              setprop("/autopilot/settings/target-vfps", -4);
-              setprop("/autopilot/locks/heading", "wing-leveler");
+              setprop("/autopilot/settings/target-vfps", -6);
             } else {
               if(agl < 40) {
-                setprop("/autopilot/settings/target-vfps", -6);
+                setprop("/autopilot/settings/target-vfps", -8);
               } else {
                 if(agl < 80) {
-                  setprop("/autopilot/settings/target-vfps", -8);
+                  setprop("/autopilot/settings/target-vfps", -10);
                 } else {
-                  if(vfps < -9) {
-                    setprop("/autopilot/settings/target-vfps", -9);
+                  if(agl < 160) {
+                    setprop("/autopilot/settings/target-vfps", -12);
+                  } else {
+                    setprop("/autopilot/locks/altitude", "gsvfps-hold");
+                    setprop("/autopilot/settings/target-vfps", vfps);
+                    setprop("/autopilot/locks/AoA-lock", "off");
+                    setprop("/autopilot/locks/heading", "");
                   }
-                   setprop("/autopilot/locks/heading", "wing-leveler");
                 }
               }
             }
@@ -246,21 +278,17 @@ atl_touchdown = func {
 atl_aoa = func {
   #This script handles AoA dependent actions.
   aoa = getprop("/orientation/alpha-deg");
+  flpxa = getprop("/autopilot/settings/flap-extend-aoa-deg");
   if(getprop("/controls/flight/flaps") < 1) {
-    if(aoa > 3) {
+    if(aoa > flpxa) {
       setprop("/controls/flight/flaps", 1);
-    }
-  } else {
-    if(aoa < 1) {
-      setprop("/autopilot/settings/target-AoA-deg", 1);
-      setprop("/autopilot/locks/AoA-lock", "Engaged");
     }
   }
 }
 #--------------------------------------------------------------------
 atl_heading = func {
   # This script handles heading dependent actions.
-  hdnddf = getprop("/autopilot/internal/filtered-heading-needle-deflection");
+  hdnddf = getprop("/autopilot/internal/heading-needle-deflection-filtered");
   if(hdnddf < 3) {
     if(hdnddf > -3) {
       setprop("/autopilot/locks/heading", "nav1-hold-fa");
