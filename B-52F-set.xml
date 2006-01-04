@@ -226,8 +226,7 @@ B-52F set file.
 
   <autopilot>
     <settings>
-      <flap-extend-aoa-deg type="float">5.9</flap-extend-aoa-deg>
-      <flap-extend-speed-kt type="float">230</flap-extend-speed-kt>
+      <flap-extend-aoa-deg type="float">3.4</flap-extend-aoa-deg>
       <flap-retract-speed-kt type="float">180</flap-retract-speed-kt>
       <target-agl-ft type="float">1000</target-agl-ft>
       <target-altitude-ft type="float">2500</target-altitude-ft>
@@ -239,15 +238,15 @@ B-52F set file.
       <climb-out-final-pitch-deg type="float">4.0</climb-out-final-pitch-deg>
       <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
       <target-mach type="float">0.46</target-mach>
-      <target-AoA-deg type="float">1.0</target-AoA-deg>
+      <target-aoa-deg type="float">1.0</target-aoa-deg>
     </settings>
 
     <locks>
+      <aoa type="string">initialised</aoa>
       <auto-take-off type="string">enabled</auto-take-off>
       <auto-landing type="string">disabled</auto-landing>
       <rudder-control type="string">initialised</rudder-control>
       <take-off-phase type="string">initialised</take-off-phase>
-      <AoA-lock type="string">initialised</AoA-lock>
     </locks>
   </autopilot>
 

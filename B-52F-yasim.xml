@@ -22,7 +22,7 @@ Lee Elliott.
 <airplane mass="173599">
 
 <!-- Approach configuration -->
- <approach speed="150" aoa="1.0" fuel="0.9">
+ <approach speed="155" aoa="1.0" fuel="0.9">
   <control-setting axis="/controls/engines/engine[0]/throttle" value="0.5"/>
   <control-setting axis="/controls/engines/engine[1]/throttle" value="0.5"/>
   <control-setting axis="/controls/engines/engine[2]/throttle" value="0.5"/>
@@ -92,9 +92,9 @@ Lee Elliott.
  <wing x="-16.0" y="1.6" z="1.5" taper="0.4" incidence="6" twist="-6"
       length="31.1" chord="10.0" sweep="34.5" dihedral="0.0" camber="0.0">
   <stall aoa="29.0" width="3" peak="1.2"/>
-  <flap0 start="0.0" end="0.62" lift="1.33" drag="1.4"/>
+  <flap0 start="0.0" end="0.62" lift="1.22" drag="1.8"/>
   <flap1 start="0.62" end="0.7" lift="1.2" drag="1.2"/>
-  <spoiler start="0.5" end="0.75" lift="-1.05" drag="2"/>
+  <spoiler start="0.5" end="0.75" lift="0.0" drag="3"/>
 
   <control-input axis="/controls/flight/flaps" control="FLAP0"/>
   <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>

@@ -24,7 +24,7 @@ ato_start_takeoff = func {
           hdgdeg = getprop("/orientation/heading-deg");
           setprop("/autopilot/settings/ground-roll-heading-deg", hdgdeg);
           setprop("/autopilot/settings/true-heading-deg", hdgdeg);
-          setprop("/autopilot/settings/target-AoA-deg", 0);
+          setprop("/autopilot/settings/target-aoa-deg", 0);
           setprop("/autopilot/settings/target-speed-kt", 310);
           setprop("/autopilot/settings/climb-out-pitch-deg", 0.0);
           setprop("/autopilot/locks/altitude", "ground-roll");
@@ -70,10 +70,10 @@ ato_start = func {
       if(getprop("surface-positions/left-flap-pos-norm") > 0.999) {
         if(getprop("surface-positions/right-flap-pos-norm") > 0.999) {
           hdgdeg = getprop("/orientation/heading-deg");
+          toptdeg = getprop("/autopilot/settings/take-off-pitch-deg");
           setprop("/autopilot/settings/ground-roll-heading-deg", hdgdeg);
           setprop("/autopilot/settings/true-heading-deg", hdgdeg);
-          setprop("/autopilot/settings/target-AoA-deg", 0);
-          toptdeg = getprop("/autopilot/settings/take-off-pitch-deg");
+          setprop("/autopilot/settings/target-aoa-deg", 0);
           setprop("/autopilot/settings/target-pitch-deg", toptdeg);
           setprop("/autopilot/settings/target-speed-kt", 310);
           setprop("/autopilot/locks/altitude", "take-off");
@@ -174,9 +174,9 @@ atl_spddep = func {
     setprop("/controls/flight/spoilers", 0.57);
     setprop("/autopilot/settings/target-speed-kt", 160);
   } else {
-    if(airspeed < 170) {
-      setprop("/autopilot/settings/target-AoA-deg", 1);
-      setprop("/autopilot/locks/AoA-lock", "Engaged");
+    if(airspeed < 165) {
+      setprop("/autopilot/settings/target-aoa-deg", 1);
+      setprop("/autopilot/locks/aoa", "engaged");
       setprop("/controls/gear/gear-down", "true");
     }
   }
@@ -185,15 +185,9 @@ atl_spddep = func {
 atl_glideslope = func {
   # This script handles glide slope interception.
   if(getprop("/position/altitude-agl-ft") > 200) {
-    if(getprop("/autopilot/locks/altitude") != "gsvfps-hold") {
-      setprop("/autopilot/settings/target-vfps", 0);
-      setprop("/autopilot/locks/altitude", "gsvfps-hold");
-    } else {
-      if(getprop("/autopilot/internal/filtered-gs-rate-of-climb") < 0) {
-        gsvfps = getprop("/instrumentation/nav[0]/gs-rate-of-climb");
-        setprop("/autopilot/settings/target-vfps", gsvfps);
-        setprop("/autopilot/locks/altitude", "gsvfps-hold");
-      }
+    if(getprop("/autopilot/internal/filtered-gs-rate-of-climb") < 0) {
+      gsvfps = getprop("/instrumentation/nav[0]/gs-rate-of-climb");
+      setprop("/autopilot/settings/target-vfps", gsvfps);
     }
   }
 }
@@ -202,9 +196,6 @@ atl_touchdown = func {
   # Touch Down phase.
   agl = getprop("/position/altitude-agl-ft");
   vfps = getprop("/velocities/vertical-speed-fps");
-  setprop("/autopilot/locks/altitude", "gsvfps-hold");
-  setprop("/autopilot/settings/target-vfps", vfps);
-  setprop("/autopilot/locks/AoA-lock", "Off");
 
   if(agl < 0.01) {
     setprop("/controls/gear/brake-left", 0.1);
@@ -234,35 +225,37 @@ atl_touchdown = func {
     }
   }
   if(agl < 1) {
-    setprop("/autopilot/settings/target-vfps", -0.5);
+    setprop("/autopilot/settings/target-vfps", -2);
   } else {
     if(agl < 2) {
-      setprop("/autopilot/settings/target-vfps", -1.0);
+      setprop("/autopilot/settings/target-vfps", -3);
     } else {
       if(agl < 4) {
-        setprop("/autopilot/settings/target-vfps", -2);
+        setprop("/autopilot/settings/target-vfps", -4);
       } else {
         if(agl < 8) {
-          setprop("/autopilot/settings/target-vfps", -3);
+          setprop("/autopilot/settings/target-vfps", -5);
         } else {
           if(agl < 16) {
-            setprop("/autopilot/settings/target-vfps", -4);
+            setprop("/autopilot/settings/target-vfps", -6);
           } else {
             if(agl < 20) {
-              setprop("/autopilot/settings/target-vfps", -6);
+              setprop("/autopilot/settings/target-vfps", -7);
             } else {
               if(agl < 40) {
-                setprop("/autopilot/settings/target-vfps", -8);
+                setprop("/autopilot/settings/target-vfps", -9);
               } else {
                 if(agl < 80) {
-                  setprop("/autopilot/settings/target-vfps", -10);
+                  if(vfps < -10) {
+                    setprop("/autopilot/settings/target-vfps", -10);
+                  }
                 } else {
                   if(agl < 160) {
-                    setprop("/autopilot/settings/target-vfps", -12);
+                    if(vfps < -12) {
+                      interpolate("/autopilot/settings/target-vfps", -12, 1);
+                    }
                   } else {
-                    setprop("/autopilot/locks/altitude", "gsvfps-hold");
-                    setprop("/autopilot/settings/target-vfps", vfps);
-                    setprop("/autopilot/locks/AoA-lock", "off");
+                    setprop("/autopilot/locks/aoa", "off");
                     setprop("/autopilot/locks/heading", "");
                   }
                 }
@@ -282,6 +275,8 @@ atl_aoa = func {
   if(getprop("/controls/flight/flaps") < 1) {
     if(aoa > flpxa) {
       setprop("/controls/flight/flaps", 1);
+        setprop("/autopilot/settings/target-vfps", 0);
+        setprop("/autopilot/locks/altitude", "gsvfps-hold");
     }
   }
 }
@@ -317,11 +312,6 @@ initialise_drop_view_pos = func {
   setprop("/sim/view[7]/altitude-ft", eyealtft);
 }
 #--------------------------------------------------------------------
-initialise_target_altitude = func {
-  alt = getprop("/position/altitude-ft") + 3000;
-  setprop("/autopilot/settings/target-altitude-ft", alt);
-}
-#--------------------------------------------------------------------
 update_drop_view_pos = func {
   eyelatdeg = getprop("/position/latitude-deg");
   eyelondeg = getprop("/position/longitude-deg");
@@ -333,6 +323,5 @@ update_drop_view_pos = func {
 #--------------------------------------------------------------------
 start_up = func {
   settimer(initialise_drop_view_pos, 5);
-  settimer(initialise_target_altitude, 5);
 }
 #--------------------------------------------------------------------
