@@ -417,7 +417,7 @@
     <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/altitude</prop>
-      <value>terrain-follow</value>
+      <value>agl-hold</value>
     </enable>
     <input>
       <prop>/position/altitude-agl-ft</prop>
@@ -447,7 +447,7 @@
     <debug>false</debug>
     <enable>
       <prop>/autopilot/locks/altitude</prop>
-      <value>terrain-follow</value>
+      <value>agl-hold</value>
     </enable>
     <input>
       <prop>/velocities/vertical-speed-fps</prop>

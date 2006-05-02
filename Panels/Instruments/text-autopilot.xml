@@ -386,12 +386,12 @@
    </transformations>
   </layer>
 
-<!-- Terrain Follow -->
+<!-- AGL Hold -->
   <layer>
    <condition>
     <equals>
      <property>/autopilot/locks/altitude</property>
-     <value>terrain-follow</value>
+     <value>agl-hold</value>
     </equals>
    </condition>
    <name>Terain Follow Engaged</name>
@@ -796,9 +796,9 @@
    </binding>
   </action>
 
-<!-- Engage Terrain Follow -->
+<!-- Engage AGL Hold -->
   <action>
-   <name>Terrain Follow Select</name>
+   <name>AGL Hold Select</name>
    <button>0</button>
    <x>2</x>
    <y>-10</y>
@@ -807,7 +807,7 @@
    <binding>
     <command>property-assign</command>
     <property alias="../../../../params/tf-select"/>
-    <value type="string">terrain-follow</value>
+    <value type="string">agl-hold</value>
    </binding>
   </action>
 
