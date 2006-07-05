@@ -36,6 +36,7 @@
       <prop>/controls/flight/aileron</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>0.04</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -70,6 +71,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-2.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
@@ -100,6 +102,7 @@
       <prop>/controls/flight/aileron</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>0.04</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -143,6 +146,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-2.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
@@ -173,6 +177,7 @@
       <prop>/controls/flight/aileron</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>0.04</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -226,6 +231,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-1.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
@@ -256,6 +262,7 @@
       <prop>/controls/flight/aileron</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>0.2</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -292,6 +299,7 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-0.15</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -322,6 +330,7 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-0.05</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -365,6 +374,7 @@
       <prop>/autopilot/internal/target-climb-rate-fps</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>0.1</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.01</alpha>  <!-- low pass filter weighing factor -->
@@ -372,7 +382,7 @@
                           <!-- unfiltered derivative error -->
       <Ti>40.0</Ti>     <!-- integrator time -->
       <Td>0.0000000000001</Td>    <!-- derivator time -->
-      <u_min>-20.0</u_min> <!-- minimum output clamp -->
+      <u_min>-40.0</u_min> <!-- minimum output clamp -->
       <u_max>20.0</u_max> <!-- maximum output clamp -->
     </config>
   </pid-controller>
@@ -395,7 +405,8 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
-      <Kp>-0.002</Kp>      <!-- proportional gain -->
+      <Ts>0.01</Ts>
+      <Kp>-0.003</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
@@ -429,6 +440,7 @@
       <prop>/autopilot/internal/target-climb-rate-fps</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>0.1</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -459,6 +471,7 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-0.002</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -499,6 +512,7 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-0.008</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -542,6 +556,7 @@
       <prop>/controls/engines/engine[7]/throttle</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>0.04</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -572,6 +587,7 @@
       <prop>/autopilot/settings/target-pitch-deg</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-1.0</Kp>       <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -601,6 +617,7 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-0.05</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -610,6 +627,68 @@
       <Td>0.00001</Td>    <!-- derivator time -->
       <u_min>-1.0</u_min> <!-- minimum output clamp -->
       <u_max>1.0</u_max>  <!-- maximum output clamp -->
+    </config>
+  </pid-controller>
+
+<!--
+     ==========================================================
+     Common Pitch Axis hold functions.
+     
+     The Common Pitch Axis hold functions use a common Pitch
+     Hold controller as their final stage.
+     
+     The hierarchies for the different mode are:
+     
+     Pitch Hold
+       pitch-hold
+       
+     VFPS Hold
+       vfps-hold
+         pitch-hold
+         
+     Altitude Hold
+       altitude-hold
+         vfps-hold
+           pitch-hold
+           
+     AGL Hold
+       agl-hold
+         vfps-hold
+           pitch-hold
+           
+     GS Hold
+       vfps-hold
+         pitch-hold
+     ==========================================================
+-->
+
+<!-- Common Pitch Axis Hold -->
+  <pid-controller>
+    <name>cpa-pitch-hold</name>
+    <debug>false</debug>
+    <enable>
+      <prop>/autopilot/locks/altitude</prop>
+      <value>cpa-pitch-hold</value>
+    </enable>
+    <input>
+      <prop>/orientation/pitch-deg</prop>
+    </input>
+    <reference>
+      <prop>/autopilot/settings/target-pitch-deg</prop>
+    </reference>
+    <output>
+      <prop>/controls/flight/elevator-incidence-deg</prop>
+    </output>
+    <config>
+      <Ts>0.01</Ts>
+      <Kp>-40.0</Kp>
+      <beta>1.0</beta>
+      <alpha>0.1</alpha>
+      <gamma>0.0</gamma>
+      <Ti>20.0</Ti>
+      <Td>0.00000000000000000000000000000000000000001</Td>
+      <u_min>-1.0</u_min>
+      <u_max>1.0</u_max>
     </config>
   </pid-controller>
 
@@ -635,7 +714,8 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
-      <Kp>-0.3</Kp>      <!-- proportional gain -->
+      <Ts>0.01</Ts>
+      <Kp>-0.4</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->
@@ -672,6 +752,7 @@
       <prop>/controls/engines/engine[7]/throttle</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>10.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -707,6 +788,7 @@
       <prop>/autopilot/internal/target-climb-rate-fps</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>7200.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.01</alpha>  <!-- low pass filter weighing factor -->
@@ -737,6 +819,7 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-0.003</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -767,6 +850,7 @@
       <prop>/controls/flight/rudder</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>0.5</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -797,6 +881,7 @@
       <prop>/autopilot/settings/target-speed-kt</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-2.0</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -830,6 +915,7 @@
       <prop>/autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>-10.0</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>     <!-- input value weighing factor -->
       <alpha>0.1</alpha>   <!-- low pass filter weighing factor -->
@@ -860,6 +946,7 @@
       <prop>/controls/flight/aileron</prop>
     </output>
     <config>
+      <Ts>0.01</Ts>
       <Kp>0.3</Kp>        <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
@@ -894,7 +981,8 @@
       <prop>/controls/flight/elevator-trim</prop>
     </output>
     <config>
-      <Kp>-0.012</Kp>      <!-- proportional gain -->
+      <Ts>0.01</Ts>
+      <Kp>-0.015</Kp>      <!-- proportional gain -->
       <beta>1.0</beta>    <!-- input value weighing factor -->
       <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
       <gamma>0.0</gamma>  <!-- input value weighing factor for -->

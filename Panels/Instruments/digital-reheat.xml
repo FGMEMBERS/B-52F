@@ -19,7 +19,7 @@
   <layer>
    <name>background</name>
    <texture>
-    <path>Aircraft/B-52F/Panels/Instruments/Textures/trans-orange-bg.rgb</path>
+    <path>Aircraft/B-52F/Panels/Instruments/Textures/trans-dgrey-bg.rgb</path>
    </texture>
     <w>160</w>
     <h>16</h>
@@ -38,11 +38,11 @@
   <layer>
    <name>Title</name>
    <type>text</type>
-   <point-size>14</point-size>
+   <point-size>12</point-size>
    <color>
-    <red>1.0</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
+    <red>0.8</red>
+    <green>0.8</green>
+    <blue>0.8</blue>
    </color>
    <chunks>
     <chunk>
@@ -53,11 +53,11 @@
    <transformations>
     <transformation>
      <type>x-shift</type>
-     <offset>3</offset>
+     <offset>4</offset>
     </transformation>
     <transformation>
      <type>y-shift</type>
-     <offset>3</offset>
+     <offset>4</offset>
     </transformation>
    </transformations>
   </layer>
@@ -69,8 +69,8 @@
    <point-size>5</point-size>
    <color>
     <red>1.0</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
+    <green>1.0</green>
+    <blue>1.0</blue>
    </color>
    <chunks>
     <chunk>
@@ -94,11 +94,11 @@
   <layer>
    <name>RHT-Title</name>
    <type>text</type>
-   <point-size>14</point-size>
+   <point-size>12</point-size>
    <color>
-    <red>1.0</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
+    <red>0.8</red>
+    <green>0.8</green>
+    <blue>0.8</blue>
    </color>
    <chunks>
     <chunk>
@@ -113,7 +113,7 @@
     </transformation>
     <transformation>
      <type>y-shift</type>
-     <offset>3</offset>
+     <offset>4</offset>
     </transformation>
    </transformations>
   </layer>
@@ -125,8 +125,8 @@
    <point-size>5</point-size>
    <color>
     <red>1.0</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
+    <green>1.0</green>
+    <blue>1.0</blue>
    </color>
    <chunks>
     <chunk>

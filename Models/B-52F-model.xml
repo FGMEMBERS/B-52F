@@ -68,7 +68,42 @@ B52-H model/animation config.
       <z>0.0</z>
     </axis>
   </animation>
-  
+
+<!--
+  <animation>
+    <type>rotate</type>
+    <object-name>LTailPlane</object-name>
+    <property>surface-positions/elevator-incidence-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m>41.24</x-m>
+      <y-m>0.0</y-m>
+      <z-m>1.06</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RTailPlane</object-name>
+    <property>surface-positions/elevator-incidence-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m>41.24</x-m>
+      <y-m>0.0</y-m>
+      <z-m>1.06</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+-->
 <!-- Wing bend -->
 <!-- Left -->
   <animation>
