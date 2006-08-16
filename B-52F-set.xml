@@ -339,7 +339,7 @@ B-52F set file.
       <script>start_up();</script>
     </B52F>
     <aar> 
-      <file>Aircraft/B-52F/AAR.nas</file>
+      <file>Aircraft/B-52F/Nasal/AAR.nas</file>
     </aar>
   </nasal>
 
