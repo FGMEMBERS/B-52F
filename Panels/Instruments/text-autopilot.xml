@@ -524,129 +524,66 @@
   </layer>
 
 <!-- Instrument Landing -->
-<!-- nav1 hold Phase -->
-  <layer>
-   <condition>
-    <equals>
-     <property>/autopilot/locks/heading</property>
-     <value>nav1-hold</value>
-    </equals>
-   </condition>
-   <name>Instrument Landing Engaged (nav1-hold Phase)</name>
-   <type>text</type>
-   <point-size>14</point-size>
-   <color>
-    <red>1.0</red>
-    <green>0.5</green>
-    <blue>0.0</blue>
-   </color>
-   <chunks>
-    <chunk>
-     <type>literal</type>
-     <text>IL</text>
-    </chunk>
-   </chunks>
-   <transformations>
-    <transformation>
-     <type>x-shift</type>
-     <offset>63</offset>
-    </transformation>
-    <transformation>
-     <type>y-shift</type>
-     <offset>-4</offset>
-    </transformation>
-   </transformations>
-  </layer>
-
-<!-- nav1 final approach hold Phase -->
-  <layer>
-   <condition>
-    <equals>
-     <property>/autopilot/locks/heading</property>
-     <value>nav1-hold-fa</value>
-    </equals>
-   </condition>
-   <name>Instrument Landing Engaged (nav1-hold Phase)</name>
-   <type>text</type>
-   <point-size>14</point-size>
-   <color>
-    <red>1.0</red>
-    <green>0.0</green>
-    <blue>0.0</blue>
-   </color>
-   <chunks>
-    <chunk>
-     <type>literal</type>
-     <text>IL</text>
-    </chunk>
-   </chunks>
-   <transformations>
-    <transformation>
-     <type>x-shift</type>
-     <offset>63</offset>
-    </transformation>
-    <transformation>
-     <type>y-shift</type>
-     <offset>-4</offset>
-    </transformation>
-   </transformations>
-  </layer>
-
-<!-- Glide Slope Phase -->
-  <layer>
-   <condition>
-    <equals>
-     <property>/autopilot/locks/altitude</property>
-     <value>gs1-hold</value>
-    </equals>
-   </condition>
-   <name>Instrument Landing Engaged (Glide Slope Phase)</name>
-   <type>text</type>
-   <point-size>14</point-size>
-   <color>
-    <red>1.0</red>
-    <green>0.5</green>
-    <blue>0.5</blue>
-   </color>
-   <chunks>
-    <chunk>
-     <type>literal</type>
-     <text>IL</text>
-    </chunk>
-   </chunks>
-   <transformations>
-    <transformation>
-     <type>x-shift</type>
-     <offset>63</offset>
-    </transformation>
-    <transformation>
-     <type>y-shift</type>
-     <offset>-4</offset>
-    </transformation>
-   </transformations>
-  </layer>
-
-<!-- Glide-slope VFPS-hold engaged -->
-<!-- Approach phase -->
+<!-- nav1 hold & VFPS hold -->
   <layer>
     <condition>
       <and>
         <equals>
-          <property>/autopilot/locks/altitude</property>
-          <value>gsvfps-hold</value>
+          <property>/autopilot/locks/heading</property>
+          <value>nav1-hold</value>
         </equals>
-        <less-than>
-          <property>/autopilot/settings/target-vfps</property>
-          <value>-10</value>
-        </less-than>
+        <equals>
+          <property>/autopilot/locks/altitude</property>
+          <value>vfps-hold</value>
+        </equals>
       </and>
     </condition>
-    <name>Instrument Landing Engaged (Touch Down Phase)</name>
+    <name>Instrument Landing Engaged 2</name>
     <type>text</type>
     <point-size>14</point-size>
     <color>
       <red>1.0</red>
-      <green>1.0</green>
+      <green>0.0</green>
+      <blue>1.0</blue>
+    </color>
+    <chunks>
+      <chunk>
+        <type>literal</type>
+        <text>IL</text>
+      </chunk>
+    </chunks>
+    <transformations>
+      <transformation>
+        <type>x-shift</type>
+        <offset>63</offset>
+      </transformation>
+      <transformation>
+        <type>y-shift</type>
+        <offset>-4</offset>
+      </transformation>
+    </transformations>
+  </layer>
+
+<!-- nav1 hold & Flaps -->
+  <layer>
+    <condition>
+      <and>
+        <equals>
+          <property>/autopilot/locks/heading</property>
+          <value>nav1-hold</value>
+        </equals>
+        <equals>
+          <property>/controls/flight/flaps</property>
+          <value>1</value>
+        </equals>
+      </and>
+    </condition>
+    <name>Instrument Landing Engaged 2</name>
+    <type>text</type>
+    <point-size>14</point-size>
+    <color>
+      <red>1.0</red>
+      <green>0.5</green>
       <blue>0.0</blue>
     </color>
     <chunks>
@@ -667,28 +604,27 @@
     </transformations>
   </layer>
 
-<!-- Glide-slope VFPS-hold engaged -->
-<!-- Touch-down phase -->
+<!-- VFPS hold & < 400 ft agl -->
   <layer>
     <condition>
       <and>
         <equals>
           <property>/autopilot/locks/altitude</property>
-          <value>gsvfps-hold</value>
+          <value>vfps-hold</value>
         </equals>
-        <greater-than>
-          <property>/autopilot/settings/target-vfps</property>
-          <value>-10</value>
-        </greater-than>
+        <less-than>
+          <property>/position/altitude-agl-ft</property>
+          <value>400</value>
+        </less-than>
       </and>
     </condition>
-    <name>Instrument Landing Engaged (Touch Down Phase)</name>
+    <name>Instrument Landing Engaged 1</name>
     <type>text</type>
     <point-size>14</point-size>
     <color>
       <red>1.0</red>
-      <green>0.4</green>
-      <blue>0.4</blue>
+      <green>0.0</green>
+      <blue>0.0</blue>
     </color>
     <chunks>
       <chunk>

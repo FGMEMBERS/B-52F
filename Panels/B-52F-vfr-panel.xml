@@ -326,7 +326,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <egt-select>/engines/engine[0]/egt-degf</egt-select>
    </params>
    <x>370</x>
-   <y>365</y>
+   <y>378</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -344,7 +344,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <egt-select>/engines/engine[1]/egt-degf</egt-select>
    </params>
    <x>370</x>
-   <y>345</y>
+   <y>360</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -362,7 +362,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <egt-select>/engines/engine[1]/egt-degf</egt-select>
    </params>
    <x>370</x>
-   <y>325</y>
+   <y>342</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -380,7 +380,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <egt-select>/engines/engine[1]/egt-degf</egt-select>
    </params>
    <x>370</x>
-   <y>305</y>
+   <y>324</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -398,7 +398,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <egt-select>/engines/engine[1]/egt-degf</egt-select>
    </params>
    <x>370</x>
-   <y>285</y>
+   <y>306</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -416,7 +416,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <egt-select>/engines/engine[1]/egt-degf</egt-select>
    </params>
    <x>370</x>
-   <y>265</y>
+   <y>288</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -434,7 +434,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <egt-select>/engines/engine[1]/egt-degf</egt-select>
    </params>
    <x>370</x>
-   <y>245</y>
+   <y>270</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -452,7 +452,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <egt-select>/engines/engine[1]/egt-degf</egt-select>
    </params>
    <x>370</x>
-   <y>225</y>
+   <y>252</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -466,7 +466,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <lbs-select>/consumables/fuel/tank[0]/level-lbs</lbs-select>
    </params>
    <x>370</x>
-   <y>205</y>
+   <y>234</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -479,7 +479,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <lbs-select>/consumables/fuel/tank[1]/level-lbs</lbs-select>
    </params>
    <x>370</x>
-   <y>165</y>
+   <y>216</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -492,7 +492,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <lbs-select>/consumables/fuel/tank[2]/level-lbs</lbs-select>
    </params>
    <x>370</x>
-   <y>125</y>
+   <y>198</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -505,7 +505,7 @@ Hacked by Lee Elliott for the B-52F mock panel
     <lbs-select>/consumables/fuel/tank[3]/level-lbs</lbs-select>
    </params>
    <x>370</x>
-   <y>85</y>
+   <y>180</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -518,7 +518,98 @@ Hacked by Lee Elliott for the B-52F mock panel
     <lbs-select>/consumables/fuel/tank[4]/level-lbs</lbs-select>
    </params>
    <x>370</x>
-   <y>45</y>
+   <y>162</y>
+   <w>40</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-fuel-tank.xml">
+   <name>Tank 5 display</name>
+   <params>
+    <tank-num>/consumables/fuel/tank[5]/tank-num</tank-num>
+    <gal-select>/consumables/fuel/tank[5]/level-gal_us</gal-select>
+    <lbs-select>/consumables/fuel/tank[5]/level-lbs</lbs-select>
+   </params>
+   <x>370</x>
+   <y>144</y>
+   <w>40</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-fuel-tank.xml">
+   <name>Tank 6 display</name>
+   <params>
+    <tank-num>/consumables/fuel/tank[6]/tank-num</tank-num>
+    <gal-select>/consumables/fuel/tank[6]/level-gal_us</gal-select>
+    <lbs-select>/consumables/fuel/tank[6]/level-lbs</lbs-select>
+   </params>
+   <x>370</x>
+   <y>126</y>
+   <w>40</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-fuel-tank.xml">
+   <name>Tank 7 display</name>
+   <params>
+    <tank-num>/consumables/fuel/tank[7]/tank-num</tank-num>
+    <gal-select>/consumables/fuel/tank[7]/level-gal_us</gal-select>
+    <lbs-select>/consumables/fuel/tank[7]/level-lbs</lbs-select>
+   </params>
+   <x>370</x>
+   <y>108</y>
+   <w>40</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-fuel-tank.xml">
+   <name>Tank 8 display</name>
+   <params>
+    <tank-num>/consumables/fuel/tank[8]/tank-num</tank-num>
+    <gal-select>/consumables/fuel/tank[8]/level-gal_us</gal-select>
+    <lbs-select>/consumables/fuel/tank[8]/level-lbs</lbs-select>
+   </params>
+   <x>370</x>
+   <y>90</y>
+   <w>40</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-fuel-tank.xml">
+   <name>Tank 9 display</name>
+   <params>
+    <tank-num>/consumables/fuel/tank[9]/tank-num</tank-num>
+    <gal-select>/consumables/fuel/tank[9]/level-gal_us</gal-select>
+    <lbs-select>/consumables/fuel/tank[9]/level-lbs</lbs-select>
+   </params>
+   <x>370</x>
+   <y>72</y>
+   <w>40</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-fuel-tank.xml">
+   <name>Tank 10 display</name>
+   <params>
+    <tank-num>/consumables/fuel/tank[10]/tank-num</tank-num>
+    <gal-select>/consumables/fuel/tank[10]/level-gal_us</gal-select>
+    <lbs-select>/consumables/fuel/tank[10]/level-lbs</lbs-select>
+   </params>
+   <x>370</x>
+   <y>54</y>
+   <w>40</w>
+   <h>10</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-fuel-tank.xml">
+   <name>Tank 11 display</name>
+   <params>
+    <tank-num>/consumables/fuel/tank[11]/tank-num</tank-num>
+    <gal-select>/consumables/fuel/tank[11]/level-gal_us</gal-select>
+    <lbs-select>/consumables/fuel/tank[11]/level-lbs</lbs-select>
+   </params>
+   <x>370</x>
+   <y>36</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -630,7 +721,7 @@ Hacked by Lee Elliott for the B-52F mock panel
    <instrument include="Instruments/digital-alt.xml">
    <name>Altitude display</name>
    <x>370</x>
-   <y>445</y>
+   <y>450</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -638,7 +729,7 @@ Hacked by Lee Elliott for the B-52F mock panel
   <instrument include="Instruments/digital-vsi.xml">
    <name>Vsi display</name>
    <x>370</x>
-   <y>425</y>
+   <y>432</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -646,7 +737,7 @@ Hacked by Lee Elliott for the B-52F mock panel
   <instrument include="Instruments/digital-agl.xml">
    <name>Elevation AGL display</name>
    <x>370</x>
-   <y>405</y>
+   <y>414</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -654,7 +745,7 @@ Hacked by Lee Elliott for the B-52F mock panel
   <instrument include="Instruments/digital-kias.xml">
    <name>KIAS display</name>
    <x>475</x>
-   <y>445</y>
+   <y>450</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -662,7 +753,7 @@ Hacked by Lee Elliott for the B-52F mock panel
   <instrument include="Instruments/digital-mach.xml">
    <name>Mach display</name>
    <x>475</x>
-   <y>425</y>
+   <y>432</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -670,7 +761,7 @@ Hacked by Lee Elliott for the B-52F mock panel
   <instrument include="Instruments/digital-accl.xml">
    <name>Accel display</name>
    <x>475</x>
-   <y>405</y>
+   <y>414</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -678,7 +769,7 @@ Hacked by Lee Elliott for the B-52F mock panel
   <instrument include="Instruments/digital-wgt.xml">
    <name>Weight display</name>
    <x>370</x>
-   <y>385</y>
+   <y>396</y>
    <w>40</w>
    <h>10</h>
   </instrument>
@@ -686,7 +777,7 @@ Hacked by Lee Elliott for the B-52F mock panel
   <instrument include="Instruments/digital-aoa.xml">
    <name>AoA display</name>
    <x>475</x>
-   <y>385</y>
+   <y>396</y>
    <w>40</w>
    <h>10</h>
   </instrument>

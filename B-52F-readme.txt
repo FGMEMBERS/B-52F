@@ -173,9 +173,6 @@ achieving the full performance has proved difficult so the current
 fdm should be regarded as developmental and still incorporating a lot
 of guesswork.
 
-While the low altitude performance seems more or less acceptable, it
-cant reach it's service ceiling of 46,700ft with a useful fuel load.
-
 The fdm is configured for a full fuel load - this just about
 represents the heaviest weight at which the B-52F operated.
 
@@ -211,6 +208,16 @@ The range of the a/c was too low as well so I've reduced the tsfc
 value from the default 0.8 to 0.7.  I don't have a proper number
 for this value yet but as it's quite an old engine I don't think it
 would be very low.
+
+IMPORTANT NOTE
+--------------
+The B-52 had very heavy stick and rudder controls (> 200lbs) and this
+is impossible to simulate with typical joysticks and footpedels.  This
+degree of weighting made it impossible to move the controls quickly and
+this should be bourne in mind when flying the Buff.
+
+(I don't know if this is still the case with the later models but it
+applies to the 'F' model)
 
 Keyboard mapping
 ----------------
@@ -292,106 +299,41 @@ elevations i.e. cliffs.
 
 TO Mode
 -------
-The TO (automatic take-off mode) function is intended to be used to
-automate the take-off process.  It should be noted that the a/c has
-the parking-brake engaged when FG starts and this should be released
-before trying to take-off.  In addition, because the flaps take a
-very long time to extend/retract, they need to be extended manually
-before engaging TO mode.  If TO mode is engaged before the flaps are
-fully extended nothing will happen, however, once the flaps have
-completed extending the TO sequence will start.
+The TO (automatic take-off) mode will attempt to perform a take-off in
+the direction that the a/c is pointing - there's no way that I know of
+to actually track the runway.
 
-When TO mode is engaged, the following sequence of actions occur:
+You need to be on the ground and with the flaps fully extended before
+this mode will function.
 
-  The current heading of the a/c on the runway is set for both
-  the ground-roll and in-air heading.
-  
-  Hold speed-with-throttle is engaged (KIAS mode)
-  
-  The wing-leveller is engaged
-  
-  Rudder/nose wheel steering is engaged.
-
-As soon as speed-with-throttle is engaged, the a/c will start
-accelerating down the runway and once it has sufficient speed it will
-lift off from the ground.  Note that during the ground roll there is
-no specific means of keeping the a/c on the runway centre-line so
-while the a/c will hold the heading, there may be some drift across
-the runway in cross-winds.
-
-Once the a/c has climbed above 50ft agl, a climb-out pitch-hold
-controller is engaged, to hold the a/c at a constant pitch, the
-under-carriage is retracted, the rudder control is reset and the
-rudder re-centred.
-
-As the aircraft continues accelerating, the flaps are retracted and
-when the a/c exceeds 260 kias the heading hold is switched to
-true-heading-hold, speed control is set to mach-with-throttle and
-Mach-Climb mode (see below) is engaged.  The final action is to
-disable the AP TO mode so that it cannot be engaged in flight.
-
-It is possible to set a number of way points before engaging the TO
-function but it is then necessary to hit Ctrl-h a couple of times to
-dis-engage true-heading-hold, which is set whenever a way point is
-entered, and re-centre the ailerons before TO is engaged.  What will
-happen in this case is that once the take-off sequence has finished
-and true-heading-hold is engaged, the a/c will turn to the
-appropriate heading and follow the way points.  If no way points have
-been set the take-off heading will be followed.
+Once the a/c has achieved 260 kias it will switch to altitude-hold and
+true heading-hold.
 
 IL Mode
 -------
-The IL (automatic instrument landing) function is intended to land
-the aircraft automatically, provided that the runway you wish to land
-on has an instrument landing system and that the radio nav equipment
-is already correctly tuned for the intended landing runway.
+The IL (automatic instrument landing) mode will attempt to get the
+a/c on the nav1 ILS heading & then follow it, configure it for landing
+and get it on to the glideslope.  The heading is switched off at 400ft
+agl because at many airports, depending on where the ils equipment is
+located, you can find yourself veering off before you get on the runway.
 
-You should be in Altitude Hold mode and well below the glide-slope
-when IL mode is engaged.  This is because extending the flaps has a
-considerable effect on the drag and trim and should be done while the
-a/c is in level flight.  Even so, you are likely to gain up to 500 ft
-altitude as the flaps extend.  While the flaps are extending, which
-takes a full 60 seconds (or 120 seconds if one of the two flap
-control motors has failed, although this failure mode has not yet
-been modelled), and although the height gain is unavoidable, the AP
-AH controller should be able to maintain control of the a/c and will
-bring it back down to the set AH height once the flaps are fully
-extended, provided that the glide-slope has not been intercepted due
-the the altitude gain as the flaps deployed.
+I suggest using the keyboard, first, to center the controls and then
+just make very small adjustments (typically a quick touch of either the
+left or right arrow key, immediately followed by the opposite key to 
+re-center), basically to keep the wings level.  You shouldn't actually
+need to steer the aircraft at this point because it _should_ be pretty
+well lined up.
 
-The a/c should then fly level until it intercepts the glide-slope, at
-which point it will start following it down, maintaining 1 deg AoA.
+The engines and elevator, however, will remain under the control of the
+auto-landing script until touchdown.
 
-The one deg AoA actually results in a two deg nose down attitude on
-a 3 deg glide-slope and allows for 2 deg in which to flare and land
-level.
+The auto-landing script limits the max descent-rate on the glideslope
+so you will need to ensure that you're not too high/too close when
+trying this mode.
 
-The a/c should follow the glide-slope down until it is 100ft agl, at
-which point it switches to Touch-down mode and tries to land the a/c
-at < 1 fps.
-
-In an attempt to cater for cross-winds, and the final nav1 correction
-that kicks in shortly before reaching the runway, the AP switches to
-a modified nav1-hold controller which uses the nav1 needle deflection
-for guidence when the a/c is a few degrees off the nav1 course and
-which, in my testing has proved better at putting the a/c down in the
-right place.  However, this modified mode can also temporarily kick
-in if the nav1 course is crossed so it's a good idea to be clearly
-heading towards the intended runway before engaging IL mode.
-
-From my testing, I'd recommend an AH height setting of between 2000
-2500ft above the target runway, dependent on the distance from the
-target runway - this should give enough time for the AP to get the 
-a/c stable on the glide-slope.  If it isn't, any oscillations will
-only get worse as you get closer to the runway and will result in a
-crash.  You also need to be travelling at more than 230 kts before
-engaging IL mode as this is one of the internal thresholds that
-trigger some of the internal IL functions.  As the B-52 should not
-exceed about 350 kt at low level you should also be at or below this
-speed when engaging IL mode - around 220-310 kts, depending upon the
-weight seems to be about the right speed range.
-
-Who said landing an aircraft is easy?  ;)
+It is, of course, not very reliable, but gives some idea of what needs
+to be done at various phases of landing i.e. getting the speed down and
+coping with the huge trim changes required when the flaps are extended.
 
 MC Mode
 -------
@@ -407,4 +349,4 @@ increase it again (using the AP Speed Controller) or force a climb by
 pulling back on the stick.
 
 
-Lee Elliott.     2004/06/07
+Lee Elliott.     2006/08/30

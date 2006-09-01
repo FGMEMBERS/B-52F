@@ -3,7 +3,7 @@
 ************************************************************************
 B-52F set file.
 
-2005-12-29 Lee Elliott
+2006-08-02 Lee Elliott
 ************************************************************************
 -->
 
@@ -237,19 +237,26 @@ B-52F set file.
 
   <autopilot>
     <settings>
-      <flap-extend-aoa-deg type="float">3.4</flap-extend-aoa-deg>
+      <approach-aoa-deg type="float">1.0</approach-aoa-deg>
+      <approach-spoiler-low-weight-lbs type="float">260000</approach-spoiler-low-weight-lbs>
+      <approach-spoiler-max-weight-lbs type="float">360000</approach-spoiler-max-weight-lbs>
+      <flap-extend-aoa-deg type="float">3.8</flap-extend-aoa-deg>
+      <flap-extend-max-speed-kts type="float">220.0</flap-extend-max-speed-kts>
       <flap-retract-speed-kt type="float">180</flap-retract-speed-kt>
+      <gear-extend-max-speed-kt type="float">170</gear-extend-max-speed-kt>
+      <glide-slope-min-vfps type="float">-18</glide-slope-min-vfps>
       <target-agl-ft type="float">1000</target-agl-ft>
-      <target-altitude-ft type="float">2500</target-altitude-ft>
+      <target-altitude-ft type="float">3000</target-altitude-ft>
+      <target-aoa-deg type="float">1.0</target-aoa-deg>
+      <target-climb-rate-fps type="float">1.0</target-climb-rate-fps>
+      <target-mach type="float">0.46</target-mach>
       <target-pitch-deg type="float">0</target-pitch-deg>
-      <target-vfps type="float">0</target-vfps>
-      <take-off-pitch-deg type="float">0.0</take-off-pitch-deg>
+      <target-roll-deg type="float">0.0</target-roll-deg>
       <target-speed-kt type="float">310.0</target-speed-kt>
+      <take-off-pitch-deg type="float">0.0</take-off-pitch-deg>
       <climb-out-initial-pitch-deg type="float">-0.5</climb-out-initial-pitch-deg>
       <climb-out-final-pitch-deg type="float">4.0</climb-out-final-pitch-deg>
       <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
-      <target-mach type="float">0.46</target-mach>
-      <target-aoa-deg type="float">1.0</target-aoa-deg>
     </settings>
 
     <locks>
@@ -268,7 +275,6 @@ B-52F set file.
     </gear>
     <flight>
       <flaps type="double">1.0</flaps>
-      <elevator-incidence-deg type="double">0.0</elevator-incidence-deg>
     </flight>
   </controls>
   
@@ -321,6 +327,34 @@ B-52F set file.
       </tank>
       <tank n="4">
         <tank-num type="int">4</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="5">
+        <tank-num type="int">5</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="6">
+        <tank-num type="int">6</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="7">
+        <tank-num type="int">7</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="8">
+        <tank-num type="int">8</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="9">
+        <tank-num type="int">9</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="10">
+        <tank-num type="int">10</tank-num>
+        <kill-when-empty type="bool">false</kill-when-empty>
+      </tank>
+      <tank n="11">
+        <tank-num type="int">11</tank-num>
         <kill-when-empty type="bool">false</kill-when-empty>
       </tank>
     </fuel>
