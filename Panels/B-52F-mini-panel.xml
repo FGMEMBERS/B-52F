@@ -166,7 +166,7 @@ Hacked by Lee Elliott for the B-52F mock panel
 
   <instrument include="../../Instruments/brakes.xml">
    <name>Brake Indicator Light</name>
-   <x>20</x>
+   <x>18</x>
    <y>130</y>
    <w>32</w>
    <h>15</h>
@@ -174,7 +174,7 @@ Hacked by Lee Elliott for the B-52F mock panel
 
   <instrument include="../../Instruments/gear-indicator.xml">
    <name>Gear Indicator Light</name>
-   <x>60</x>
+   <x>58</x>
    <y>130</y>
    <w>32</w>
    <h>14</h>
@@ -182,7 +182,7 @@ Hacked by Lee Elliott for the B-52F mock panel
 
   <instrument include="../../Instruments/controls.xml">
    <name>Control Position Indicators</name>
-   <x>40</x>
+   <x>38</x>
    <y>70</y>
    <w>90</w>
    <h>90</h>
@@ -192,7 +192,7 @@ Hacked by Lee Elliott for the B-52F mock panel
 
   <instrument include="Instruments/attitude-indicator.xml">
    <name>Attitude Gyro</name>
-   <x>105</x>
+   <x>103</x>
    <y>100</y>
    <w>65</w>
    <h>65</h>
@@ -200,7 +200,7 @@ Hacked by Lee Elliott for the B-52F mock panel
 
   <instrument include="../../Instruments/turn.xml">
    <name>Turn Coordinator</name>
-   <x>170</x>
+   <x>166</x>
    <y>100</y>
    <w>65</w>
    <h>65</h>
@@ -208,7 +208,7 @@ Hacked by Lee Elliott for the B-52F mock panel
 
   <instrument include="../../Instruments/hsi.xml">
    <name>Horizontal Situation Indicator</name>
-   <x>135</x>
+   <x>103</x>
    <y>35</y>
    <w>65</w>
    <h>65</h>
@@ -226,96 +226,112 @@ Hacked by Lee Elliott for the B-52F mock panel
 
   <instrument include="Instruments/digital-alt.xml">
    <name>Altitude display</name>
-   <x>300</x>
-   <y>122</y>
-   <w>40</w>
-   <h>10</h>
+   <x>350</x>
+   <y>130</y>
+   <w>100</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-agl.xml">
    <name>Elevation AGL display</name>
-   <x>300</x>
-   <y>105</y>
-   <w>40</w>
-   <h>10</h>
+   <x>350</x>
+   <y>113</y>
+   <w>100</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-vsi.xml">
    <name>Vsi display</name>
-   <x>300</x>
-   <y>88</y>
-   <w>40</w>
-   <h>10</h>
+   <x>350</x>
+   <y>96</y>
+   <w>100</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-aoa.xml">
    <name>AoA display</name>
-   <x>300</x>
-   <y>71</y>
-   <w>40</w>
-   <h>10</h>
+   <x>350</x>
+   <y>79</y>
+   <w>100</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-accl.xml">
    <name>Accel display</name>
-   <x>300</x>
-   <y>54</y>
-   <w>40</w>
-   <h>10</h>
+   <x>350</x>
+   <y>62</y>
+   <w>100</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-kias.xml">
    <name>KIAS display</name>
-   <x>300</x>
-   <y>37</y>
-   <w>40</w>
-   <h>10</h>
+   <x>350</x>
+   <y>45</y>
+   <w>100</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-mach.xml">
    <name>Mach display</name>
-   <x>300</x>
-   <y>20</y>
-   <w>40</w>
-   <h>10</h>
+   <x>350</x>
+   <y>28</y>
+   <w>100</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-wgt.xml">
    <name>Weight display</name>
-   <x>503</x>
-   <y>80</y>
-   <w>40</w>
-   <h>10</h>
+   <x>553</x>
+   <y>88</y>
+   <w>100</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-fuel-tot.xml">
    <name>Fuel tot display</name>
-   <x>401</x>
-   <y>122</y>
-   <w>40</w>
-   <h>10</h>
-  </instrument>
-
-  <instrument include="Instruments/digital-roll.xml">
-   <name>Roll display</name>
-   <x>198</x>
-   <y>54</y>
-   <w>40</w>
-   <h>10</h>
+   <x>451</x>
+   <y>106</y>
+   <w>100</w>
+   <h>64</h>
   </instrument>
 
   <instrument include="Instruments/digital-pitch.xml">
    <name>Pitch display</name>
-   <x>198</x>
-   <y>73</y>
-   <w>40</w>
-   <h>10</h>
+   <x>248</x>
+   <y>130</y>
+   <w>100</w>
+   <h>16</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-roll.xml">
+   <name>Roll display</name>
+   <x>248</x>
+   <y>113</y>
+   <w>100</w>
+   <h>16</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-yaw.xml">
+   <name>Yaw display</name>
+   <x>248</x>
+   <y>96</y>
+   <w>100</w>
+   <h>16</h>
+  </instrument>
+
+  <instrument include="Instruments/digital-steering.xml">
+   <name>Steering display</name>
+   <x>248</x>
+   <y>62</y>
+   <w>100</w>
+   <h>48</h>
   </instrument>
 
   <instrument include="Instruments/digital-wind-speed-direction.xml">
    <name>Wind speed/direction display</name>
    <x>243</x>
-   <y>36</y>
+   <y>20</y>
    <w>110</w>
    <h>34</h>
   </instrument>
@@ -331,10 +347,10 @@ Hacked by Lee Elliott for the B-52F mock panel
     <n2-select>/engines/engine[0]/n2</n2-select>
     <ff-select>/engines/engine[0]/fuel-flow-gph</ff-select>
    </params>
-   <x>630</x>
-   <y>122</y>
-   <w>40</w>
-   <h>10</h>
+   <x>825</x>
+   <y>130</y>
+   <w>390</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-engine.xml">
@@ -347,10 +363,10 @@ Hacked by Lee Elliott for the B-52F mock panel
     <n2-select>/engines/engine[1]/n2</n2-select>
     <ff-select>/engines/engine[1]/fuel-flow-gph</ff-select>
    </params>
-   <x>630</x>
-   <y>105</y>
-   <w>40</w>
-   <h>10</h>
+   <x>825</x>
+   <y>113</y>
+   <w>390</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-engine.xml">
@@ -363,10 +379,10 @@ Hacked by Lee Elliott for the B-52F mock panel
     <n2-select>/engines/engine[2]/n2</n2-select>
     <ff-select>/engines/engine[2]/fuel-flow-gph</ff-select>
    </params>
-   <x>630</x>
-   <y>88</y>
-   <w>40</w>
-   <h>10</h>
+   <x>825</x>
+   <y>96</y>
+   <w>390</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-engine.xml">
@@ -379,10 +395,10 @@ Hacked by Lee Elliott for the B-52F mock panel
     <n2-select>/engines/engine[3]/n2</n2-select>
     <ff-select>/engines/engine[3]/fuel-flow-gph</ff-select>
    </params>
-   <x>630</x>
-   <y>71</y>
-   <w>40</w>
-   <h>10</h>
+   <x>825</x>
+   <y>79</y>
+   <w>390</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-engine.xml">
@@ -395,10 +411,10 @@ Hacked by Lee Elliott for the B-52F mock panel
     <n2-select>/engines/engine[4]/n2</n2-select>
     <ff-select>/engines/engine[4]/fuel-flow-gph</ff-select>
    </params>
-   <x>630</x>
-   <y>54</y>
-   <w>40</w>
-   <h>10</h>
+   <x>825</x>
+   <y>62</y>
+   <w>390</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-engine.xml">
@@ -411,10 +427,10 @@ Hacked by Lee Elliott for the B-52F mock panel
     <n2-select>/engines/engine[5]/n2</n2-select>
     <ff-select>/engines/engine[5]/fuel-flow-gph</ff-select>
    </params>
-   <x>630</x>
-   <y>37</y>
-   <w>40</w>
-   <h>10</h>
+   <x>825</x>
+   <y>45</y>
+   <w>390</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-engine.xml">
@@ -427,10 +443,10 @@ Hacked by Lee Elliott for the B-52F mock panel
     <n2-select>/engines/engine[6]/n2</n2-select>
     <ff-select>/engines/engine[6]/fuel-flow-gph</ff-select>
    </params>
-   <x>630</x>
-   <y>20</y>
-   <w>40</w>
-   <h>10</h>
+   <x>825</x>
+   <y>28</y>
+   <w>390</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-engine.xml">
@@ -443,10 +459,10 @@ Hacked by Lee Elliott for the B-52F mock panel
     <n2-select>/engines/engine[7]/n2</n2-select>
     <ff-select>/engines/engine[7]/fuel-flow-gph</ff-select>
    </params>
-   <x>630</x>
-   <y>3</y>
-   <w>40</w>
-   <h>10</h>
+   <x>825</x>
+   <y>11</y>
+   <w>390</w>
+   <h>16</h>
   </instrument>
 
   <instrument include="Instruments/digital-ap-speed-kt.xml">
@@ -465,10 +481,10 @@ Hacked by Lee Elliott for the B-52F mock panel
 
   <instrument include="Instruments/digital-flap.xml">
    <name>Flap setting display</name>
-   <x>300</x>
-   <y>3</y>
-   <w>40</w>
-   <h>10</h>
+   <x>350</x>
+   <y>11</y>
+   <w>100</w>
+   <h>16</h>
   </instrument>
 
 <!-- Text AP Block -->

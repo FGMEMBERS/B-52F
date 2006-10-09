@@ -205,7 +205,7 @@ Lee Elliott.
 <!-- Landing Gear -->
 <!-- Front Left -->
   <gear x="-13.4" y="2.0" z="-3.0" retract-time="14" compression="1.0" spring="1.2" damp="1.5">
-    <control-input axis="/controls/flight/rudder" control="STEER" square="true"/>
+    <control-input axis="/controls/gear/steer-front-norm" control="STEER"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
@@ -213,11 +213,12 @@ Lee Elliott.
     <control-speed control="EXTEND" transition-time="14"/>
     <control-speed control="BRAKE" transition-time="0.7"/>
     <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+    <control-output control="STEER" prop="/gear/gear[0]/steering-norm"/>
   </gear>
 
 <!-- Front Right -->
   <gear x="-13.4" y="-2.0" z="-3.0" retract-time="14" compression="1.0" spring="1.2" damp="1.5">
-    <control-input axis="/controls/flight/rudder" control="STEER" square="true"/>
+    <control-input axis="/controls/gear/steer-front-norm" control="STEER"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
@@ -225,26 +226,31 @@ Lee Elliott.
     <control-speed control="EXTEND" transition-time="14"/>
     <control-speed control="BRAKE" transition-time="0.7"/>
     <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+    <control-output control="STEER" prop="/gear/gear[1]/steering-norm"/>
   </gear>
 
 <!-- Rear Left -->
   <gear x="-28.3" y="2.0" z="-3.0" retract-time="14" compression="1.0" spring="1.0" damp="1.5">
+    <control-input axis="/controls/gear/steer-rear-norm" control="STEER"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
     <control-speed control="EXTEND" transition-time="14"/>
     <control-speed control="BRAKE" transition-time="0.7"/>
     <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+    <control-output control="STEER" prop="/gear/gear[2]/steering-norm"/>
   </gear>
 
 <!-- Rear Right -->
   <gear x="-28.3" y="-2.0" z="-3.0" retract-time="14" compression="1.0" spring="1.0" damp="1.5">
+    <control-input axis="/controls/gear/steer-rear-norm" control="STEER"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
     <control-speed control="EXTEND" transition-time="14"/>
     <control-speed control="BRAKE" transition-time="0.7"/>
     <control-output control="EXTEND" prop="/gear/gear[3]/position-norm"/>
+    <control-output control="STEER" prop="/gear/gear[3]/steering-norm"/>
   </gear>
 
 <!-- Left Wing -->

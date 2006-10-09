@@ -5,16 +5,16 @@ autotakeoff = func {
 }
 #--------------------------------------------------------------------
 ato_initiation = func {
-  # Check that the ground-roll-heading has been reset
+  # Check that the steering-heading-deg has been reset
   # (< -999), that the a/c is on the ground and that the flaps
   # have been deployed.  If so, auto-takeoff is started.
-  if(getprop("/autopilot/settings/ground-roll-heading-deg") < -999) {
+  if(getprop("/autopilot/settings/steering-heading-deg") < -999) {
     if(getprop("/position/gear-agl-ft") < 0.10) {
       if(getprop("surface-positions/left-flap-pos-norm") > 0.999) {
         if(getprop("surface-positions/right-flap-pos-norm") > 0.999) {
           hdgdeg = getprop("/orientation/heading-deg");
           toptdeg = getprop("/autopilot/settings/take-off-pitch-deg");
-          setprop("/autopilot/settings/ground-roll-heading-deg", hdgdeg);
+          setprop("/autopilot/settings/steering-heading-deg", hdgdeg);
           setprop("/autopilot/settings/true-heading-deg", hdgdeg);
           setprop("/autopilot/settings/target-aoa-deg", 0);
           setprop("/autopilot/settings/target-climb-rate-fps", 0);
@@ -27,6 +27,7 @@ ato_initiation = func {
           setprop("/autopilot/locks/rudder-control", "rudder-hold");
           setprop("/autopilot/locks/take-off-phase", "take-off");
           setprop("/autopilot/locks/auto-take-off", "engaged");
+          setprop("/autopilot/locks/steering-front", "ground-roll");
           setprop("/controls/flight/spoilers", 0);
           setprop("/controls/gear/brake-left", 0);
           setprop("/controls/gear/brake-right", 0);
@@ -40,6 +41,7 @@ ato_initiation = func {
 #--------------------------------------------------------------------
 ato_loop = func {
   if(getprop("/autopilot/locks/auto-take-off") == "engaged") {
+    ato_heading();
     ato_mode();
     ato_winject();
     ato_spddep();
@@ -47,7 +49,7 @@ ato_loop = func {
   }
 }
 #--------------------------------------------------------------------
-ato_mode = func {
+ato_heading = func {
   agl = getprop("/position/altitude-agl-ft");
   if(agl > 50) {
     tophase = getprop("/autopilot/locks/take-off-phase");
@@ -56,8 +58,27 @@ ato_mode = func {
       interpolate("/autopilot/settings/target-pitch-deg", coiptdeg, 4);
       setprop("/controls/gear/gear-down", "false");
       setprop("/autopilot/locks/rudder-control", "reset");
+      setprop("/autopilot/locks/steering-front", "reset");
       setprop("/autopilot/locks/take-off-phase", "climb-out");
       interpolate("/controls/flight/rudder", 0, 10);
+    }
+  }
+}
+#--------------------------------------------------------------------
+ato_mode = func {
+  agl = getprop("/position/altitude-agl-ft");
+  rdrctrl = getprop("/autopilot/locks/rudder-control");
+  if(agl > 50) {
+    tophase = getprop("/autopilot/locks/take-off-phase");
+    if(tophase == "take-off") {
+      coiptdeg = getprop("/autopilot/settings/climb-out-initial-pitch-deg");
+      interpolate("/autopilot/settings/target-pitch-deg", coiptdeg, 4);
+      setprop("/controls/gear/gear-down", "false");
+      setprop("/autopilot/locks/take-off-phase", "climb-out");
+      if(rdrctrl != "") {
+        setprop("/autopilot/locks/rudder-control", "");
+        interpolate("/controls/flight/rudder", 0, 10);
+      }
     }
   }
 }
@@ -78,23 +99,30 @@ ato_spddep = func {
   # This script controls speed dependent actions.
   airspeed = getprop("/velocities/airspeed-kt");
   flpretkt = getprop("/autopilot/settings/flap-retract-speed-kt");
-  if(airspeed < flpretkt) {
-    # Do not do anything until airspeed > flap retraction speed kt
+  if(airspeed < 40) {
+    # Do nothing until we're moving (allow for high windspeed)
   } else {
-    if(airspeed < 260) {
-      setprop("/controls/flight/flaps", 0);
-      cofptdeg = getprop("/autopilot/settings/climb-out-final-pitch-deg");
-      interpolate("/autopilot/settings/target-pitch-deg", cofptdeg, 8);
+    if(airspeed < flpretkt) {
+      setprop("/autopilot/locks/steering-front", "ground-roll");
     } else {
-      if(getprop("surface-positions/left-flap-pos-norm") < 0.001) {
-        if(getprop("surface-positions/right-flap-pos-norm") < 0.001) {
-          # Switch to true-heading-hold, Mach-Hold throttle
-          # mode, mach-hold-climb mode and disable Take-Off mode.
-          setprop("/autopilot/locks/heading", "true-heading-hold");
-          setprop("/autopilot/locks/altitude", "altitude-hold");
-          setprop("/autopilot/locks/auto-take-off", "disabled");
-          setprop("/autopilot/locks/auto-landing", "enabled");
-          setprop("/autopilot/settings/target-climb-rate-fps", 0);
+      if(airspeed < 260) {
+        setprop("/autopilot/locks/steering-front", "reset");
+        setprop("/autopilot/locks/steering-front", "");
+        setprop("/controls/gear/steer-front-norm", 0);
+        setprop("/controls/flight/flaps", 0);
+        cofptdeg = getprop("/autopilot/settings/climb-out-final-pitch-deg");
+        interpolate("/autopilot/settings/target-pitch-deg", cofptdeg, 8);
+      } else {
+        if(getprop("surface-positions/left-flap-pos-norm") < 0.001) {
+          if(getprop("surface-positions/right-flap-pos-norm") < 0.001) {
+            # Switch to true-heading-hold, Mach-Hold throttle
+            # mode, mach-hold-climb mode and disable Take-Off mode.
+            setprop("/autopilot/locks/heading", "true-heading-hold");
+            setprop("/autopilot/locks/altitude", "altitude-hold");
+            setprop("/autopilot/locks/auto-take-off", "disabled");
+            setprop("/autopilot/locks/auto-landing", "enabled");
+            setprop("/autopilot/settings/target-climb-rate-fps", 0);
+          }
         }
       }
     }
@@ -117,7 +145,9 @@ autoland = func {
 atl_initiation = func {
   cvfps = getprop("/velocities/vertical-speed-fps");
   flpextaoa = getprop("/autopilot/settings/flap-extend-aoa-deg");
-  
+  weight = getprop("/yasim/gross-weight-lbs");
+
+  setprop("/autopilot/internal/atl-weight-lbs", weight);
   setprop("/autopilot/locks/speed", "speed-with-throttle");
   setprop("/autopilot/settings/target-aoa-deg", (flpextaoa + 0.2));
   setprop("/autopilot/locks/aoa", "aoa-with-speed");
@@ -144,6 +174,7 @@ atl_loop = func {
   } else {
     # Touch Down phase.
     atl_touchdown();
+#    atl_steering();
   }
 
   # Re-schedule the next loop if the Landing function is enabled.
@@ -158,7 +189,7 @@ atl_spddep = func {
   appspmaxwgtlbs = getprop("/autopilot/settings/approach-spoiler-max-weight-lbs");
   appaoa = getprop("/autopilot/settings/approach-aoa-deg");
   curraskts = getprop("/velocities/airspeed-kt");
-  currweightlbs = getprop("/yasim/gross-weight-lbs");
+  atl_weight_lbs = getprop("/autopilot/internal/atl-weight-lbs");
   grmxextspdkt = getprop("/autopilot/settings/gear-extend-max-speed-kt");
   flpmxa = getprop("/autopilot/settings/flap-extend-aoa-deg");
   flppos = getprop("/surface-positions/flap-pos-norm");
@@ -170,10 +201,10 @@ atl_spddep = func {
       setprop("/controls/flight/spoilers", 1);
     }
   } else {
-    if(currweightlbs < appsplowwgtlbs) {
+    if(atl_weight_lbs < appsplowwgtlbs) {
       setprop("/controls/flight/spoilers", 0.857);
     } else {
-      if(currweightlbs < appspmaxwgtlbs) {
+      if(atl_weight_lbs < appspmaxwgtlbs) {
         setprop("/controls/flight/spoilers", 0.428);
       } else {
         setprop("/controls/flight/spoilers", 0);
@@ -246,13 +277,17 @@ atl_touchdown = func {
   if(agl < 1) {
     setprop("/controls/gear/brake-left", 0.1);
     setprop("/controls/gear/brake-right", 0.1);
-    setprop("/autopilot/settings/ground-roll-heading-deg", -999.9);
+    setprop("/autopilot/settings/steering-heading-deg", -999.9);
     setprop("/autopilot/locks/auto-landing", "disabled");
     setprop("/autopilot/locks/auto-take-off", "enabled");
-    setprop("/autopilot/locks/altitude", "Off");
+    setprop("/autopilot/locks/altitude", "");
+    setprop("/autopilot/locks/heading", "");
+    setprop("/autopilot/locks/steering-front", "");
     setprop("/autopilot/settings/target-climb-rate-fps", 0);
     interpolate("/controls/flight/elevator-trim", 0, 10.0);
   } else {
+    setprop("/autopilot/locks/steering-front", "auto-yaw");
+    setprop("/autopilot/locks/heading", "wing-leveler");
     if(agl < 2) {
       setprop("/autopilot/locks/heading", "");
       setprop("/controls/flight/spoilers", 1);
@@ -299,12 +334,89 @@ atl_touchdown = func {
                 if(vfps < -12) {
                   setprop("/autopilot/settings/target-climb-rate-fps", -12);
                 }
-              } else {
-                setprop("/autopilot/locks/heading", "");
               }
             }
           }
         }
+      }
+    }
+  }
+}
+#--------------------------------------------------------------------
+#atl_steering = func {
+#  gaglft = getprop("/position/gear-agl-ft");
+
+#  if(gaglft > 0.001) {
+#    setprop("/autopilot/locks/steering-front", "auto-yaw");
+#  } else {
+#    setprop("/autopilot/locks/steering-front", "");
+#  }
+#}
+#--------------------------------------------------------------------
+steering_norm_to_deg = func {
+  # This listener script provides a steering-deg node for display to
+  # the pilot so that the front gear steering can be aligned, with
+  # reference to the yaw, for cross-wind landings.  The rear gear
+  # steering is handled automatically so that the pilot doesn't have
+  # to try to control two independent sets of steering
+  # simultaneously.
+  steering_front_norm = getprop("/controls/gear/steer-front-norm");
+  steering_front_deg = steering_front_norm * 53;
+  steering_rear_norm = getprop("/controls/gear/steer-rear-norm");
+  steering_rear_deg = steering_rear_norm * 53;
+  setprop("/instrumentation/steering/steering-front-deg", steering_front_deg);
+  setprop("/instrumentation/steering/steering-rear-deg", steering_rear_deg);
+}
+#--------------------------------------------------------------------
+auto_steering = func {
+  # This listener script controls automatic gear steering.
+  
+  gear_agl_ft = getprop("/position/gear-agl-ft");
+  yaw_deg = getprop("/orientation/side-slip-deg");
+  steer_auto_transition_sec = getprop("/autopilot/settings/steering-auto-transition-sec");
+  front_steering_lock = getprop("/autopilot/locks/steering-front");
+  rear_steering_lock = getprop("/autopilot/locks/steering-rear");
+#  vertical_speed_fps = getprop("/velocities/vertical-speed-fps");
+
+  if(front_steering_lock == "auto-yaw") {
+    str_fr_norm = -1 * (yaw_deg / 53);
+    setprop("/controls/gear/steer-front-norm", str_fr_norm);
+  } else {
+    if(front_steering_lock == "auto-transition") {
+      setprop("/autopilot/locks/steering-front", "");
+      interpolate("/controls/gear/steer-front-norm", 0, steer_auto_transition_sec);
+    } else {
+      if(front_steering_lock == "reset") {
+        setprop("/controls/gear/steer-front-norm", 0);
+      }
+    }
+  }
+
+  if(gear_agl_ft > 400) {
+    if(rear_steering_lock != "locked") {
+      setprop("/autopilot/locks/steering-rear", "reset");
+    }
+  } else {
+    if(gear_agl_ft > 0.0001) {
+      setprop("/autopilot/locks/steering-rear", "auto-yaw");
+    } else {
+      if(rear_steering_lock != "locked") {
+        setprop("/autopilot/locks/steering-rear", "auto-transition");
+      }
+    }
+  }
+
+  if(rear_steering_lock == "auto-yaw") {
+    str_r_norm = -1 * (yaw_deg / 53);
+    setprop("/controls/gear/steer-rear-norm", str_r_norm);
+  } else {
+    if(rear_steering_lock == "auto-transition") {
+      setprop("/autopilot/locks/steering-rear", "locked");
+      interpolate("/controls/gear/steer-rear-norm", 0, steer_auto_transition_sec);
+    } else {
+      if(rear_steering_lock == "reset") {
+        setprop("/autopilot/locks/steering-rear", "locked");
+        setprop("/controls/gear/steer-rear-norm", 0);
       }
     }
   }
@@ -338,5 +450,8 @@ update_drop_view_pos = func {
 #--------------------------------------------------------------------
 start_up = func {
   settimer(initialise_drop_view_pos, 5);
+  setlistener("/controls/gear/steer-front-norm", steering_norm_to_deg);
+  setlistener("/autopilot/internal/side-slip-deg-filtered", auto_steering);
+#  setlistener("/autopilot/locks/steering-rear", auto_steering);
 }
 #--------------------------------------------------------------------

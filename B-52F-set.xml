@@ -172,8 +172,13 @@ B-52F set file.
        <too-fast-deg>-0.5</too-fast-deg>  <!-- target -1.5 deg -->         
      </aoa-indexer>
 
+<!-- Help -->
     <help>
       <title>Boeing B-52 F</title>
+      <key>
+        <name>Ctrl-z/Ctrl-\</name>
+        <desc>Steer Right/Left</desc>
+      </key>
       <key>
         <name>j/k</name>
         <desc>decrease/increase spoilers</desc>
@@ -194,21 +199,26 @@ B-52F set file.
   </sim>
 
 <!-- Keboard changes -->
-<!-- Flaps -->
   <input>
     <keyboard>
-      <key n="91">
-        <name>[</name>
-        <desc>Reduce Flaps</desc>
+
+<!-- Steering -->
+      <key n="26">
+        <name>CTRL-z</name>
+        <desc>Steer Right</desc>
         <binding>
-          <step type="double">-1.0</step>
+          <command>property-adjust</command>
+          <property>/controls/gear/steer-front-norm</property>
+          <step type="double">0.005</step>
         </binding>
       </key>
-      <key n="93">
-        <name>]</name>
-        <desc>Increase Flaps</desc>
+      <key n="28">
+        <name>CTRL-\</name>
+        <desc>Steer Left</desc>
         <binding>
-          <step type="double">1.0</step>
+          <command>property-adjust</command>
+          <property>/controls/gear/steer-front-norm</property>
+          <step type="double">-0.005</step>
         </binding>
       </key>
 
@@ -232,19 +242,52 @@ B-52F set file.
         </binding>
       </key>
       
+<!-- Flaps -->
+      <key n="91">
+        <name>[</name>
+        <desc>Reduce Flaps</desc>
+        <binding>
+          <step type="double">-1.0</step>
+        </binding>
+      </key>
+      <key n="93">
+        <name>]</name>
+        <desc>Increase Flaps</desc>
+        <binding>
+          <step type="double">1.0</step>
+        </binding>
+      </key>
+
    </keyboard>
   </input>
 
   <autopilot>
+
+    <internal>
+      <atl-weight-lbs type="float">0</atl-weight-lbs>
+    </internal>
+    
+    <locks>
+      <aoa type="string">initialised</aoa>
+      <auto-take-off type="string">enabled</auto-take-off>
+      <auto-landing type="string">disabled</auto-landing>
+      <steering-front type="string">initialised</steering-front>
+      <steering-rear type="string">initialised</steering-rear>
+      <rudder-control type="string">initialised</rudder-control>
+      <take-off-phase type="string">initialised</take-off-phase>
+    </locks>
+
     <settings>
       <approach-aoa-deg type="float">1.0</approach-aoa-deg>
-      <approach-spoiler-low-weight-lbs type="float">260000</approach-spoiler-low-weight-lbs>
+      <approach-spoiler-low-weight-lbs type="float">240000</approach-spoiler-low-weight-lbs>
       <approach-spoiler-max-weight-lbs type="float">360000</approach-spoiler-max-weight-lbs>
       <flap-extend-aoa-deg type="float">3.8</flap-extend-aoa-deg>
       <flap-extend-max-speed-kts type="float">220.0</flap-extend-max-speed-kts>
       <flap-retract-speed-kt type="float">180</flap-retract-speed-kt>
       <gear-extend-max-speed-kt type="float">170</gear-extend-max-speed-kt>
       <glide-slope-min-vfps type="float">-18</glide-slope-min-vfps>
+      <steering-auto-transition-sec type="float">15</steering-auto-transition-sec>
+      <steering-heading-deg type="float">-999.9</steering-heading-deg>
       <target-agl-ft type="float">1000</target-agl-ft>
       <target-altitude-ft type="float">3000</target-altitude-ft>
       <target-aoa-deg type="float">1.0</target-aoa-deg>
@@ -253,25 +296,20 @@ B-52F set file.
       <target-pitch-deg type="float">0</target-pitch-deg>
       <target-roll-deg type="float">0.0</target-roll-deg>
       <target-speed-kt type="float">310.0</target-speed-kt>
+      <take-off-heading-deg type="float">0.0</take-off-heading-deg>
       <take-off-pitch-deg type="float">0.0</take-off-pitch-deg>
       <climb-out-initial-pitch-deg type="float">-0.5</climb-out-initial-pitch-deg>
       <climb-out-final-pitch-deg type="float">4.0</climb-out-final-pitch-deg>
-      <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
     </settings>
 
-    <locks>
-      <aoa type="string">initialised</aoa>
-      <auto-take-off type="string">enabled</auto-take-off>
-      <auto-landing type="string">disabled</auto-landing>
-      <rudder-control type="string">initialised</rudder-control>
-      <take-off-phase type="string">initialised</take-off-phase>
-    </locks>
   </autopilot>
 
 <!-- Start with the Parking Brake on and flaps deployed -->
   <controls>
     <gear>
       <brake-parking type="double">1.0</brake-parking>
+      <steer-front-norm type="double">0</steer-front-norm>
+      <steer-rear-norm type="double">0</steer-rear-norm>
     </gear>
     <flight>
       <flaps type="double">1.0</flaps>
@@ -365,6 +403,9 @@ B-52F set file.
       <range type="int" archive="y">40</range>
       <minimized type="bool" archive="y">true</minimized>
     </radar>
+    <steering>
+      <steering-deg type="float" archive="y">0</steering-deg>
+    </steering>
   </instrumentation>
 
   <nasal>

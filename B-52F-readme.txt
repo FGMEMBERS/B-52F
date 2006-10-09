@@ -2,9 +2,7 @@ B-52F (YASim) readme.
 
 This is not an authentic representation of a B-52F but it's based on
 the right numbers, where I could find them.  There is a lot of
-guesswork in the fdm.  It should also be noted that this a/c is still
-very much under development, in nearly every respect and there are
-several aspects which need fixing/improving.
+guesswork in the fdm.
 
 History
 -------
@@ -178,7 +176,7 @@ represents the heaviest weight at which the B-52F operated.
 
 I was able to obtain some good performance and approach data from an
 ex-flyer of B-52s, including the 'F' model, and while the fdm doesn't
-exactly match the numbers I was given they are only about 5kts out.
+exactly match the numbers I was given it is only about 5kts out.
 
 Currently, YASim does not have support for water injection so this
 has been 'spoofed' by using the reheat feature.  The 'dry' thrust
@@ -209,8 +207,8 @@ value from the default 0.8 to 0.7.  I don't have a proper number
 for this value yet but as it's quite an old engine I don't think it
 would be very low.
 
-IMPORTANT NOTE
---------------
+IMPORTANT NOTES
+---------------
 The B-52 had very heavy stick and rudder controls (> 200lbs) and this
 is impossible to simulate with typical joysticks and footpedels.  This
 degree of weighting made it impossible to move the controls quickly and
@@ -219,12 +217,23 @@ this should be bourne in mind when flying the Buff.
 (I don't know if this is still the case with the later models but it
 applies to the 'F' model)
 
+Both the front and rear main landing gear are steerable on the B-52 to 
+allow for cross-wind landings with the quadracycle layout.  The front
+gear steering is controlled via the keyboard (Ctrl-\ & Ctrl-z = Left/Right)
+but the rear gear is controlled by a Nasal script, which is started
+automatically.  While in the air, the script aligns the rear wheels for any
+yaw present and then on touch-down the wheels are brought into alignment
+with the fuselage, taking fifteen seconds to do so.
+
+
 Keyboard mapping
 ----------------
 The following additional/non-standard keyboard mappings are set up
 for this aircraft
 
 Key               Action
+'Ctrl-\'          Steer Left
+'Ctrl-z'          Steer Right
 'K' (Shift-k)     Toggle trajactory markers on & off
 'U' (Shift-u)     Update the drop-view location.
 
@@ -312,17 +321,12 @@ true heading-hold.
 IL Mode
 -------
 The IL (automatic instrument landing) mode will attempt to get the
-a/c on the nav1 ILS heading & then follow it, configure it for landing
-and get it on to the glideslope.  The heading is switched off at 400ft
-agl because at many airports, depending on where the ils equipment is
-located, you can find yourself veering off before you get on the runway.
-
-I suggest using the keyboard, first, to center the controls and then
-just make very small adjustments (typically a quick touch of either the
-left or right arrow key, immediately followed by the opposite key to 
-re-center), basically to keep the wings level.  You shouldn't actually
-need to steer the aircraft at this point because it _should_ be pretty
-well lined up.
+a/c on the nav1 ILS heading & then follow it, configure the a/c for
+landing and get it on to the glideslope, follow the glide-slope down
+and perform a landing.  Both the front and rear landing gear will be 
+correctly aligned for any cross-winds but you will need to steer the
+front gear as the rear gear are aligned with the fuselage during the
+roll-out.
 
 The engines and elevator, however, will remain under the control of the
 auto-landing script until touchdown.
@@ -349,4 +353,4 @@ increase it again (using the AP Speed Controller) or force a climb by
 pulling back on the stick.
 
 
-Lee Elliott.     2006/08/30
+Lee Elliott.     2006/09/13

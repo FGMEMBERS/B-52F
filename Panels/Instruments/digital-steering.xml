@@ -5,9 +5,9 @@
 
 <PropertyList>
 
- <name>Digital Fuel Tot display</name>
+ <name>Digital Settring display</name>
  <w-base>100</w-base>
- <h-base>64</h-base>
+ <h-base>48</h-base>
 
  <layers>
 
@@ -17,7 +17,7 @@
     <path>Aircraft/B-52F/Panels/Instruments/Textures/trans-dgrey-bg.rgb</path>
    </texture>
     <w>100</w>
-    <h>64</h>
+    <h>48</h>
    <transformations>
     <transformation>
      <type>x-shift</type>
@@ -25,7 +25,7 @@
     </transformation>
     <transformation>
      <type>y-shift</type>
-     <offset>-0</offset>
+     <offset>0</offset>
     </transformation>
    </transformations>
   </layer>
@@ -42,7 +42,7 @@
    <chunks>
     <chunk>
      <type>literal</type>
-     <text>TOT FUEL: </text>
+     <text>Steering</text>
     </chunk>
    </chunks>
    <transformations>
@@ -52,13 +52,13 @@
     </transformation>
     <transformation>
      <type>y-shift</type>
-     <offset>20</offset>
+     <offset>12</offset>
     </transformation>
    </transformations>
   </layer>
 
   <layer>
-   <name>GalTitle</name>
+   <name>Front Title</name>
    <type>text</type>
    <point-size>12</point-size>
    <color>
@@ -69,7 +69,7 @@
    <chunks>
     <chunk>
      <type>literal</type>
-     <text>GAL: </text>
+     <text>Front:</text>
     </chunk>
    </chunks>
    <transformations>
@@ -79,13 +79,13 @@
     </transformation>
     <transformation>
      <type>y-shift</type>
-     <offset>5</offset>
+     <offset>-4</offset>
     </transformation>
    </transformations>
   </layer>
 
   <layer>
-   <name>GalDisplay</name>
+   <name>Front Display</name>
    <type>text</type>
    <font>led</font>
    <point-size>5</point-size>
@@ -97,8 +97,8 @@
    <chunks>
     <chunk>
      <type>number-value</type>
-     <property>/consumables/fuel/total-fuel-gals</property>
-     <format>%06.0f</format>
+     <property>/instrumentation/steering/steering-front-deg</property>
+     <format>%02.3f</format>
     </chunk>
    </chunks>
    <transformations>
@@ -108,13 +108,13 @@
     </transformation>
     <transformation>
      <type>y-shift</type>
-     <offset>4</offset>
+     <offset>-5</offset>
     </transformation>
    </transformations>
   </layer>
 
   <layer>
-   <name>LBSTitle</name>
+   <name>Rear Title</name>
    <type>text</type>
    <point-size>12</point-size>
    <color>
@@ -125,7 +125,7 @@
    <chunks>
     <chunk>
      <type>literal</type>
-     <text>LBS: </text>
+     <text>Rear:</text>
     </chunk>
    </chunks>
    <transformations>
@@ -135,13 +135,13 @@
     </transformation>
     <transformation>
      <type>y-shift</type>
-     <offset>-10</offset>
+     <offset>-19</offset>
     </transformation>
    </transformations>
   </layer>
 
   <layer>
-   <name>LBSDisplay</name>
+   <name>Rear Display</name>
    <type>text</type>
    <font>led</font>
    <point-size>5</point-size>
@@ -153,8 +153,8 @@
    <chunks>
     <chunk>
      <type>number-value</type>
-     <property>/consumables/fuel/total-fuel-lbs</property>
-     <format>%06.0f</format>
+     <property>/instrumentation/steering/steering-rear-deg</property>
+     <format>%02.3f</format>
     </chunk>
    </chunks>
    <transformations>
@@ -164,63 +164,7 @@
     </transformation>
     <transformation>
      <type>y-shift</type>
-     <offset>-11</offset>
-    </transformation>
-   </transformations>
-  </layer>
-
-  <layer>
-   <name>PropTitle</name>
-   <type>text</type>
-   <point-size>12</point-size>
-   <color>
-    <red>0.8</red>
-    <green>0.8</green>
-    <blue>0.8</blue>
-   </color>
-   <chunks>
-    <chunk>
-     <type>literal</type>
-     <text>PROP: </text>
-    </chunk>
-   </chunks>
-   <transformations>
-    <transformation>
-     <type>x-shift</type>
-     <offset>-46</offset>
-    </transformation>
-    <transformation>
-     <type>y-shift</type>
-     <offset>-25</offset>
-    </transformation>
-   </transformations>
-  </layer>
-
-  <layer>
-   <name>PropDisplay</name>
-   <type>text</type>
-   <font>led</font>
-   <point-size>5</point-size>
-   <color>
-    <red>1.0</red>
-    <green>1.0</green>
-    <blue>1.0</blue>
-   </color>
-   <chunks>
-    <chunk>
-     <type>number-value</type>
-     <property>/consumables/fuel/total-fuel-norm</property>
-     <format>%01.5f</format>
-    </chunk>
-   </chunks>
-   <transformations>
-    <transformation>
-     <type>x-shift</type>
-     <offset>0</offset>
-    </transformation>
-    <transformation>
-     <type>y-shift</type>
-     <offset>-26</offset>
+     <offset>-20</offset>
     </transformation>
    </transformations>
   </layer>
