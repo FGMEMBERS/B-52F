@@ -22,8 +22,6 @@ B-52F set file.
 
     <description>Boeing B-52 F in Arclight colour scheme</description>
 
-    <number-views type="int" archive="y">8</number-views>
-
     <chase-distance-m type="double" archive="y">-70.0</chase-distance-m>
 
     <view n="0">
@@ -37,7 +35,7 @@ B-52F set file.
       </config>
     </view>
 
-    <view n="6">
+    <view n="100">
       <name>Tail Gunner View</name>
       <type>lookfrom</type>
       <internal archive="y">true</internal>
@@ -64,7 +62,7 @@ B-52F set file.
       </config>
     </view>
 
-    <view n="7">
+    <view n="101">
       <name>Drop View</name>
       <type>lookat</type>
       <config>
