@@ -110,6 +110,12 @@ B-52F set file.
       </config>
     </view>
 
+    <view n="6">
+      <config>
+        <target-z-offset-m archive="y" type="double">20.0</target-z-offset-m>
+      </config>
+    </view>
+
     <sound>
       <audible>true</audible>
       <path>Aircraft/B-52F/Sounds/B-52F-sound.xml</path>
