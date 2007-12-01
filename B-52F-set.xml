@@ -66,12 +66,12 @@ B-52F set file.
       <name>Drop View</name>
       <type>lookat</type>
       <config>
-        <eye-lat-deg-path>/sim/view[7]/latitude-deg</eye-lat-deg-path>
-        <eye-lon-deg-path>/sim/view[7]/longitude-deg</eye-lon-deg-path>
-        <eye-alt-ft-path>/sim/view[7]/altitude-ft</eye-alt-ft-path>
-        <eye-roll-deg-path>/sim/view[7]/roll-deg</eye-roll-deg-path>
-        <eye-pitch-deg-path>/sim/view[7]/pitch-deg</eye-pitch-deg-path>
-        <eye-heading-deg-path>/sim/view[7]/heading-deg</eye-heading-deg-path>
+        <eye-lat-deg-path>/sim/view[101]/latitude-deg</eye-lat-deg-path>
+        <eye-lon-deg-path>/sim/view[101]/longitude-deg</eye-lon-deg-path>
+        <eye-alt-ft-path>/sim/view[101]/altitude-ft</eye-alt-ft-path>
+        <eye-roll-deg-path>/sim/view[101]/roll-deg</eye-roll-deg-path>
+        <eye-pitch-deg-path>/sim/view[101]/pitch-deg</eye-pitch-deg-path>
+        <eye-heading-deg-path>/sim/view[101]/heading-deg</eye-heading-deg-path>
         <at-model type="bool">true</at-model>
         <at-model-idx type="int">0</at-model-idx>
         <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
@@ -92,6 +92,7 @@ B-52F set file.
 
     <view n="2">
       <config>
+        <x-offset-m archive="y" type="double">0.0</x-offset-m>
         <y-offset-m archive="y" type="double">8.0</y-offset-m>
         <z-offset-m archive="y">-19.7</z-offset-m>
         <target-z-offset-m archive="y" type="double">20.0</target-z-offset-m>
@@ -141,9 +142,6 @@ B-52F set file.
       <autopilot>
         <path>Aircraft/B-52F/Systems/B-52F-autopilot.xml</path>
       </autopilot>
-      <electrical>
-        <path>Aircraft/B-52F/Systems/B-52F-electrical.xml</path>
-      </electrical>
     </systems>
 
 <!--sub models -->
@@ -198,7 +196,43 @@ B-52F set file.
       <line>Approach AoA 1.0 deg</line>
       <line>Flaps have only one setting: extended or retracted</line>
       <line>Flap cycle time 60 seconds</line>
+      <line></line>
+      <line>AP Modes</line>
+      <line>    AH - Altitude hold</line>
+      <line>    TF - Terrain follow/AGL hold</line>
+      <line>    TO - Auto take-off</line>
+      <line>    IL - ILS/Auto landing</line>
+      <line>    MC - Mach Climb</line>
+      <line></line>
+      <line>Click on AP Mode to turn off all A/P locks.</line>
+      <line></line>
+      <line>The 2D VFR panel is just a place-holder for the radio instruments</line>
+      <line> - use the 2D mini-panel to control the aircraft (Shift-s)</line>
+      <line></line>
+      <line>Set the Altitude hold and TF/AGL settings via the autopilot menu.</line>
+      <line>If an AP Mode is grayed out it is not available</line>
+      <line></line>
+      <line>Use the yaw display to align the landing main gear in cross-wind</line>
+      <line>landings - the rear gear will center itself once the speed is</line>
+      <line>below the transition speed for normal steering</line>
+      <line></line>
+      <line>To use Mach-Climb mode click on the light blue M in the speed</line>
+      <line>instrument to select mach-hold mode, set the required mach</line>
+      <line>you want to maintain, select MC and then either turn off</line>
+      <line>speed locks (Ctrl-s) and set the throttles manually or select</line>
+      <line>KIAS hold (yellow K) and set a high speed - this will force</line>
+      <line>the throttles to 100%</line>
     </help>
+
+    <gui>
+      <dialogs>
+        <TFA-popup>
+          <config>
+            <dialog include="Dialogs/TFA-popup.xml"/>
+          </config>
+        </TFA-popup>
+      </dialogs>
+    </gui>
 
   </sim>
 	
@@ -217,19 +251,21 @@ B-52F set file.
       <key n="26">
         <name>CTRL-z</name>
         <desc>Steer Right</desc>
+        <repeatable type="bool">true</repeatable>
         <binding>
           <command>property-adjust</command>
-          <property>/controls/gear/steer-front-norm</property>
-          <step type="double">0.005</step>
+          <property>/controls/gear/steering-front-norm</property>
+          <step type="double">0.001886792</step>
         </binding>
       </key>
       <key n="28">
         <name>CTRL-\</name>
         <desc>Steer Left</desc>
+        <repeatable type="bool">true</repeatable>
         <binding>
           <command>property-adjust</command>
-          <property>/controls/gear/steer-front-norm</property>
-          <step type="double">-0.005</step>
+          <property>/controls/gear/steering-front-norm</property>
+          <step type="double">-0.001886792</step>
         </binding>
       </key>
 
@@ -296,10 +332,11 @@ B-52F set file.
       <flap-extend-max-speed-kts type="float">220.0</flap-extend-max-speed-kts>
       <flap-retract-speed-kt type="float">180</flap-retract-speed-kt>
       <gear-extend-max-speed-kt type="float">170</gear-extend-max-speed-kt>
-      <glide-slope-min-vfps type="float">-18</glide-slope-min-vfps>
-      <steering-auto-transition-sec type="float">15</steering-auto-transition-sec>
+      <glide-slope-min-vfps type="float">-40</glide-slope-min-vfps>
+      <steering-yaw-transition-kt type="float">50</steering-yaw-transition-kt>
+      <steering-yaw-transition-sec type="float">15</steering-yaw-transition-sec>
       <steering-heading-deg type="float">-999.9</steering-heading-deg>
-      <target-agl-ft type="float">1000</target-agl-ft>
+      <target-agl-ft type="float">200</target-agl-ft>
       <target-altitude-ft type="float">3000</target-altitude-ft>
       <target-aoa-deg type="float">1.0</target-aoa-deg>
       <target-climb-rate-fps type="float">1.0</target-climb-rate-fps>
@@ -319,8 +356,10 @@ B-52F set file.
   <controls>
     <gear>
       <brake-parking type="double">1.0</brake-parking>
-      <steer-front-norm type="double">0</steer-front-norm>
-      <steer-rear-norm type="double">0</steer-rear-norm>
+      <steering-front-norm type="double">0</steering-front-norm>
+      <steering-rear-norm type="double">0</steering-rear-norm>
+      <steering-front-deg type="float" archive="y">0</steering-front-deg>
+      <steering-rear-deg type="float" archive="y">0</steering-rear-deg>
     </gear>
     <flight>
       <flaps type="double">1.0</flaps>
@@ -414,9 +453,24 @@ B-52F set file.
       <range type="int" archive="y">40</range>
       <minimized type="bool" archive="y">true</minimized>
     </radar>
-    <steering>
-      <steering-deg type="float" archive="y">0</steering-deg>
-    </steering>
+    <terrain-radar>
+      <hi-elev>
+        <alt-ft type="double">-9999.9</alt-ft>
+        <lat-deg type="double">-9999.9</lat-deg>
+        <lon-deg type="double">-9999.9</lon-deg>
+        <dist-m type="double">-9999.9</dist-m>
+        <collision-status type="string">initialised</collision-status>
+      </hi-elev>
+      <settings>
+        <mode type="string">extend</mode>
+        <state type="string">off</state>
+        <range-m type="double">7500</range-m>
+        <step-m type="double">250</step-m>
+        <max-climb-rate-fps type="double">40</max-climb-rate-fps>
+        <warn-climb-rate-fps type="double">35</warn-climb-rate-fps>
+        <hi-elev-markers type="string">initialised</hi-elev-markers>
+      </settings>
+    </terrain-radar>
   </instrumentation>
 
   <nasal>
@@ -424,9 +478,6 @@ B-52F set file.
       <file>Aircraft/B-52F/Nasal/B-52F.nas</file>
       <script>start_up();</script>
     </B52F>
-    <aar> 
-      <file>Aircraft/B-52F/Nasal/AAR.nas</file>
-    </aar>
   </nasal>
 
 </PropertyList>

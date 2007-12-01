@@ -70,7 +70,7 @@
    <chunks>
     <chunk>
      <type>number-value</type>
-     <property>/orientation/side-slip-deg</property>
+     <property>/autopilot/internal/yaw-deg</property>
      <format>%02.3f</format>
     </chunk>
    </chunks>

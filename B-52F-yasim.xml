@@ -134,7 +134,7 @@ Lee Elliott.
     <control-output control="FLAP0" side="left" prop="/surface-positions/left-elevator-pos-norm"/>
     <control-output control="FLAP0" side="right" prop="/surface-positions/right-elevator-pos-norm"/>
 
-    <control-speed control="FLAP0" transition-time="2.0"/>
+    <control-speed control="FLAP0" transition-time="10.0"/>
   </hstab>
 
 <!-- Vstab -->
@@ -144,6 +144,7 @@ Lee Elliott.
     <flap0 start="0" end="1" lift="1.4" drag="1.4"/>
     <control-input axis="/controls/flight/rudder" control="FLAP0" invert="false"/>
     <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+    <control-speed control="FLAP0" transition-time="10.0"/>
   </vstab>
 
 <!-- Engine entries -->
@@ -205,7 +206,7 @@ Lee Elliott.
 <!-- Landing Gear -->
 <!-- Front Left -->
   <gear x="-13.4" y="2.0" z="-3.0" retract-time="14" compression="1.0" spring="1.2" damp="1.5">
-    <control-input axis="/controls/gear/steer-front-norm" control="STEER"/>
+    <control-input axis="/controls/gear/steering-front-norm" control="STEER"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
@@ -218,7 +219,7 @@ Lee Elliott.
 
 <!-- Front Right -->
   <gear x="-13.4" y="-2.0" z="-3.0" retract-time="14" compression="1.0" spring="1.2" damp="1.5">
-    <control-input axis="/controls/gear/steer-front-norm" control="STEER"/>
+    <control-input axis="/controls/gear/steering-front-norm" control="STEER"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
@@ -231,7 +232,7 @@ Lee Elliott.
 
 <!-- Rear Left -->
   <gear x="-28.3" y="2.0" z="-3.0" retract-time="14" compression="1.0" spring="1.0" damp="1.5">
-    <control-input axis="/controls/gear/steer-rear-norm" control="STEER"/>
+    <control-input axis="/controls/gear/steering-rear-norm" control="STEER"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
@@ -243,7 +244,7 @@ Lee Elliott.
 
 <!-- Rear Right -->
   <gear x="-28.3" y="-2.0" z="-3.0" retract-time="14" compression="1.0" spring="1.0" damp="1.5">
-    <control-input axis="/controls/gear/steer-rear-norm" control="STEER"/>
+    <control-input axis="/controls/gear/steering-rear-norm" control="STEER"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>

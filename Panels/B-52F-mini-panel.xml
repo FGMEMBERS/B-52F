@@ -503,6 +503,15 @@ Hacked by Lee Elliott for the B-52F mock panel
    <h>16</h>
   </instrument>
 
+<!-- Collision warning -->
+  <instrument include="Instruments/collision-warning.xml">
+   <name>Collision warning display</name>
+   <x>512</x>
+   <y>152</y>
+   <w>220</w>
+   <h>16</h>
+  </instrument>
+
     <instrument include="../../Instruments/radar.xml">
       <name>Radar</name>
       <condition>

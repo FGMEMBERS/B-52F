@@ -97,7 +97,7 @@
    <chunks>
     <chunk>
      <type>number-value</type>
-     <property>/instrumentation/steering/steering-front-deg</property>
+     <property>/controls/gear/steering-front-deg</property>
      <format>%02.3f</format>
     </chunk>
    </chunks>
@@ -153,7 +153,7 @@
    <chunks>
     <chunk>
      <type>number-value</type>
-     <property>/instrumentation/steering/steering-rear-deg</property>
+     <property>/controls/gear/steering-rear-deg</property>
      <format>%02.3f</format>
     </chunk>
    </chunks>

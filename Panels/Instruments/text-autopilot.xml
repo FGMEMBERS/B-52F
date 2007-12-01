@@ -43,7 +43,7 @@
       <type>text</type>
       <point-size>14</point-size>
       <color>
-        <red>1.0</red>
+        <red>0.0</red>
         <green>1.0</green>
         <blue>0.0</blue>
       </color>
@@ -70,7 +70,7 @@
       <type>text</type>
       <point-size>14</point-size>
       <color>
-        <red>1.0</red>
+        <red>0.0</red>
         <green>1.0</green>
         <blue>0.0</blue>
       </color>
@@ -97,7 +97,7 @@
       <type>text</type>
       <point-size>14</point-size>
       <color>
-        <red>1.0</red>
+        <red>0.0</red>
         <green>1.0</green>
         <blue>0.0</blue>
       </color>
@@ -163,7 +163,7 @@
       <type>text</type>
       <point-size>14</point-size>
       <color>
-        <red>1.0</red>
+        <red>0.0</red>
         <green>1.0</green>
         <blue>0.0</blue>
       </color>
@@ -229,7 +229,7 @@
       <type>text</type>
       <point-size>14</point-size>
       <color>
-        <red>1.0</red>
+        <red>0.0</red>
         <green>1.0</green>
         <blue>0.0</blue>
       </color>
@@ -296,7 +296,7 @@
       <type>text</type>
       <point-size>14</point-size>
       <color>
-        <red>1.0</red>
+        <red>0.0</red>
         <green>1.0</green>
         <blue>0.0</blue>
       </color>
@@ -331,8 +331,8 @@
       <point-size>14</point-size>
       <color>
         <red>1.0</red>
-        <green>0.4</green>
-        <blue>0.4</blue>
+        <green>0.0</green>
+        <blue>0.0</blue>
       </color>
       <chunks>
         <chunk>
@@ -365,8 +365,8 @@
       <point-size>14</point-size>
       <color>
         <red>1.0</red>
-        <green>0.4</green>
-        <blue>0.4</blue>
+        <green>0.0</green>
+        <blue>0.0</blue>
       </color>
       <chunks>
         <chunk>
@@ -399,8 +399,8 @@
    <point-size>14</point-size>
    <color>
     <red>1.0</red>
-    <green>0.4</green>
-    <blue>0.4</blue>
+    <green>0.0</green>
+    <blue>0.0</blue>
    </color>
    <chunks>
     <chunk>
@@ -697,6 +697,11 @@
       </binding>
       <binding>
         <command>property-assign</command>
+        <property>/autopilot/locks/heading</property>
+        <value type="string"></value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
         <property>/autopilot/locks/auto-take-off</property>
         <value type="string">enabled</value>
       </binding>
@@ -744,6 +749,10 @@
         <command>property-assign</command>
         <property alias="../../../../params/tf-select"/>
         <value type="string">agl-hold</value>
+      </binding>
+      <binding>
+        <command>dialog-show</command>
+        <dialog-name>TFA-popup</dialog-name>
       </binding>
     </action>
 
