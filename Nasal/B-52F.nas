@@ -366,14 +366,14 @@ var steering_instrument_update = func {
   settimer(steering_instrument_update, 0.25);
 }
 #--------------------------------------------------------------------
-var yaw_steering = func {
+var yaw_steering = func(n) {
   # This listener function monitors front gear steering inputs and copies them
   # to the rear gear for cross wind landings.
   # Once the speed has dropped below steering-yaw-transition-kt the rear gear
   # is interpolated to center over steering-yaw-transition-sec seconds so that
   # the aircraft can then be steered normally.
 
-  var str_f_norm = cmdarg().getValue();
+  var str_f_norm = n.getValue();
   var str_r_norm = props.globals.getNode("/controls/gear/steering-rear-norm", 1);
   var str_r_lock = props.globals.getNode("/autopilot/locks/steering-rear", 1);
   var str_t_kt =   props.globals.getNode("/autopilot/settings/steering-yaw-transition-kt", 1);
@@ -456,8 +456,8 @@ var yaw_monitor = func {
   settimer(yaw_monitor, 0.1);
 }
 #--------------------------------------------------------------------
-var pitch_hold_monitor = func {
-  var pitch_mode = cmdarg().getValue();
+var pitch_hold_monitor = func(n) {
+  var pitch_mode = n.getValue();
 
   if(pitch_mode == "agl-hold") {
     var current_alt_ft = getprop("/position/altitude-ft");
