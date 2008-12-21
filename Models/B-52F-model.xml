@@ -265,7 +265,7 @@ B52-H model/animation config.
 <!-- Flap bits -->
   <animation>
     <type>translate</type>
-    <object-name>LWingInnerFlap</object-name> -->
+    <object-name>LWingInnerFlap</object-name>
     <property>surface-positions/left-flap-pos-norm</property>
     <factor>2.0</factor>
     <axis>
@@ -294,7 +294,7 @@ B52-H model/animation config.
 
   <animation>
     <type>translate</type>
-    <object-name>LWingOuterFlap</object-name> -->
+    <object-name>LWingOuterFlap</object-name>
     <property>surface-positions/left-flap-pos-norm</property>
     <factor>1.1</factor>
     <axis>
@@ -323,7 +323,7 @@ B52-H model/animation config.
 
   <animation>
     <type>translate</type>
-    <object-name>RWingInnerFlap</object-name> -->
+    <object-name>RWingInnerFlap</object-name>
     <property>surface-positions/left-flap-pos-norm</property>
     <factor>2.0</factor>
     <axis>
@@ -352,7 +352,7 @@ B52-H model/animation config.
 
   <animation>
     <type>translate</type>
-    <object-name>RWingOuterFlap</object-name> -->
+    <object-name>RWingOuterFlap</object-name>
     <property>surface-positions/left-flap-pos-norm</property>
     <factor>1.1</factor>
     <axis>
