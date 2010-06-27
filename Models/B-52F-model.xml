@@ -1361,4 +1361,42 @@ B52-H model/animation config.
     </axis>
   </animation>
 
+<!-- Tyresmoke -->
+  <model>
+    <path>Aircraft/B-52F/Models/Effects/tyre-smoke-fl.xml</path>
+    <name>tyre-smoke-fl</name>
+    <offsets>
+      <x-m>-10.3</x-m>
+      <y-m>2.0</y-m>
+      <z-m>-3.0</z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Aircraft/B-52F/Models/Effects/tyre-smoke-fr.xml</path>
+    <name>tyre-smoke-fr</name>
+    <offsets>
+      <x-m>-10.3</x-m>
+      <y-m>-2.0</y-m>
+      <z-m>-3.0</z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Aircraft/B-52F/Models/Effects/tyre-smoke-rl.xml</path>
+    <name>tyre-smoke-rl</name>
+    <offsets>
+      <x-m>10.4</x-m>
+      <y-m>2.0</y-m>
+      <z-m>-3.0</z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Aircraft/B-52F/Models/Effects/tyre-smoke-rr.xml</path>
+    <name>tyre-smoke-rr</name>
+    <offsets>
+      <x-m>10.4</x-m>
+      <y-m>-2.0</y-m>
+      <z-m>-3.0</z-m>
+    </offsets>
+  </model>
+
 </PropertyList>

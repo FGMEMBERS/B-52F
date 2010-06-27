@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 ************************************************************************
 B-52F set file.
@@ -167,12 +167,12 @@ B-52F set file.
     </spoilers>
 
 <!-- AoA Indexer target 1.0 deg -->
-     <aoa-indexer>
-       <too-slow-deg>2.5</too-slow-deg>  <!-- target +1.5 deg -->
-       <slow-deg>1.5</slow-deg>          <!-- target +0.5 deg -->         
-       <fast-deg>0.5</fast-deg>          <!-- target -0.5 deg -->         
-       <too-fast-deg>-0.5</too-fast-deg>  <!-- target -1.5 deg -->         
-     </aoa-indexer>
+    <aoa-indexer>
+      <too-slow-deg>2.5</too-slow-deg> <!-- target +1.5 deg -->
+      <slow-deg>1.5</slow-deg>         <!-- target +0.5 deg -->
+      <fast-deg>0.5</fast-deg>         <!-- target -0.5 deg -->
+      <too-fast-deg>-0.5</too-fast-deg><!-- target -1.5 deg -->
+    </aoa-indexer>
 
 <!-- Help -->
     <help>
@@ -198,11 +198,11 @@ B-52F set file.
       <line>Flap cycle time 60 seconds</line>
       <line></line>
       <line>AP Modes</line>
-      <line>    AH - Altitude hold</line>
-      <line>    TF - Terrain follow/AGL hold</line>
-      <line>    TO - Auto take-off</line>
-      <line>    IL - ILS/Auto landing</line>
-      <line>    MC - Mach Climb</line>
+      <line> AH - Altitude hold</line>
+      <line> TF - Terrain follow/AGL hold</line>
+      <line> TO - Auto take-off</line>
+      <line> IL - ILS/Auto landing</line>
+      <line> MC - Mach Climb</line>
       <line></line>
       <line>Click on AP Mode to turn off all A/P locks.</line>
       <line></line>
@@ -233,17 +233,34 @@ B-52F set file.
         </TFA-popup>
       </dialogs>
     </gui>
-
   </sim>
-	
-	<ai>
+
+  <gear>
+    <gear n="0">
+      <tyre-smoke type="int">0</tyre-smoke>
+      <sprayspeed-ms type="double">0</sprayspeed-ms>
+      <spray-density type="double">0</spray-density>
+      <caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+    </gear>
+    <gear n="1">
+      <tyre-smoke type="int">0</tyre-smoke>
+      <sprayspeed-ms type="double">0</sprayspeed-ms>
+      <spray-density type="double">0</spray-density>
+    </gear>
+    <gear n="2">
+      <tyre-smoke type="int">0</tyre-smoke>
+      <sprayspeed-ms type="double">0</sprayspeed-ms>
+      <spray-density type="double">0</spray-density>
+    </gear>
+  </gear>
+
+  <ai>
     <submodels>
       <trajectory-markers type="bool">0</trajectory-markers>
     </submodels>
   </ai>
 
-
-<!-- Keboard changes -->
+<!-- Keyboard changes -->
   <input>
     <keyboard>
 
@@ -268,9 +285,21 @@ B-52F set file.
           <step type="double">-0.001886792</step>
         </binding>
       </key>
+<!-- Steering for some latin keyboards where CTRL-\ just don't work-->
+      <key n="25">
+        <name>CTRL-y</name>
+        <desc>Steer Left</desc>
+        <repeatable type="bool">true</repeatable>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/gear/steering-front-norm</property>
+          <step type="double">-0.001886792</step>
+        </binding>
+      </key>
+
 
 <!-- Trajectory Markers -->
-       <key n="75">
+      <key n="75">
         <name>K</name>
         <desc>Toggle trajectory markers</desc>
         <binding n="0">
@@ -278,9 +307,9 @@ B-52F set file.
           <script>B52F.toggle_traj_mkr()</script>
         </binding>
       </key>
-      
+
 <!-- Update Drop View position -->
-       <key n="85">
+      <key n="85">
         <name>U</name>
         <desc>Update Drop View position</desc>
         <binding n="0">
@@ -288,7 +317,7 @@ B-52F set file.
           <script>B52F.update_drop_view_pos()</script>
         </binding>
       </key>
-      
+
 <!-- Flaps -->
       <key n="91">
         <name>[</name>
@@ -305,7 +334,7 @@ B-52F set file.
         </binding>
       </key>
 
-   </keyboard>
+    </keyboard>
   </input>
 
   <autopilot>
@@ -313,7 +342,7 @@ B-52F set file.
     <internal>
       <atl-weight-lbs type="float">0</atl-weight-lbs>
     </internal>
-    
+
     <locks>
       <aoa type="string">initialised</aoa>
       <auto-take-off type="string">enabled</auto-take-off>
@@ -365,7 +394,7 @@ B-52F set file.
       <flaps type="double">1.0</flaps>
     </flight>
   </controls>
-  
+
 <!-- Engine indexes -->
   <engines>
     <engine n="0">
@@ -476,8 +505,9 @@ B-52F set file.
   <nasal>
     <B52F>
       <file>Aircraft/B-52F/Nasal/B-52F.nas</file>
+      <file>Aircraft/B-52F/Nasal/tyresmoke.nas</file>
       <script>start_up();</script>
     </B52F>
-  </nasal>
+   </nasal>
 
 </PropertyList>

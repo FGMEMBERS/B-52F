@@ -51,7 +51,7 @@ Lee Elliott.
      523 mph (454 kt) cruising speed (no alt specified)
 
 -->
-  <cruise speed="495" alt="46500" fuel="0.6">
+  <cruise speed="495" alt="46200" fuel="0.6">
     <control-setting axis="/controls/engines/engine[0]/throttle" value="1"/>
     <control-setting axis="/controls/engines/engine[1]/throttle" value="1"/>
     <control-setting axis="/controls/engines/engine[2]/throttle" value="1"/>
@@ -138,7 +138,7 @@ Lee Elliott.
   </hstab>
 
 <!-- Vstab -->
-  <vstab x="-41.5" y="0" z="2.4" taper="0.4"
+  <vstab x="-41.5" y="0" z="2.4" taper="0.4" 
          length="8.5" chord="7.5" sweep="35.0">
     <stall aoa="20.0" width="3" peak="1.5"/>
     <flap0 start="0" end="1" lift="1.4" drag="1.4"/>
@@ -155,50 +155,50 @@ Lee Elliott.
 -->
 <!-- Left wing engines -->
 <!-- Left Outer Left -->
-  <jet x="-23.0" y="18.7" z="-1.0" mass="4000" tsfc="0.7" thrust="11200" afterburner="13500">
+  <jet x="-23.0" y="18.7" z="-1.0" mass="3875" tsfc="0.7" thrust="11200" afterburner="13750">
     <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[0]/afterburner" control="REHEAT"/>
   </jet>
 
 <!-- Left Outer Right -->
-  <jet x="-23.0" y="17.4" z="-1.0" mass="4000" tsfc="0.7" thrust="11200" afterburner="13500">
+  <jet x="-23.0" y="17.4" z="-1.0" mass="3875" tsfc="0.7" thrust="11200" afterburner="13750">
     <control-input axis="/controls/engines/engine[1]/throttle" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[0]/afterburner" control="REHEAT"/>
   </jet>
 
 <!-- Left Inner Left -->
-  <jet x="-16.9" y="10.8" z="-0.6" mass="4000" tsfc="0.7" thrust="11200" afterburner="13500">
+  <jet x="-16.9" y="10.8" z="-0.6" mass="3875" tsfc="0.7" thrust="11200" afterburner="13750">
     <control-input axis="/controls/engines/engine[2]/throttle" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[0]/afterburner" control="REHEAT"/>
   </jet>
 
 <!-- Left Inner Right -->
-  <jet x="-16.9" y="9.7" z="-0.6" mass="4000" tsfc="0.7" thrust="11200" afterburner="13500">
+  <jet x="-16.9" y="9.7" z="-0.6" mass="3875" tsfc="0.7" thrust="11200" afterburner="13750">
     <control-input axis="/controls/engines/engine[3]/throttle" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[0]/afterburner" control="REHEAT"/>
   </jet>
 
 <!-- Right wing engines -->
 <!-- Right Inner Left -->
-  <jet x="-16.9" y="-9.7" z="-0.6" mass="4000" tsfc="0.7" thrust="11200" afterburner="13500">
+  <jet x="-16.9" y="-9.7" z="-0.6" mass="3875" tsfc="0.7" thrust="11200" afterburner="13750">
     <control-input axis="/controls/engines/engine[4]/throttle" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[0]/afterburner" control="REHEAT"/>
   </jet>
 
 <!-- Right Inner Right -->
-  <jet x="-16.9" y="-10.8" z="-0.6" mass="4000" tsfc="0.7" thrust="11200" afterburner="13500">
+  <jet x="-16.9" y="-10.8" z="-0.6" mass="3875" tsfc="0.7" thrust="11200" afterburner="13750">
     <control-input axis="/controls/engines/engine[5]/throttle" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[0]/afterburner" control="REHEAT"/>
   </jet>
 
 <!-- Right Outer Left -->
-  <jet x="-23.0" y="-17.4" z="-1.0" mass="4000" tsfc="0.7" thrust="11200" afterburner="13500">
+  <jet x="-23.0" y="-17.4" z="-1.0" mass="3875" tsfc="0.7" thrust="11200" afterburner="13750">
     <control-input axis="/controls/engines/engine[6]/throttle" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[0]/afterburner" control="REHEAT"/>
   </jet>
 
 <!-- Right Outer Right -->
-  <jet x="-23.0" y="-18.7" z="-1.0" mass="4000" tsfc="0.7" thrust="11200" afterburner="13500">
+  <jet x="-23.0" y="-18.7" z="-1.0" mass="3875" tsfc="0.7" thrust="11200" afterburner="13750">
     <control-input axis="/controls/engines/engine[7]/throttle" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[0]/afterburner" control="REHEAT"/>
   </jet>
@@ -322,5 +322,4 @@ Lee Elliott.
 
   <tank x="-30.0" y="23.8" z="1.0" capacity="18000"/>
   <tank x="-30.0" y="-23.8" z="1.0" capacity="18000"/>
-
 </airplane>
