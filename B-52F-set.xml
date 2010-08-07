@@ -246,8 +246,14 @@ B-52F set file.
       <tyre-smoke type="int">0</tyre-smoke>
       <sprayspeed-ms type="double">0</sprayspeed-ms>
       <spray-density type="double">0</spray-density>
-    </gear>
+      <caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+    </gear>	
     <gear n="2">
+      <tyre-smoke type="int">0</tyre-smoke>
+      <sprayspeed-ms type="double">0</sprayspeed-ms>
+      <spray-density type="double">0</spray-density>
+    </gear>
+    <gear n="3">
       <tyre-smoke type="int">0</tyre-smoke>
       <sprayspeed-ms type="double">0</sprayspeed-ms>
       <spray-density type="double">0</spray-density>
