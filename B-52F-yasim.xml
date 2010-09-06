@@ -75,9 +75,17 @@ Lee Elliott.
 
   <cockpit x="-2.9" y="0.0" z="1.5"/>
 
-  <fuselage ax="0" ay="0" az="0" bx="-49.05" by="0" bz=".64"
-            width="3.2" taper="0.3" midpoint="0.5"/>
-
+  <fuselage ax="0" ay="0" az="0" bx="-2" by="0" bz="0.1"
+            width="2.5" taper="0.2" midpoint="1"/>
+  <fuselage ax="-1.9" ay="0" az="0.0" bx="-2.8" by="0" bz="0.15"
+            width="3.1" taper="0.78" midpoint="1"/>
+  <fuselage ax="-2.6" ay="0" az="0.18" bx="-4.8" by="0" bz="0.28"
+            width="3.95" taper="0.75" midpoint="1"/>
+  <fuselage ax="-4.7" ay="0" az="0.28" bx="-31.8" by="0" bz="0.29"
+            width="4" taper="0.98" midpoint="1"/>					
+  <fuselage ax="-31.6" ay="0" az="0.29" bx="-48.8" by="0" bz="1.4"
+            width="4" taper="0.55" midpoint="0"/>
+			
 <!-- Wing incidence was set at 6 degrees because the tandem u/c meant
      that the aircraft couldn't rotate in the conventional fashion.  I
      found lots of references to the sweep angle of 35 degrees but
@@ -95,8 +103,8 @@ Lee Elliott.
 -->
 
 <!-- Wing -->
-  <wing x="-16.0" y="1.6" z="1.5" taper="0.4" incidence="6" twist="-6"
-        length="31.1" chord="10.0" sweep="34.5" dihedral="0.0" camber="0.0">
+  <wing x="-16.0" y="1.6" z="1.5" taper="0.37" incidence="6" twist="-6"
+        length="32.0" chord="10.0" sweep="34.0" dihedral="0.0" camber="0.0">
     <stall aoa="29.0" width="3" peak="1.2"/>
     <flap0 start="0.0" end="0.62" lift="1.24" drag="1.8"/>
     <flap1 start="0.62" end="0.7" lift="1.2" drag="1.2"/>
@@ -122,10 +130,10 @@ Lee Elliott.
   </wing>
 
 <!-- Hstab -->
-  <hstab x="-41.5" y="1.0" z="1.1" taper="0.25" effectiveness="1" incidence="0"
-         length="7.5" chord="7.5" sweep="40.0" dihedral="0.0" camber="0.0">
+  <hstab x="-41.8" y="1.0" z="1.1" taper="0.3" effectiveness="1" incidence="0"
+         length="8" chord="7.8" sweep="28.0" dihedral="0.0" camber="0.0">
     <stall aoa="30.0" width="3" peak="1.5"/>
-    <flap0 start="0" end="1" lift="1.3" drag="1.3"/>
+    <flap0 start="0" end="1" lift="1.4" drag="1.3"/>
 
     <control-input axis="/controls/flight/elevator" control="FLAP0" square="true"/>
     <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
@@ -138,8 +146,8 @@ Lee Elliott.
   </hstab>
 
 <!-- Vstab -->
-  <vstab x="-41.5" y="0" z="2.4" taper="0.4" 
-         length="8.5" chord="7.5" sweep="35.0">
+  <vstab x="-40.6" y="0" z="2.4" taper="0.22" 
+         length="10.5" chord="7" sweep="28.0">
     <stall aoa="20.0" width="3" peak="1.5"/>
     <flap0 start="0" end="1" lift="1.4" drag="1.4"/>
     <control-input axis="/controls/flight/rudder" control="FLAP0" invert="false"/>
@@ -320,6 +328,6 @@ Lee Elliott.
   <tank x="-23.5" y="-14.0" z="1.5" capacity="20000"/>
   <tank x="-29.0" y="-22.5" z="1.5" capacity="10000"/>
 
-  <tank x="-30.0" y="23.8" z="1.0" capacity="18000"/>
-  <tank x="-30.0" y="-23.8" z="1.0" capacity="18000"/>
+  <tank x="-30.0" y="23.8" z="-1.2" capacity="18000"/>
+  <tank x="-30.0" y="-23.8" z="-1.2" capacity="18000"/>
 </airplane>

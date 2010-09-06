@@ -4,6 +4,7 @@
 B-52F set file.
 
 2006-08-02 Lee Elliott
+2010-09-04 Nguyen Tri Toan Phuc (yasim,effect update)
 ************************************************************************
 -->
 
@@ -182,6 +183,10 @@ B-52F set file.
         <desc>Steer Right/Left</desc>
       </key>
       <key>
+        <name>Shift-D</name>
+        <desc>extract/retract parachute : 5 sec</desc>
+      </key>	  
+      <key>
         <name>j/k</name>
         <desc>decrease/increase spoilers</desc>
       </key>
@@ -242,12 +247,12 @@ B-52F set file.
       <spray-density type="double">0</spray-density>
       <caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
     </gear>
-    <gear n="1">
+	<gear n="1">
       <tyre-smoke type="int">0</tyre-smoke>
       <sprayspeed-ms type="double">0</sprayspeed-ms>
       <spray-density type="double">0</spray-density>
       <caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
-    </gear>	
+    </gear>
     <gear n="2">
       <tyre-smoke type="int">0</tyre-smoke>
       <sprayspeed-ms type="double">0</sprayspeed-ms>
@@ -313,7 +318,15 @@ B-52F set file.
           <script>B52F.toggle_traj_mkr()</script>
         </binding>
       </key>
-
+<!-- Parachute -->
+      <key n="68">
+        <name>D</name>
+        <desc>Parachut</desc>
+        <binding>
+          <command>nasal</command>
+          <script>B52F.doorsystem.passengerexport();</script>
+        </binding>
+     </key>	  
 <!-- Update Drop View position -->
       <key n="85">
         <name>U</name>
@@ -507,13 +520,24 @@ B-52F set file.
       </settings>
     </terrain-radar>
   </instrumentation>
-
+  <!-- Refuel -->
+   <systems>
+    <refuel><type>boom</type>
+      <serviceable type="bool">true</serviceable>
+    </refuel>
+  </systems>
+  
   <nasal>
     <B52F>
       <file>Aircraft/B-52F/Nasal/B-52F.nas</file>
       <file>Aircraft/B-52F/Nasal/tyresmoke.nas</file>
+	  <file>Aircraft/B-52F/Nasal/doors.nas</file>
+	  <file>Aircraft/B-52F/Nasal/Lights.nas</file>
       <script>start_up();</script>
     </B52F>
+	<aar>
+      <file>Aircraft/Generic/aar.nas</file>
+    </aar>
    </nasal>
 
 </PropertyList>

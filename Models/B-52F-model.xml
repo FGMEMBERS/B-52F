@@ -139,6 +139,7 @@ B52-H model/animation config.
     <object-name>LIEPodLiner</object-name>
     <object-name>LOEPodCone</object-name>
     <object-name>LIEPodCone</object-name>
+	<object-name>RedLightW</object-name>
     <property>velocities/airspeed-kt</property>
     <interpolation>
       <entry>
@@ -200,6 +201,7 @@ B52-H model/animation config.
     <object-name>RIEPodLiner</object-name>
     <object-name>ROEPodCone</object-name>
     <object-name>RIEPodCone</object-name>
+	<object-name>GreenLight</object-name>
     <property>velocities/airspeed-kt</property>
     <interpolation>
       <entry>
@@ -1366,8 +1368,8 @@ B52-H model/animation config.
     <path>Aircraft/B-52F/Models/Effects/tyre-smoke-fl.xml</path>
     <name>tyre-smoke-fl</name>
     <offsets>
-      <x-m>-10.3</x-m>
-      <y-m>2.0</y-m>
+      <x-m>13.4</x-m>
+      <y-m>-2.0</y-m>
       <z-m>-3.0</z-m>
     </offsets>
   </model>
@@ -1375,8 +1377,8 @@ B52-H model/animation config.
     <path>Aircraft/B-52F/Models/Effects/tyre-smoke-fr.xml</path>
     <name>tyre-smoke-fr</name>
     <offsets>
-      <x-m>-10.3</x-m>
-      <y-m>-2.0</y-m>
+      <x-m>13.4</x-m>
+      <y-m>2.0</y-m>
       <z-m>-3.0</z-m>
     </offsets>
   </model>
@@ -1384,8 +1386,8 @@ B52-H model/animation config.
     <path>Aircraft/B-52F/Models/Effects/tyre-smoke-rl.xml</path>
     <name>tyre-smoke-rl</name>
     <offsets>
-      <x-m>10.4</x-m>
-      <y-m>2.0</y-m>
+      <x-m>28.3</x-m>
+      <y-m>-2.0</y-m>
       <z-m>-3.0</z-m>
     </offsets>
   </model>
@@ -1393,10 +1395,167 @@ B52-H model/animation config.
     <path>Aircraft/B-52F/Models/Effects/tyre-smoke-rr.xml</path>
     <name>tyre-smoke-rr</name>
     <offsets>
-      <x-m>10.4</x-m>
-      <y-m>-2.0</y-m>
+      <x-m>28.3</x-m>
+      <y-m>2.0</y-m>
       <z-m>-3.0</z-m>
     </offsets>
   </model>
+<!-- Contrail -->
+ <model>
+   <path>Aircraft/B-52F/Models/effects/contrail1.xml</path>
+   <offsets>
+     <x-m> 25</x-m>
+     <y-m>-18</y-m>
+     <z-m>-1</z-m> 
+     <roll-deg>    0 </roll-deg>
+     <pitch-deg>   0 </pitch-deg>
+     <heading-deg> 0 </heading-deg>
+   </offsets>
+ </model>
 
+ <model>
+   <path>Aircraft/B-52F/Models/effects/contrail2.xml</path>
+   <offsets>
+     <x-m> 18.9</x-m>
+     <y-m> -10</y-m>
+     <z-m>-0.6</z-m> 
+     <roll-deg>    0 </roll-deg>
+     <pitch-deg>   0 </pitch-deg>
+     <heading-deg> 0 </heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/B-52F/Models/effects/contrail3.xml</path>
+   <offsets>
+     <x-m> 18.9</x-m>
+     <y-m> 10</y-m>
+     <z-m>-0.6</z-m> 
+     <roll-deg>    0 </roll-deg>
+     <pitch-deg>   0 </pitch-deg>
+     <heading-deg> 0 </heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/B-52F/Models/effects/contrail4.xml</path>
+   <offsets>
+     <x-m> 25</x-m>
+     <y-m> 18</y-m>
+     <z-m>-1</z-m> 
+     <roll-deg>    0 </roll-deg>
+     <pitch-deg>   0 </pitch-deg>
+     <heading-deg> 0 </heading-deg>
+   </offsets>
+ </model>
+<!-- Smoke -->
+ <model>
+   <path>Aircraft/B-52F/Models/effects/smoke1.xml</path>
+   <offsets>
+     <x-m> 25</x-m>
+     <y-m>-18</y-m>
+     <z-m>-1</z-m> 
+     <roll-deg>    0 </roll-deg>
+     <pitch-deg>   0 </pitch-deg>
+     <heading-deg> 0 </heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/B-52F/Models/effects/smoke2.xml</path>
+   <offsets>
+     <x-m> 18.9</x-m>
+     <y-m> -10</y-m>
+     <z-m>-0.6</z-m> 
+     <roll-deg>    0 </roll-deg>
+     <pitch-deg>   0 </pitch-deg>
+     <heading-deg> 0 </heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/B-52F/Models/effects/smoke3.xml</path>
+   <offsets>
+     <x-m> 18.9</x-m>
+     <y-m> 10</y-m>
+     <z-m>-0.6</z-m> 
+     <roll-deg>    0 </roll-deg>
+     <pitch-deg>   0 </pitch-deg>
+     <heading-deg> 0 </heading-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/B-52F/Models/effects/smoke4.xml</path>
+   <offsets>
+     <x-m> 25</x-m>
+     <y-m> 18</y-m>
+     <z-m>-1</z-m> 
+     <roll-deg>    0 </roll-deg>
+     <pitch-deg>   0 </pitch-deg>
+     <heading-deg> 0 </heading-deg>
+   </offsets>
+ </model>
+   <!-- parachute -->
+  <animation>
+    <type>select</type>
+    <object-name>parachute</object-name>
+    <condition>
+      <greater-than>
+        <property>instrumentation/doors/passenger/position-norm</property>
+        <value>0.5</value>
+      </greater-than>
+    </condition>
+  </animation>
+  
+  <!-- Lights -->
+  <model>
+    <path>Aircraft/B-52F/Models/lights/RedLight.xml</path>
+	<name>RedLightW</name>
+    <offsets>
+      <x-m> 31.8 </x-m>
+      <y-m> -28.145 </y-m>
+      <z-m> -0.3 </z-m>
+    </offsets>
+  </model>
+  
+   <model>
+    <path>Aircraft/B-52F/Models/lights/RedLight.xml</path>
+	<name>RedLight</name>
+    <offsets>
+      <x-m> 6 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 2.3 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/B-52F/Models/lights/RedLight.xml</path>
+	<name>RedLight</name>
+    <offsets>
+      <x-m> 34.5 </x-m>
+      <y-m> -0.5 </y-m>
+      <z-m> 2.3 </z-m>
+    </offsets>
+  </model>
+
+    <model>
+    <path>Aircraft/B-52F/Models/lights/RedLight.xml</path>
+	<name>RedLight</name>
+    <offsets>
+      <x-m> 34.5 </x-m>
+      <y-m> 0.5 </y-m>
+      <z-m> 2.3 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/B-52F/Models/lights/GreenLight.xml</path>
+	<name>GreenLight</name>
+    <offsets>
+      <x-m> 31.8 </x-m>
+      <y-m> 28.145 </y-m>
+      <z-m> -0.3 </z-m>
+    </offsets>
+  </model>
 </PropertyList>
