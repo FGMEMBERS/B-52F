@@ -179,7 +179,7 @@ B-52F set file.
     <help>
       <title>Boeing B-52 F</title>
       <key>
-        <name>Ctrl-z/Ctrl-\</name>
+        <name>Ctrl-z/Ctrl-\ or Ctrl-y</name>
         <desc>Steer Right/Left</desc>
       </key>
       <key>
@@ -532,7 +532,7 @@ B-52F set file.
       <file>Aircraft/B-52F/Nasal/B-52F.nas</file>
       <file>Aircraft/B-52F/Nasal/tyresmoke.nas</file>
 	  <file>Aircraft/B-52F/Nasal/doors.nas</file>
-	  <file>Aircraft/B-52F/Nasal/Lights.nas</file>
+	  <file>Aircraft/B-52F/Nasal/lights.nas</file>
       <script>start_up();</script>
     </B52F>
 	<aar>

@@ -1402,7 +1402,7 @@ B52-H model/animation config.
   </model>
 <!-- Contrail -->
  <model>
-   <path>Aircraft/B-52F/Models/effects/contrail1.xml</path>
+   <path>Aircraft/B-52F/Models/Effects/contrail1.xml</path>
    <offsets>
      <x-m> 25</x-m>
      <y-m>-18</y-m>
@@ -1414,7 +1414,7 @@ B52-H model/animation config.
  </model>
 
  <model>
-   <path>Aircraft/B-52F/Models/effects/contrail2.xml</path>
+   <path>Aircraft/B-52F/Models/Effects/contrail2.xml</path>
    <offsets>
      <x-m> 18.9</x-m>
      <y-m> -10</y-m>
@@ -1426,7 +1426,7 @@ B52-H model/animation config.
  </model>
 
  <model>
-   <path>Aircraft/B-52F/Models/effects/contrail3.xml</path>
+   <path>Aircraft/B-52F/Models/Effects/contrail3.xml</path>
    <offsets>
      <x-m> 18.9</x-m>
      <y-m> 10</y-m>
@@ -1438,7 +1438,7 @@ B52-H model/animation config.
  </model>
 
  <model>
-   <path>Aircraft/B-52F/Models/effects/contrail4.xml</path>
+   <path>Aircraft/B-52F/Models/Effects/contrail4.xml</path>
    <offsets>
      <x-m> 25</x-m>
      <y-m> 18</y-m>
@@ -1450,7 +1450,7 @@ B52-H model/animation config.
  </model>
 <!-- Smoke -->
  <model>
-   <path>Aircraft/B-52F/Models/effects/smoke1.xml</path>
+   <path>Aircraft/B-52F/Models/Effects/smoke1.xml</path>
    <offsets>
      <x-m> 25</x-m>
      <y-m>-18</y-m>
@@ -1462,7 +1462,7 @@ B52-H model/animation config.
  </model>
 
  <model>
-   <path>Aircraft/B-52F/Models/effects/smoke2.xml</path>
+   <path>Aircraft/B-52F/Models/Effects/smoke2.xml</path>
    <offsets>
      <x-m> 18.9</x-m>
      <y-m> -10</y-m>
@@ -1474,7 +1474,7 @@ B52-H model/animation config.
  </model>
 
  <model>
-   <path>Aircraft/B-52F/Models/effects/smoke3.xml</path>
+   <path>Aircraft/B-52F/Models/Effects/smoke3.xml</path>
    <offsets>
      <x-m> 18.9</x-m>
      <y-m> 10</y-m>
@@ -1486,7 +1486,7 @@ B52-H model/animation config.
  </model>
 
  <model>
-   <path>Aircraft/B-52F/Models/effects/smoke4.xml</path>
+   <path>Aircraft/B-52F/Models/Effects/smoke4.xml</path>
    <offsets>
      <x-m> 25</x-m>
      <y-m> 18</y-m>
@@ -1510,7 +1510,7 @@ B52-H model/animation config.
   
   <!-- Lights -->
   <model>
-    <path>Aircraft/B-52F/Models/lights/RedLight.xml</path>
+    <path>Aircraft/B-52F/Models/Lights/RedLight.xml</path>
 	<name>RedLightW</name>
     <offsets>
       <x-m> 31.8 </x-m>
@@ -1520,7 +1520,7 @@ B52-H model/animation config.
   </model>
   
    <model>
-    <path>Aircraft/B-52F/Models/lights/RedLight.xml</path>
+    <path>Aircraft/B-52F/Models/Lights/RedLight.xml</path>
 	<name>RedLight</name>
     <offsets>
       <x-m> 6 </x-m>
@@ -1530,7 +1530,7 @@ B52-H model/animation config.
   </model>
 
   <model>
-    <path>Aircraft/B-52F/Models/lights/RedLight.xml</path>
+    <path>Aircraft/B-52F/Models/Lights/RedLight.xml</path>
 	<name>RedLight</name>
     <offsets>
       <x-m> 34.5 </x-m>
@@ -1540,7 +1540,7 @@ B52-H model/animation config.
   </model>
 
     <model>
-    <path>Aircraft/B-52F/Models/lights/RedLight.xml</path>
+    <path>Aircraft/B-52F/Models/Lights/RedLight.xml</path>
 	<name>RedLight</name>
     <offsets>
       <x-m> 34.5 </x-m>
@@ -1550,7 +1550,7 @@ B52-H model/animation config.
   </model>
   
   <model>
-    <path>Aircraft/B-52F/Models/lights/GreenLight.xml</path>
+    <path>Aircraft/B-52F/Models/Lights/GreenLight.xml</path>
 	<name>GreenLight</name>
     <offsets>
       <x-m> 31.8 </x-m>
