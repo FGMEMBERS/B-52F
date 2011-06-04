@@ -6,7 +6,7 @@ OBJECT poly
 name "parachute"
 data 9
 parachute
-texture "F:/Program Files/FlightGear/data/Aircraft/Lockheed-SR71/Models/glass.png"
+texture "/Aircraft/Lockheed-SR71/Models/glass.png"
 crease 30.000000
 numvert 1234
 27.4355 2.28375 -0.314214

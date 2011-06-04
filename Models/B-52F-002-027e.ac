@@ -14,7 +14,7 @@ name "parachute"
 loc 38.1935 -2.21437 9.53674e-007
 data 9
 parachute
-texture "F:/Program Files/FlightGear/data/Aircraft/Lockheed-SR71/Models/glass.png"
+texture "/Aircraft/Lockheed-SR71/Models/glass.png"
 crease 30.000000
 numvert 1234
 27.0917 4.8949 0.314214
