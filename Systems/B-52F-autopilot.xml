@@ -92,6 +92,7 @@
     <debug>false</debug>
     <type>noise-spike</type>
     <input>/orientation/side-slip-deg</input>
+    <scale>-1.0</scale> <!-- change in side-slip sign as reported by yasim, see bug #901 -->
     <output>/autopilot/internal/side-slip-deg-filtered</output>
     <max-rate-of-change>2</max-rate-of-change>
   </filter>
