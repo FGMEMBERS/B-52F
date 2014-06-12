@@ -21,6 +21,14 @@ B-52F set file.
     <aero>B-52F-yasim</aero>
     <fuel-fraction>1.0</fuel-fraction>
 
+    <tags>
+        <tag>bomber</tag>
+        <tag>boeing</tag>
+        <tag>jet</tag>
+        <tag>retractable-gear</tag>
+        <tag>coldwar</tag>
+    </tags>
+    
     <description>Boeing B-52 F in Arclight colour scheme</description>
 
     <chase-distance-m type="double" archive="y">-70.0</chase-distance-m>
