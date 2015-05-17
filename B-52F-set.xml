@@ -187,7 +187,7 @@ B-52F set file.
       <title>Boeing B-52 F</title>
       <key>
         <name>Ctrl-z/Ctrl-\ or Ctrl-y</name>
-        <desc>Steer Right/Left</desc>
+        <desc>Steer Left/Right</desc>
       </key>
       <key>
         <name>Shift-D</name>
@@ -285,33 +285,33 @@ B-52F set file.
 <!-- Steering -->
       <key n="26">
         <name>CTRL-z</name>
+        <desc>Steer Left</desc>
+        <repeatable type="bool">true</repeatable>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/gear/steering-front-norm</property>
+          <step type="double">-0.1</step>
+        </binding>
+      </key>
+      <key n="28">
+        <name>CTRL-\</name>
         <desc>Steer Right</desc>
         <repeatable type="bool">true</repeatable>
         <binding>
           <command>property-adjust</command>
           <property>/controls/gear/steering-front-norm</property>
-          <step type="double">0.001886792</step>
-        </binding>
-      </key>
-      <key n="28">
-        <name>CTRL-\</name>
-        <desc>Steer Left</desc>
-        <repeatable type="bool">true</repeatable>
-        <binding>
-          <command>property-adjust</command>
-          <property>/controls/gear/steering-front-norm</property>
-          <step type="double">-0.001886792</step>
+          <step type="double">0.1</step>
         </binding>
       </key>
 <!-- Steering for some latin keyboards where CTRL-\ just don't work-->
       <key n="25">
         <name>CTRL-y</name>
-        <desc>Steer Left</desc>
+        <desc>Steer Right</desc>
         <repeatable type="bool">true</repeatable>
         <binding>
           <command>property-adjust</command>
           <property>/controls/gear/steering-front-norm</property>
-          <step type="double">-0.001886792</step>
+          <step type="double">0.1</step>
         </binding>
       </key>
 
