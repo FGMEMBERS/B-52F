@@ -164,7 +164,7 @@ Hacked by Lee Elliott for the B-52F mock panel
 <!-- controls visual feedback cluster -->
 
 
-  <instrument include="Aircraft/Instruments/brakes.xml">
+  <instrument include="Instruments/brakes.xml">
    <name>Brake Indicator Light</name>
    <x>18</x>
    <y>130</y>
@@ -172,7 +172,7 @@ Hacked by Lee Elliott for the B-52F mock panel
    <h>15</h>
   </instrument>
 
-  <instrument include="Aircraft/Instruments/gear-indicator.xml">
+  <instrument include="Instruments/gear-indicator.xml">
    <name>Gear Indicator Light</name>
    <x>58</x>
    <y>130</y>
@@ -180,7 +180,7 @@ Hacked by Lee Elliott for the B-52F mock panel
    <h>14</h>
   </instrument>
 
-  <instrument include="Aircraft/Instruments/controls.xml">
+  <instrument include="Instruments/controls.xml">
    <name>Control Position Indicators</name>
    <x>38</x>
    <y>70</y>
@@ -198,7 +198,7 @@ Hacked by Lee Elliott for the B-52F mock panel
    <h>65</h>
   </instrument>
 
-  <instrument include="Aircraft/Instruments/turn.xml">
+  <instrument include="Instruments/turn.xml">
    <name>Turn Coordinator</name>
    <x>166</x>
    <y>100</y>
@@ -206,7 +206,7 @@ Hacked by Lee Elliott for the B-52F mock panel
    <h>65</h>
   </instrument>
 
-  <instrument include="Aircraft/Instruments/hsi.xml">
+  <instrument include="Instruments/hsi.xml">
    <name>Horizontal Situation Indicator</name>
    <x>103</x>
    <y>35</y>
@@ -214,7 +214,7 @@ Hacked by Lee Elliott for the B-52F mock panel
    <h>65</h>
   </instrument>
 
-  <instrument include="Aircraft/Instruments/aoa-indexer.xml">
+  <instrument include="Instruments/aoa-indexer.xml">
    <name>AoAI</name>
    <x>60</x>
    <y>70</y>
@@ -512,7 +512,7 @@ Hacked by Lee Elliott for the B-52F mock panel
    <h>16</h>
   </instrument>
 
-    <instrument include="Aircraft/Instruments/radar.xml">
+    <instrument include="Instruments/radar.xml">
       <name>Radar</name>
       <condition>
         <equals>
@@ -526,7 +526,7 @@ Hacked by Lee Elliott for the B-52F mock panel
       <h>160</h>
     </instrument>
 
-    <instrument include="Aircraft/Instruments/radar-minimized.xml">
+    <instrument include="Instruments/radar-minimized.xml">
       <name>Radar-minimized</name>
       <condition>
         <equals>
